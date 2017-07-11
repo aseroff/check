@@ -10,7 +10,7 @@
     <% @games.each do |game| %>
       <tr>
         <td>
-          <%= game.title %><br>
+          <h3><%= game.title %></h3>
           <%= image_tag(game.img_url, width:'100px') %><br>
           <%= game.year %>
         </td>
