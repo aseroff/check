@@ -1,26 +1,13 @@
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+<%= @game.title %><br>
+<%= image_tag(@game.img_url, width:'100px') %><br>
+<%= @game.year %><br>
+<%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s) %><br>
+
+<br>
 
 <p>
   <strong>Description:</strong>
   <%= @game.description %>
 </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @game.year %>
-</p>
-
-<p>
-  <strong>Img url:</strong>
-  <%= @game.img_url %>
-</p>
-
-<p>
-  <%= link_to "BGG Link", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s) %>
-</p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
