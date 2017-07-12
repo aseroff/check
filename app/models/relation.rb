@@ -3,6 +3,6 @@ class Relation < ApplicationRecord
 	belongs_to :user
 
 	def self.relation_types
-		["follow", "favorite", "wishlist", "owned"]
+		["follow", "favorite", "wishlist", "owned", "nice"]
 	end
 end
