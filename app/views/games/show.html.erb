@@ -1,4 +1,4 @@
-<%= @game.title %><br>
+<h2><%= @game.title %></h2>
 <%= image_tag(@game.img_url, width:'100px') %><br>
 <%= @game.year %><br>
 <%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s) %><br>
@@ -23,5 +23,21 @@ Owned
 <% else %>
 <%= link_to 'mark owned', new_relation_path(related_id: @game.id, relationship: "owned") %><br>
 <% end %>
+
+<hr>
+
+<table>
+  <tbody>
+    <% @game.posts.each do |post| %>
+      <tr>
+        <td><%= image_tag(post.game.img_url, width:'100px') %></td>
+        <td><h4><%= link_to post.user.email, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
+        <%= post.text %><br><br>
+        <%= link_to ('at ' + post.created_at.to_s), post %><br>
+        <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Back', games_path %>

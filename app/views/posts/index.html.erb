@@ -1,12 +1,11 @@
 <% if current_user %>
 
 <table>
-
   <tbody>
     <% @posts.each do |post| %>
       <tr>
         <td><%= image_tag(post.game.img_url, width:'100px') %></td>
-        <td><h4><%= post.user.email %> checked into <%= link_to post.game.title, post.game %></h4>
+        <td><h4><%= link_to post.user.email, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
         <%= post.text %><br><br>
         <%= link_to ('at ' + post.created_at.to_s), post %><br>
         <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br></td>
