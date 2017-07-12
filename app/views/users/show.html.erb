@@ -1,0 +1,10 @@
+profile page for <%= @user.email %>
+
+<br>
+
+<%= @following.size %> following<br>
+
+<%= @followers.size %> followers<br>
+
+
+<%= link_to 'follow', new_relation_path(relationship: "follow", related_id: @user.id) unless @user == current_user %>

@@ -11,19 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :post_user_id %>
-  </div>
+  <%= form.hidden_field :user_id, id: :post_user_id %>
+  <%= form.hidden_field :game_id, id: :post_game_id %>
 
   <div class="field">
-    <%= form.label :game_id %>
-    <%= form.number_field :game_id, id: :post_game_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :subtype %>
-    <%= form.text_field :subtype, id: :post_subtype %>
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :post_text %>
   </div>
 
   <div class="actions">

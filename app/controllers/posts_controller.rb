@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where("user_id IN (?)", (current_user.following + [current_user.id])).order(created_at: :desc) if current_user
   end
 
   # GET /posts/1
@@ -14,7 +14,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @game = Game.find(params[:game_id]) if params[:game_id]
+    @post = Post.new(user_id: current_user.id, game_id: params[:game_id])
   end
 
   # GET /posts/1/edit
@@ -69,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :game_id, :subtype)
+      params.require(:post).permit(:user_id, :game_id, :text)
     end
 end

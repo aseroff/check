@@ -5,9 +5,13 @@
 
 <br>
 
+Total times checked into: <%= @game.posts.size %><br>
+
 <p>
   <strong>Description:</strong>
   <%= @game.description %>
 </p>
+
+<%= link_to 'check in', new_post_path(game_id: @game.id) %><br>
 
 <%= link_to 'Back', games_path %>
