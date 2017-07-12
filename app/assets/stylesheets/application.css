@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.profile {
+	border-radius: 100px;
+	width:200px;
+	height:200px;
+}
 footer {
   position: fixed;
   right: 0;

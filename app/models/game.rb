@@ -6,9 +6,7 @@ class Game < ApplicationRecord
 
 	def self.import(id)
 		game = Game.find_by(id: id)
-		if game
-
-		else
+		unless game
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s)
 			resp = Nokogiri::XML.parse(resp.body)
 			game = Game.create(title: (resp.xpath('//name').first[:value]),

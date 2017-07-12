@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick'
+gem 'fog'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
