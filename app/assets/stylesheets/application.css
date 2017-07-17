@@ -18,6 +18,21 @@
 	width:200px;
 	height:200px;
 }
+.profile-navbar {
+  background-color:black;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+.view {
+  border-radius: 25px;
+  background-color:#ccc;
+}
+.feed {
+  padding:25px;
+}
+input { width: 100%; }
+
 footer {
   position: fixed;
   right: 0;

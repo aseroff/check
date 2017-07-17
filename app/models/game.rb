@@ -17,4 +17,12 @@ class Game < ApplicationRecord
 		end
 		game
 	end
+
+	def self.search(term)
+		if term
+			Game.where("lower(title) like ?", "%" + term.downcase + "%")
+		else
+			Game.all
+		end
+	end
 end

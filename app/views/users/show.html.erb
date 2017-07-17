@@ -1,10 +1,13 @@
-<%= image_tag(@user.avatar, class: 'profile') %><strong><%= @user.email %></strong><br>
-
-<br>
-
-<%= @following.size %> following<br>
-
-<%= @followers.size %> followers<br>
+<div class="col-xs-3">
+<%= image_tag(@user.avatar, class: 'profile') %><br>
+<strong><%= @user.display_name %></strong><br>
+<%= link_to 'edit profile', edit_registration_path(current_user) if current_user == @user %>
+<table>
+  <tr>
+    <td><%= @following.size %> following</td>
+    <td><%= @followers.size %> followers</td>
+  </tr>
+</table>
 
 Favorite Games:
 <ul>
@@ -26,14 +29,14 @@ Following!
 <%= link_to 'follow', new_relation_path(relationship: "follow", related_id: @user.id) unless @user == current_user %>
 <% end %>
 
-<hr>
-
+</div>
+<div class="feed col-xs-9">
 <table>
   <tbody>
     <% @user.posts.each do |post| %>
       <tr>
         <td><%= image_tag(post.game.img_url, width:'100px') %></td>
-        <td><h4><%= link_to post.user.email, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
+        <td><h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
         <%= post.text %><br><br>
         <%= link_to ('at ' + post.created_at.to_s), post %><br>
         <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br></td>
@@ -41,3 +44,4 @@ Following!
     <% end %>
   </tbody>
 </table>
+</div>

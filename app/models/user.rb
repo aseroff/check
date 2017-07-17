@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :relations
 
+  def display_name
+    "@" + self.email.split('@').first
+  end
+
   def following
   	Relation.where(user_id: self.id, relationship: "follow").collect {|r| r.related_id}
   end

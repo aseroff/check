@@ -1,20 +1,24 @@
-<h1>Games</h1>
 
-<table>
-  <thead>
-    <tr>
-    </tr>
-  </thead>
+<style>
+    .ui-helper-hidden-accessible { display: none }
+    #results ul { list-style-type: none; padding: 0; border: 1px solid; }
+    #results li { padding: 5px; }
+</style>
 
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td>
-          <h3><%= link_to game.title, game %></h3>
-          <%= image_tag(game.img_url, width:'100px') %><br>
-          <%= game.year %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<script type="text/javascript">
+  $(function() {   
+    $('#games').autocomplete({
+            minLength: 2,
+            source: '<%= games_path(:json) %>',
+            appendTo: '#results' }).autocomplete("instance")._renderItem = function( ul, item ) {
+              return $( "<li>" )
+                .append( "<a href='/games/" + item.id + "'>" + item.title + "</a>" )
+                .appendTo (ul);
+    };
+  });
+</script>
+
+<div class="ui-widget">
+<input id="games" class="form-control" placeholder="Search for a game">
+<div id="results"></div>
+</div>

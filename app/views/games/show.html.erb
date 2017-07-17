@@ -13,7 +13,7 @@ Total times checked into: <%= @game.posts.size %><br>
 </p>
 
 <%= link_to 'check in', new_post_path(game_id: @game.id) %><br>
-<% if current_user.favorited?(@game) %>
+<% if current_user && current_user.favorited?(@game) %>
 Favorited
 <% else %>
 <%= link_to 'favorite', new_relation_path(related_id: @game.id, relationship: "favorite") %><br>
@@ -31,7 +31,7 @@ Owned
     <% @game.posts.each do |post| %>
       <tr>
         <td><%= image_tag(post.game.img_url, width:'100px') %></td>
-        <td><h4><%= link_to post.user.email, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
+        <td><h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
         <%= post.text %><br><br>
         <%= link_to ('at ' + post.created_at.to_s), post %><br>
         <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br></td>

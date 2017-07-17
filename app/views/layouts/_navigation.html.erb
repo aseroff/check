@@ -12,6 +12,11 @@
       <%= link_to image_tag('rook.png', width: '20px'), root_path, class: 'navbar-brand' %>
 
     </div>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input id="games" class="form-control" placeholder="Search for a game"type="text" class="form-control">
+        </div>
+      </form>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
@@ -22,3 +27,27 @@
     </div>
   </div>
 </nav>
+
+<style>
+    .ui-helper-hidden-accessible { display: none }
+    #results ul { list-style-type: none; padding: 0; border: 1px solid; }
+    #results li { padding: 5px; }
+</style>
+
+<script type="text/javascript">
+  $(function() {   
+    $('#games').autocomplete({
+            minLength: 2,
+            source: '<%= games_path(:json) %>',
+            appendTo: '#results' }).autocomplete("instance")._renderItem = function( ul, item ) {
+              return $( "<li>" )
+                .append( "<a href='/games/" + item.id + "'>" + item.title + "</a>" )
+                .appendTo (ul);
+    };
+  });
+</script>
+
+<div class="ui-widget">
+<input >
+<div id="results"></div>
+</div>
