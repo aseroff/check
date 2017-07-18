@@ -3,6 +3,8 @@ require 'httparty'
 class Game < ApplicationRecord
 
 	has_many :posts
+  	extend FriendlyId
+  	friendly_id :title, use: :slugged
 
 	def self.import(id)
 		game = Game.find_by(id: id)

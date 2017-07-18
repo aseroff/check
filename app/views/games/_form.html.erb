@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label 'Game' %>
+    <%= form.select_field :game_id, id: :game_id %>
+  </div>
 
   <div class="field">
     <%= form.label :title %>

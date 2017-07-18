@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
-  has_many :relations  
+  has_many :relations
   extend FriendlyId
   friendly_id :username, use: :slugged
   validates :username, uniqueness: true

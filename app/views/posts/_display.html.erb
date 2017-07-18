@@ -5,7 +5,7 @@
         <%= content_tag(:p, display.text) %>
         <%= link_to ('on ' + display.created_at.strftime("%B %d %Y")), display %><br>
         <%= display.nice_count %> <%= link_to 'Nice', relations_path(user_id: current_user.id, related_id: display.id, relationship: "nice"), method: :post %><br>
-        <%= (link_to 'Destroy', display, method: :delete, data: { confirm: 'Are you sure?' }) if display.user == current_user %><br>
+        <%= link_to 'Edit check-in', edit_post_path(display) if display.user == current_user %><br></td>
     </div>
 </div>
 <div class="clearfix"></div>

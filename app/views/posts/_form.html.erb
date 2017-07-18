@@ -12,14 +12,18 @@
   <% end %>
 
   <%= form.hidden_field :user_id, id: :post_user_id %>
-  <%= form.hidden_field :game_id, id: :post_game_id %>
+
+  <div class="field">
+    <%= form.label 'Game' %>
+    <%= form.collection_select :game_id, Game.all, :id, :title, game_id: :post_game_id %>
+  </div>
 
   <div class="field">
     <%= form.label :text %>
-    <%= form.text_area :text, id: :post_text %>
+    <%= form.text_area :text, id: :post_text, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: 'btn btn-success' %>
   </div>
 <% end %>
