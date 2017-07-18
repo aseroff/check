@@ -1,25 +1,5 @@
 class RelationsController < ApplicationController
-  before_action :set_relation, only: [:show, :edit, :update, :destroy]
-
-  # GET /relations
-  # GET /relations.json
-  def index
-    @relations = Relation.all
-  end
-
-  # GET /relations/1
-  # GET /relations/1.json
-  def show
-  end
-
-  # GET /relations/new
-  def new
-    @relation = Relation.new(user_id: current_user.id, related_id: params[:related_id], relationship: params[:relationship])
-  end
-
-  # GET /relations/1/edit
-  def edit
-  end
+  before_action :set_relation, only: [:update, :destroy]
 
   # POST /relations
   # POST /relations.json
