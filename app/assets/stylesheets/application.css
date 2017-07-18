@@ -20,6 +20,7 @@
   background-color:#ccc;
   overflow:auto;
 }
+
 .post .user-image, .game-image {
   width:95%;
   max-width: 100px;
@@ -27,6 +28,11 @@
 }
 .post .user-image {
   max-height: 100px;
+}
+
+.profile-image {
+  width:100px;
+  height:100px;
 }
 
 .profile-navbar {
