@@ -1,6 +1,6 @@
 <%= image_tag(@post.game.img_url, width:'100px') %>
 <h4><%= link_to @post.user.display_name, @post.user %> checked into <%= link_to @post.game.title, @post.game %></h4>
         <%= @post.text %><br><br>
-        <%= link_to ('at ' + @post.created_at.to_s), @post %><br>
+        <%= link_to ('on ' + @post.created_at.strftime("%B %d %Y")), @post %><br>
         <%= @post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: @post.id, relationship: "nice") %><br>
         <%= (link_to 'Delete check-in', @post, method: :delete, data: { confirm: 'Are you sure?' }) if @post.user == current_user %><br></td>

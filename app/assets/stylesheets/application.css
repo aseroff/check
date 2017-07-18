@@ -24,14 +24,18 @@
   height: 20px;
   border-radius: 5px;
 }
-.view {
+.item {
+  padding: 25px;
+  margin: 10px;
   border-radius: 25px;
   background-color:#ccc;
+  overflow:auto;
 }
 .feed {
-  padding:25px;
 }
-input { width: 100%; }
+.year {
+	font-size:.5em;
+}
 
 footer {
   position: fixed;

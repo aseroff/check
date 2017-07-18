@@ -1,21 +1,19 @@
-<div class="col-xs-3">
-<%= image_tag(@user.avatar, class: 'profile') %><br>
-<strong><%= @user.display_name %></strong><br>
-<table>
-  <tr>
-    <td><%= @following.size %> following</td>
-    <td><%= @followers.size %> followers</td>
-  </tr>
-</table>
+<div class="col-md-3">
+<div class="col-xs-12"><%= image_tag(@user.avatar, class: 'profile') %><br>
+<h1><%= @user.display_name %></h1></div>
+<div class="col-xs-6"><%= @following.size %> following</div>
+<div class="col-xs-6"><%= @followers.size %> followers</div>
+<div class="clearfix"></div>
 
-Favorite Games:
+<div class="col-xs-12">
+<%= @user.favorites.size %> Favorite Games:
 <ul>
 <% @user.favorites.each do |f| %>
 	<li><%= link_to f.title, f %></li>
 <% end %>
 </ul>
 
-Owned Games:
+<%= @user.owned.size %> Owned Games:
 <ul>
 <% @user.owned.each do |o| %>
 	<li><%= link_to o.title, o %></li>
@@ -29,20 +27,10 @@ Following!
 <% end %>
 
 </div>
-<div class="feed col-xs-9">
-<table>
-  <tbody>
-    <% @user.posts.each do |post| %>
-      <tr>
-        <td><%= image_tag(post.game.img_url, width:'100px') %></td>
-        <td><h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
-        <%= post.text %><br><br>
-        <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post %><br>
-        <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br>
-        <%= (link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }) if post.user == current_user %><br>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+</div>
+
+<div class="feed col-md-9">
+    <h3>Check-ins</h3>
+    <%= render partial: "posts/display", collection: @user.posts %>
 </div>

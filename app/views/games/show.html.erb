@@ -1,7 +1,7 @@
-<h2><%= @game.title %></h2>
-<%= image_tag(@game.img_url, width:'100px') %><br>
-<%= @game.year %><br>
-<%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s) %><br>
+<%= image_tag(@game.img_url, width:'100%') %>
+<h2><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
+<%= link_to 'check in', new_post_path(game_id: @game.id), class: 'btn btn-success' %>
+<%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'btn btn-default' %><br>
 
 <br>
 
@@ -12,34 +12,20 @@ Total times checked into: <%= @game.posts.size %><br>
   <%= @game.description %>
 </p>
 
-<%= link_to 'check in', new_post_path(game_id: @game.id) %><br>
+
 <% if current_user && current_user.favorited?(@game) %>
 Favorited
 <% else %>
-<%= link_to 'favorite', new_relation_path(related_id: @game.id, relationship: "favorite") %><br>
+<%= link_to 'Mark favorite', relations_path(user_id: current_user.id,related_id: @game.id, relationship: "favorite"), method: :post %><br>
 <% end %>
 <% if current_user.owns?(@game) %>
 Owned
 <% else %>
-<%= link_to 'mark owned', new_relation_path(related_id: @game.id, relationship: "owned") %><br>
+<%= link_to 'Mark owned', relations_path(user_id: current_user.id,related_id: @game.id, relationship: "owned"), method: :post %><br>
 <% end %>
 
 <hr>
-
-<table>
-  <tbody>
-    <% @game.posts.each do |post| %>
-      <tr>
-        <td><%= image_tag(post.game.img_url, width:'100px') %></td>
-        <td><h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
-        <%= post.text %><br><br>
-        <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post %><br>
-        <%= post.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: post.id, relationship: "nice") %><br>
-		<%= (link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }) if post.user == current_user %><br>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h3>Check-ins</h3>
+<%= render partial: "posts/display", collection: @game.posts %>
 
 <%= link_to 'Back', games_path %>
