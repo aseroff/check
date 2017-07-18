@@ -23,16 +23,16 @@
 
 .post .user-image, .game-image {
   width:95%;
-  max-width: 100px;
-  margin: 10px;
+  max-width: 75px;
+  margin-bottom: 10px;
 }
 .post .user-image {
-  max-height: 100px;
+  max-height: 75px;
 }
 
 .profile-image {
-  width:100px;
-  height:100px;
+  width:150px; 
+  height:150px; 
 }
 
 .profile-navbar {
