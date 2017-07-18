@@ -12,12 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require navbar.scss
  */
+.body {
+  background-color: #eee;
+}
+
 .post {
   padding: 25px;
   margin: 10px;
   border-radius: 25px;
-  background-color:#ccc;
+  background-color:#e67e22;
   overflow:auto;
 }
 
@@ -34,7 +39,6 @@
   width:150px; 
   height:150px; 
 }
-
 .profile-navbar {
   background-color:black;
   width: 20px;
@@ -47,6 +51,27 @@
 .circle {
   border-radius: 50%;
 }
+.post a {
+  color: white;
+  text-decoration: none !important;
+  &:visited {
+    color: #ffe6d1;
+  }
+} 
+.btn a { 
+  color: white;
+  &:visited { color:#ffe6d1 !important; }
+}
+a {
+  color: #e67e22;
+  text-decoration: none !important;
+  &:visited {
+    color: #ffe6d1;
+  }
+} 
+a:hover {
+  color:black;
+}
 
 footer {
   position: fixed;
@@ -57,4 +82,8 @@ footer {
   background-color: #efefef;
   font-size: x-small;
   text-align: center;
+}
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: white;
 }
