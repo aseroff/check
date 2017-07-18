@@ -4,7 +4,7 @@
     	<h4><%= link_to display.user.display_name, display.user %> checked into <%= link_to display.game.title, display.game %></h4>
         <%= content_tag(:p, display.text) %>
         <%= link_to ('on ' + display.created_at.strftime("%B %d %Y")), display %><br>
-        <%= display.nice_count %> <%= link_to 'Nice', new_relation_path(related_id: display.id, relationship: "nice") %><br>
+        <%= display.nice_count %> <%= link_to 'Nice', relations_path(user_id: current_user.id, related_id: display.id, relationship: "nice"), method: :post %><br>
         <%= (link_to 'Destroy', display, method: :delete, data: { confirm: 'Are you sure?' }) if display.user == current_user %><br>
     </div>
 </div>

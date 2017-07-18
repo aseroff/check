@@ -1,5 +1,5 @@
 <div class="col-md-3">
-<div class="col-xs-12"><%= image_tag(@user.avatar, class: 'profile') %><br>
+<div class="col-xs-12"><%= image_tag(@user.avatar.medium, class: 'profile') %><br>
 <h1><%= @user.display_name %></h1></div>
 <div class="col-xs-6"><%= @following.size %> following</div>
 <div class="col-xs-6"><%= @followers.size %> followers</div>
@@ -23,11 +23,11 @@
 <% if current_user.follows?(@user.id) %>
 Following!
 <% else %>
-<%= link_to 'follow', new_relation_path(relationship: "follow", related_id: @user.id) unless @user == current_user %>
+<%= (link_to 'follow', relations_path(user_id: current_user.id, related_id: @user.id, relationship: "follow"), method: :post) unless @user == current_user %>
 <% end %>
 
 </div>
-
+<div class="clearfix"></div>
 </div>
 
 <div class="feed col-md-9">

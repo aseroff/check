@@ -28,10 +28,10 @@ class RelationsController < ApplicationController
 
     respond_to do |format|
       if @relation.save
-        format.html { redirect_to @relation, notice: 'Relation was successfully created.' }
-        format.json { render :show, status: :created, location: @relation }
+        format.html { redirect_to @relation.related_item, notice: 'Relation was successfully created.' }
+        format.json { render @relation.related_item, status: :created, location: @relation }
       else
-        format.html { render :new }
+        format.html { redirect_to :root }
         format.json { render json: @relation.errors, status: :unprocessable_entity }
       end
     end
