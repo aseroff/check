@@ -26,15 +26,21 @@
   overflow:auto;
 }
 
-.post .user-image, .game-image {
-  width:95%;
-  max-width: 75px;
-  margin-bottom: 10px;
-}
 .post .user-image {
-  max-height: 75px;
+  width:50px;
+  height:50px;
+  margin:10px;
 }
 
+.post .game-image {
+  max-width:50px;
+  margin:10px;
+}
+
+.game-image {
+  max-width: 500px;
+  max-height: 500px;
+}
 .profile-image {
   width:150px; 
   height:150px; 
@@ -58,10 +64,6 @@
     color: #ffe6d1;
   }
 } 
-.btn a { 
-  color: white;
-  &:visited { color:#ffe6d1 !important; }
-}
 a {
   color: #e67e22;
   text-decoration: none !important;
@@ -82,6 +84,16 @@ footer {
   background-color: #efefef;
   font-size: x-small;
   text-align: center;
+}
+footer a {
+  color: #e67e22;
+  text-decoration: none !important;
+  &:visited {
+    color: #ffe6d1;
+  }
+} 
+footer a:hover {
+  color:black;
 }
 .turbolinks-progress-bar {
   height: 5px;
