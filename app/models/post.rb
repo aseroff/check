@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 	belongs_to :user
 	belongs_to :game
 
-	def nice_count
-		Relation.where(relationship: "nice", related_id: self.id).size
+	def nices
+		Relation.where(relationship: "nice", related_id: self.id)
 	end
 end
