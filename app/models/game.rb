@@ -1,7 +1,9 @@
 require 'httparty'
 
 class Game < ApplicationRecord
-
+  	mount_uploader :img_url, GameUploader
+  	validates_integrity_of  :img_url
+  	validates_processing_of :img_url
 	has_many :posts
   	extend FriendlyId
   	friendly_id :title, use: :slugged
@@ -14,7 +16,7 @@ class Game < ApplicationRecord
 			game = Game.create(title: (resp.xpath('//name').first[:value]),
 								description: (resp.xpath('//description').first.children.first.to_s),
 								year: (resp.xpath('//yearpublished').first.attributes.first.last.value),
-								img_url: (resp.xpath('//image').first.children.last.to_s),
+								img_url: MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s),
 								id: id)
 		end
 		game
@@ -27,4 +29,8 @@ class Game < ApplicationRecord
 			Game.all
 		end
 	end
+
+	private
+    	def avatar_size_validation
+    	end
 end

@@ -1,4 +1,4 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class GameUploader < CarrierWave::Uploader::Base
  
   include CarrierWave::MiniMagick
  
@@ -22,6 +22,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
  
   version :medium do
     process :resize_to_fill => [300, 300]
+  end
+ 
+  version :small do
+    process :resize_to_fill => [140, 140]
   end
  
   # Add a white list of extensions which are allowed to be uploaded.

@@ -1,5 +1,5 @@
 <div class="col-md-6">
-<%= image_tag(@game.img_url, width:'100%') %>
+<%= image_tag(@game.img_url.medium) %>
 <h2><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
 <%= link_to 'check in', new_post_path(game_id: @game.id), class: 'btn btn-success' %>
 <%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'btn btn-default' %><br>
