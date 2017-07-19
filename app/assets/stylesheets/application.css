@@ -78,11 +78,11 @@ a {
   color: #e67e22;
   text-decoration: none !important;
   &:visited {
-    color: #ffe6d1;
+    color: black;
   }
 } 
 a:hover {
-  color:black;
+  color:#ffe6d1;
 }
 
 hr { margin: 20px 0 20px; }

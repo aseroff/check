@@ -17,7 +17,8 @@
 <hr>
 
 <div class="col-xs-12">
-<%= @user.posts.size %> Checkins<br>
+<%= @user.posts.size %> <%= link_to 'Check-ins', @user %><br>
+<br>
 <%= @user.favorites.size %> Favorite Games:<br>
 <ul>
 <% @user.favorites.each do |f| %>
