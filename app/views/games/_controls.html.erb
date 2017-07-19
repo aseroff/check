@@ -1,0 +1,14 @@
+<% if current_user && current_user.favorited?(@game) %>
+Favorited
+<% elsif current_user %>
+<%= link_to 'Mark favorite', relations_path(user_id: current_user.id, related_id: @game.id, relationship: "favorite"), method: :post %><br>
+<% else %>
+Sign in to favorite
+<% end %>
+<% if current_user && current_user.owns?(@game) %>
+Owned
+<% elsif current_user %>
+<%= link_to 'Mark owned', relations_path(user_id: current_user.id,related_id: @game.id, relationship: "owned"), method: :post %><br>
+<% else %>
+Sign in to mark owned
+<% end %>

@@ -4,20 +4,7 @@
 <%= link_to 'Check in', new_post_path(game_id: @game.id), class: 'btn btn-success' %>
 <%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'btn btn-default' %><br>
 Total times checked into: <%= @game.posts.size %><br>
-<% if current_user && current_user.favorited?(@game) %>
-Favorited
-<% elsif current_user %>
-<%= link_to 'Mark favorite', relations_path(user_id: current_user.id, related_id: @game.id, relationship: "favorite"), method: :post %><br>
-<% else %>
-Sign in to favorite
-<% end %>
-<% if current_user && current_user.owns?(@game) %>
-Owned
-<% elsif current_user %>
-<%= link_to 'Mark owned', relations_path(user_id: current_user.id,related_id: @game.id, relationship: "owned"), method: :post %><br>
-<% else %>
-Sign in to mark owned
-<% end %>
+<%= render 'controls' %>
 <p>
   <strong>Description:</strong>
   <%= @game.description %>

@@ -3,10 +3,8 @@
 <h1><%= @user.display_name %></h1></div>
 
 
-<% if current_user && current_user.follows?(@user.id) %>
-<%= link_to raw("<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Following!"), current_user, class: 'col-xs-12 btn btn-danger' %>
-<% elsif current_user %>
-<%= (link_to raw("<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(user_id: current_user.id, related_id: @user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-success') unless @user == current_user %>
+<% if current_user %>
+<%= render 'controls' %>
 <% end %>
 
 <div class="clearfix"></div>

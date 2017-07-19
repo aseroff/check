@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_logged_in, only: [:new, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -71,5 +72,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:user_id, :game_id, :text)
+    end
+
+    def must_be_logged_in
+      redirect_to :root, notice: "Must be logged in to check in!" unless current_user
     end
 end

@@ -7,11 +7,11 @@
     	<h4><%= link_to display.user.display_name, display.user %> checked into <%= link_to display.game.title, display.game %></h4>
         <%= content_tag(:p, display.text) %>
         <%= link_to ('on ' + display.created_at.strftime("%B %d %Y")), display %><br>
+        <% if current_user && (display.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) || display.user == current_user) %>
+            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(user_id: current_user.id, related_id: display.id, relationship: "nice"), method: :post %><br>
+        <% end %>
         <% if display.nices.size > 0 %>
             <%= display.nices.size %><span class='glyphicon glyphicon-star' aria-hidden='true'></span><%= display.nices.map {|n| User.find(n.user_id).username }.join(', ') %><br>
-        <% end %>
-        <% unless display.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) || display.user == current_user %>
-            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(user_id: current_user.id, related_id: display.id, relationship: "nice"), method: :post %><br>
         <% end %>
         <%= link_to 'Edit check-in', edit_post_path(display) if display.user == current_user %><br>
     </div>
