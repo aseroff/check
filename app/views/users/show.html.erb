@@ -1,40 +1,4 @@
-<div class="col-md-3">
-<div class="col-xs-12"><%= image_tag(@user.avatar.medium, class: 'circle profile-image') %><br>
-<h1><%= @user.display_name %></h1></div>
-
-
-<% if current_user %>
-<%= render 'controls' %>
-<% end %>
-
-<div class="clearfix"></div>
-<hr>
-
-<div class="col-xs-6"><%= @following.size %> following</div>
-<div class="col-xs-6"><%= @followers.size %> followers</div>
-
-<div class="clearfix"></div>
-<hr>
-
-<div class="col-xs-12">
-<%= @user.posts.size %> Checkins<br>
-<%= @user.favorites.size %> Favorite Games:<br>
-<ul>
-<% @user.favorites.each do |f| %>
-	<li><%= link_to f.title, f %></li>
-<% end %>
-</ul>
-
-<%= @user.owned.size %> Owned Games:<br>
-<ul>
-<% @user.owned.each do |o| %>
-	<li><%= link_to o.title, o %></li>
-<% end %>
-</ul>
-
-</div>
-<div class="clearfix"></div>
-</div>
+<%= render 'profile' %>
 
 <div class="feed col-md-9">
     <h3>Check-ins</h3>
