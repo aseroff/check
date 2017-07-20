@@ -1,2 +1,8 @@
--caching
--pagination/lazy load
+# v 1.0
+
+1. fb/tw
+1. ?
+
+# v 1.1
+
+1. ?
