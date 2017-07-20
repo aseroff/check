@@ -1,6 +1,16 @@
 <% if current_user %>
+<div class="feed">
 <h3>Feed</h3>
-  <%= render partial: "posts/display", collection: @posts %>
+
+<div id="posts">
+  <%= render @posts %>
+</div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @posts %>
+</div>
+
+</div>
 <% else %>
 
 Join Gamekeeper, the check-in app for board games!

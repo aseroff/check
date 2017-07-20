@@ -14,8 +14,13 @@
  *= require_self
  *= require navbar.scss
  */
+ 
 .body {
   background-color: #eee;
+}
+
+.feed {
+  padding-bottom:50px;
 }
 
 .post {

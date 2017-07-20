@@ -23,6 +23,7 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'friendly_id'
+gem 'will_paginate'
 gem 'devise'
 gem 'koala'
 # Use CoffeeScript for .coffee assets and views

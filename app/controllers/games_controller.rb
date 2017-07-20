@@ -10,7 +10,11 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @posts = @game.posts.order(created_at: :desc)
+    @posts = @game.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

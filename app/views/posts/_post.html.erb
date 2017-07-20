@@ -1,0 +1,27 @@
+<div class="post">
+    <div class="col-sm-3 images">
+        <%= link_to image_tag(post.user.avatar.thumb, class: 'circle user-image'), post.user %>
+        <%= link_to image_tag(post.game.img_url.thumb, class: 'game-image'), post.game %>
+    </div>
+    <div class="col-sm-9">
+    	<h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
+        <%= content_tag(:p, post.text) %>
+        <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post, class: 'timestamp' %><br>
+        <hr>
+
+        <% if current_user && !post.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) && post.user != current_user %>
+            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(user_id: current_user.id, related_id: post.id, relationship: "nice"), method: :post %><br>
+        <% elsif current_user && post.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) && post.user != current_user %>
+        <% @relation = Relation.find_by(user_id: current_user.id, related_id: post.id, relationship: "nice") unless @relation %> 
+            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span>"), relation_path(@relation), :method => :delete %>
+        <% else %>
+            <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+        <% end %>
+
+        <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.username, u)}.join(", ")).html_safe %><br>
+
+
+        <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
+    </div>
+</div>
+<div class="clearfix"></div>
