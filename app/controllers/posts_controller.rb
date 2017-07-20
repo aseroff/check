@@ -5,12 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where("user_id IN (?)", (current_user.following + [current_user.id])).order(created_at: :desc) if current_user
+    @posts = Post.where("user_id IN (?)", (current_user.following_users + [current_user])).order(created_at: :desc) if current_user
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @relation = Relation.find_by(user_id: current_user.id, related_id: self.id, relationship: "nice")
   end
 
   # GET /posts/new

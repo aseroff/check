@@ -21,8 +21,16 @@ class User < ApplicationRecord
   	Relation.where(user_id: self.id, relationship: "follow")
   end
 
+  def following_users
+    self.following.map {|f| User.find(f.related_id) }
+  end
+
   def followers
   	Relation.where(related_id: self.id, relationship: "follow")
+  end
+
+  def follower_users
+    self.followers.map {|f| User.find(f.user_id) }
   end
 
   def favorites

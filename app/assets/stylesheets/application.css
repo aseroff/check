@@ -21,7 +21,7 @@
 .post {
   padding: 25px;
   margin: 10px;
-  border-radius: 25px;
+  border-radius: 15px;
   background-color:#e67e22;
   overflow:auto;
 }
@@ -35,6 +35,10 @@
 .post .game-image {
   max-width:50px;
   margin:10px;
+}
+
+.post .timestamp {
+  font-size:.8em;
 }
 
 .game-image {
@@ -85,7 +89,9 @@ a:hover {
   color:#ffe6d1;
 }
 
-hr { margin: 20px 0 20px; }
+hr { 
+  margin: 5px 0 5px; 
+}
 
 footer {
   position: fixed;

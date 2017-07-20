@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @users = @user.following.map {|f| User.find(f.related_id) }
+    @users = @user.following_users
   end
 
   def followers
-    @users = @user.followers.map {|f| f.user }
+    @users = @user.followers
   end
 
     private
