@@ -2,14 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, :count_follows
 
   def show
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def following
-    @users = User.where("id IN (?)", @user.following)
+    @users = @user.following.map {|f| User.find(f.related_id) }
   end
 
   def followers
-    @users = User.where("id IN (?)", @user.followers)
+    @users = @user.followers.map {|f| f.user }
   end
 
     private

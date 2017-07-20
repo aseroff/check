@@ -1,1 +1,1 @@
-(1..30).each { |n| Game.import(n) }
+Game.import(1)

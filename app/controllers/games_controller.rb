@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @posts = @game.posts.order(created_at: :desc)
   end
 
   private

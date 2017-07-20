@@ -18,11 +18,11 @@ class User < ApplicationRecord
   end
 
   def following
-  	Relation.where(user_id: self.id, relationship: "follow").collect {|r| r.related_id}
+  	Relation.where(user_id: self.id, relationship: "follow")
   end
 
   def followers
-  	Relation.where(related_id: self.id, relationship: "follow").collect {|r| r.user_id}
+  	Relation.where(related_id: self.id, relationship: "follow")
   end
 
   def favorites
