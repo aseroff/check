@@ -11,11 +11,14 @@
 
         <% if current_user && !display.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) && display.user != current_user %>
             <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(user_id: current_user.id, related_id: display.id, relationship: "nice"), method: :post %><br>
-        <% elsif current_user && !display.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) && display.user != current_user %>
+        <% elsif current_user && display.nices.map {|n| User.find(n.user_id).username }.include?(current_user.username) && display.user != current_user %>
+        <% @relation = Relation.find_by(user_id: current_user.id, related_id: display.id, relationship: "nice") unless @relation %> 
+            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span>"), relation_path(@relation), :method => :delete %>
+        <% else %>
             <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
         <% end %>
 
-        <%= display.nices.map {|n| User.find(n.user_id).username }.join(', ') %><br>
+        <%= (display.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.username, u)}.join(", ")).html_safe %><br>
 
 
         <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(display) if display.user == current_user %><br>

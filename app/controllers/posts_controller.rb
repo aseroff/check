@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @relation = Relation.find_by(user_id: current_user.id, related_id: self.id, relationship: "nice")
+    @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
   end
 
   # GET /posts/new

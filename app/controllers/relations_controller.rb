@@ -8,7 +8,7 @@ class RelationsController < ApplicationController
 
     respond_to do |format|
       if @relation.save
-        format.html { redirect_to @relation.related_item, notice: 'Relation was successfully created.' }
+        format.html { redirect_to @relation.related_item, notice: 'Nice.' }
         format.json { render @relation.related_item, status: :created, location: @relation }
       else
         format.html { redirect_to :root }
@@ -34,9 +34,10 @@ class RelationsController < ApplicationController
   # DELETE /relations/1
   # DELETE /relations/1.json
   def destroy
+    @item = @relation.related_item
     @relation.destroy
     respond_to do |format|
-      format.html { redirect_to relations_url, notice: 'Relation was successfully destroyed.' }
+      format.html { redirect_to @item, notice: 'Not anymore!' }
       format.json { head :no_content }
     end
   end
