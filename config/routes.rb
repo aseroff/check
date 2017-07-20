@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, path: 'checkin'
+  resources :posts, path: 'check-ins'
   resources :relations
   devise_for :users
   resources :users do 

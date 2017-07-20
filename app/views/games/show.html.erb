@@ -1,14 +1,7 @@
 <div class="col-md-6">
-<%= image_tag(@game.img_url.medium, class: 'game-image') %>
-<h2><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
-<%= link_to 'Check in', new_post_path(game_id: @game.id), class: 'btn btn-success' %>
-<%= link_to "View on BoardGameGeek", ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'btn btn-default' %><br>
-Total times checked into: <%= @game.posts.size %><br>
-<%= render 'controls' %>
-<p>
-  <strong>Description:</strong>
-  <%= @game.description %>
-</p>
+<% cache @game do %>
+<%= render 'profile' %>
+<% end %>
 </div>
 
 <div class="col-md-6">
