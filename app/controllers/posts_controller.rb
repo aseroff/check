@@ -80,6 +80,6 @@ class PostsController < ApplicationController
     end
 
     def must_be_logged_in
-      redirect_to :root, notice: "Must be logged in to check in!" unless current_user
+      redirect_to new_user_session_path, notice: "You must be logged in to do that." unless current_user
     end
 end

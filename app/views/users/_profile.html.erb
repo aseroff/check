@@ -1,27 +1,3 @@
 
 <div class="col-xs-12"><%= image_tag(@user.avatar.medium, class: 'circle profile-image') %><br>
 <h1><%= @user.display_name %></h1></div>
-
-
-<% if current_user %>
-<%= render 'controls' %>
-<% end %>
-
-<div class="clearfix"></div>
-<hr>
-
-<div class="col-xs-6 follow"><h4><%= @following %></h4><%= link_to 'Following', user_following_path(@user) %></div>
-<div class="col-xs-6 follow"><h4><%= @followers %></h4><%= link_to 'Followers', user_followers_path(@user) %></div>
-
-<div class="clearfix"></div>
-<hr>
-
-<div class="col-xs-12">
-<%= link_to @user.posts.size.to_s + ' Check-ins', @user %><br>
-<br>
-<%= link_to @user.favorites.size.to_s + ' Favorite Games', user_favorites_path(@user) %><br>
-<br>
-<%= link_to @user.owned.size.to_s + ' Owned Games', user_owned_path(@user) %><br>
-</div>
-
-<div class="clearfix"></div>

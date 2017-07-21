@@ -1,10 +1,12 @@
 class RelationsController < ApplicationController
   before_action :set_relation, only: [:destroy]
+  before_action :must_be_logged_in
 
   # POST /relations
   # POST /relations.json
   def create
     @relation = Relation.new(relation_params)
+    @relation.update_attribute(:user_id, current_user.id)
 
     if @relation.relationship == "follow"
       notice = "You're now following " + @relation.related_item.username + "!"
@@ -53,6 +55,10 @@ class RelationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_relation
       @relation = Relation.find(params[:id])
+    end
+
+    def must_be_logged_in
+      redirect_to new_user_session_path, notice: "You must be logged in to do that." unless current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
