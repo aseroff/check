@@ -6,5 +6,5 @@
 <% if current_user && current_user.owns?(@game.id) %>
 <%= link_to "", relation_path(@owned_relation), :method => :delete, class: 'col-xs-12 btn btn-warning owns-active' %>
 <% else %>
-<%= (link_to raw(" Mark owned"), relations_path(related_id: @game.id, relationship: "owns"), method: :post, class: 'col-xs-12 btn btn-default owns') %>
+<%= (link_to raw("Mark owned"), relations_path(related_id: @game.id, relationship: "owns"), method: :post, class: 'col-xs-12 btn btn-default owns') %>
 <% end %>

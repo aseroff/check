@@ -24,8 +24,8 @@ class GamesController < ApplicationController
       @game = Game.friendly.find(params[:id])
     end
     def find_relations
-      @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"favorite") if current_user.favorited?(@game.id)
-      @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"owns") if current_user.owns?(@game.id)
+      @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"favorite") if current_user && current_user.favorited?(@game.id)
+      @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"owns") if current_user && current_user.owns?(@game.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
