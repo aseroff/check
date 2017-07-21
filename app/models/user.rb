@@ -38,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def owned
-  	Game.where("id in (?)", self.relations.where(relationship: "owned").collect {|r| r.related_id})
+  	Game.where("id in (?)", self.relations.where(relationship: "owns").collect {|r| r.related_id})
   end
 
   def is_followed_by?(user_id)
