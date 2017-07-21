@@ -1,3 +1,4 @@
+<%= content_for(:title, @user.username + "'s followers") %>
 <div class="profile col-sm-3">
 <% cache @user do %>
 <%= render 'profile' %>
