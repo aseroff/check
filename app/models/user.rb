@@ -42,11 +42,11 @@ class User < ApplicationRecord
   end
 
   def is_followed_by?(user_id)
-    self.followers.include?(user_id)
+    !Relation.where(user_id: user_id, related_id: self.id, relationship:"follow").empty?
   end
 
   def follows?(user_id)
-    self.following.include?(user_id)
+    !Relation.where(user_id: self.id, related_id: user_id, relationship:"follow").empty?
   end
 
   def favorited?(game_id)

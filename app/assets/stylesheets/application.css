@@ -59,6 +59,16 @@
   width:150px; 
   height:150px; 
 }
+
+.follow {}
+
+.follow-active:before {
+  content: 'Following';
+}
+.follow-active:hover:before {
+  content: 'Unfollow';
+}
+
 .list-user .user-image {
   width:50px;
   height:50px;

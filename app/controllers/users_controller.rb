@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+    @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship:"follow") if current_user.follows?(@user.id)
   end
 
   def following

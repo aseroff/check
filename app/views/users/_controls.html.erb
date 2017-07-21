@@ -1,5 +1,5 @@
 <% if current_user.follows?(@user.id) %>
-<%= link_to raw("<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Following!"), current_user, class: 'col-xs-12 btn btn-danger' %>
+<%= link_to "", relation_path(@relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
 <% else %>
-<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(user_id: current_user.id, related_id: @user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-success') unless @user == current_user %>
+<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(user_id: current_user.id, related_id: @user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless @user == current_user %>
 <% end %>
