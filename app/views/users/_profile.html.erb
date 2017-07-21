@@ -17,21 +17,11 @@
 <hr>
 
 <div class="col-xs-12">
-<%= @user.posts.size %> <%= link_to 'Check-ins', @user %><br>
+<%= link_to @user.posts.size.to_s + ' Check-ins', @user %><br>
 <br>
-<%= @user.favorites.size %> Favorite Games:<br>
-<ul>
-<% @user.favorites.each do |f| %>
-	<li><%= link_to f.title, f %></li>
-<% end %>
-</ul>
-
-<%= @user.owned.size %> Owned Games:<br>
-<ul>
-<% @user.owned.each do |o| %>
-	<li><%= link_to o.title, o %></li>
-<% end %>
-</ul>
-
+<%= link_to @user.favorites.size.to_s + ' Favorite Games', user_favorites_path(@user) %><br>
+<br>
+<%= link_to @user.owned.size.to_s + ' Owned Games', user_owned_path(@user) %><br>
 </div>
+
 <div class="clearfix"></div>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users do 
     get "following"
     get "followers"
+    get "favorites"
+    get "owned"
   end
   resources :games
   root 'posts#index'

@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     @users = @user.follower_users  
   end
 
+  def favorites
+    @games = @user.favorites
+  end
+
+  def owned
+    @games = @user.owned  
+  end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
