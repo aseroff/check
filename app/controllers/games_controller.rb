@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :find_relations, only: [:show]
 
   # GET /games
   # GET /games.json
@@ -21,6 +22,10 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.friendly.find(params[:id])
+    end
+    def find_relations
+      @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"favorite") if current_user.favorited?(@game.id)
+      @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"owns") if current_user.owns?(@game.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

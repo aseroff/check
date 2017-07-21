@@ -54,7 +54,7 @@ class User < ApplicationRecord
   end
 
   def owns?(game_id)
-  	!self.relations.where(relationship: "owned", related_id: game_id).empty?
+  	!self.relations.where(relationship: "owns", related_id: game_id).empty?
   end
 
   private

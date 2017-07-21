@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, :count_follows
+  before_action :set_user, :count_follows, :find_relation
 
   def show
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5) 
@@ -7,7 +7,6 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
-    @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship:"follow") if current_user.follows?(@user.id)
   end
 
   def following
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @users = @user.follower_users
+    @users = @user.follower_users  
   end
 
     private
@@ -24,9 +23,8 @@ class UsersController < ApplicationController
       @user = User.friendly.find(params[:id] || params[:user_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user)
+    def find_relation
+      @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship:"follow") if current_user.follows?(@user.id)
     end
 
     def count_follows
@@ -34,4 +32,8 @@ class UsersController < ApplicationController
       @followers = @user.followers.size.to_s
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user)
+    end
 end

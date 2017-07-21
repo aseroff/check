@@ -68,6 +68,18 @@
 .follow-active:hover:before {
   content: 'Unfollow';
 }
+.favorite-active:before {
+  content: 'Favorited';
+}
+.favorite-active:hover:before {
+  content: 'Remove from Favorites';
+}
+.owns-active:before {
+  content: 'Owned';
+}
+.owns-active:hover:before {
+  content: 'Remove from Owned';
+}
 
 .list-user .user-image {
   width:50px;
