@@ -81,6 +81,15 @@
   content: 'Remove from Owned';
 }
 
+.list-user, .list-game {
+  padding: 10px;
+}
+
+.game-avatar {
+  width:100%;
+  max-width:100px;
+}
+
 .list-user .user-image {
   width:50px;
   height:50px;
