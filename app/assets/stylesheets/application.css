@@ -123,9 +123,7 @@
 a {
   color: #e67e22;
   text-decoration: none !important;
-  &:visited {
-    color: black;
-  }
+  &:visited {}
 } 
 a:hover {
   color:#d35400;
