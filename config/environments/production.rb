@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Mailer settings 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'check.seroff.co' }
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
