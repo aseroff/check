@@ -8,3 +8,6 @@
 <% else %>
 <%= (link_to raw("Mark owned"), relations_path(related_id: @game.id, relationship: "owns"), method: :post, class: 'col-xs-12 btn btn-default owns') %>
 <% end %>
+
+<div class="clearfix"></div>
+<hr>
