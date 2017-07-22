@@ -113,8 +113,13 @@
   text-decoration: none !important;
   &:visited {
     color: #ffe6d1;
-  }
+  };
 } 
+
+.post a:hover {
+  color:#ffe6d1;
+}
+
 a {
   color: #e67e22;
   text-decoration: none !important;
@@ -123,7 +128,7 @@ a {
   }
 } 
 a:hover {
-  color:#ffe6d1;
+  color:#d35400;
 }
 
 hr { 
@@ -144,12 +149,10 @@ footer a {
   color: #e67e22;
   text-decoration: none !important;
   &:visited {
-    color: #ffe6d1;
+    color: black;
   }
 } 
-footer a:hover {
-  color:black;
-}
+
 .turbolinks-progress-bar {
   height: 5px;
   background-color: white;
