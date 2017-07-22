@@ -41,6 +41,10 @@ Rails.application.configure do
 
   # Mailer settings 
   config.action_mailer.default_url_options = { :host => 'check.seroff.co' }
+  Rails.application.routes.default_url_options[:host] = 'immense-atoll-75723.herokuapp.com'
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil

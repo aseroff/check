@@ -28,7 +28,7 @@ Rails.application.configure do
 
   # Mailer settings 
   config.action_mailer.default_url_options = { :host => 'localhost' }
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
