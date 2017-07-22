@@ -147,7 +147,7 @@ footer a {
   color: #e67e22;
   text-decoration: none !important;
   &:visited {
-    color: black;
+    color: #d35400;
   }
 } 
 
