@@ -31,6 +31,19 @@
   overflow:auto;
 }
 
+.post a {
+  color: white;
+  text-decoration: none !important;
+  font-weight: 800;
+  &:visited {
+    color: #ffe6d1;
+  };
+} 
+
+.post a:hover {
+  color:#d35400;
+}
+
 .post .user-image {
   width:50px;
   height:50px;
@@ -107,17 +120,6 @@
 }
 .circle {
   border-radius: 50%;
-}
-.post a {
-  color: white;
-  text-decoration: none !important;
-  &:visited {
-    color: #ffe6d1;
-  };
-} 
-
-.post a:hover {
-  color:#d35400;
 }
 
 a {

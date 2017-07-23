@@ -21,7 +21,7 @@
             <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
         <% end %>
 
-        <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.username, u)}.join(", ")).html_safe %><br>
+        <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
 
 
         <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
