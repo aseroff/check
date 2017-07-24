@@ -10,19 +10,35 @@ class UsersController < ApplicationController
   end
 
   def following
-    @users = @user.following_users
+    @users = @user.following_users.paginate(page: params[:page], per_page: 10) 
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def followers
-    @users = @user.follower_users  
+    @users = @user.follower_users.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def favorites
-    @games = @user.favorites
+    @games = @user.favorites.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def owned
-    @games = @user.owned  
+    @games = @user.owned.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
     private

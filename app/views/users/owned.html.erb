@@ -6,7 +6,14 @@
 <%= render 'controls' %>
 </div>
 
-<div class="feed col-sm-9">
-    <h3>Owned Games</h3>
-    <%= render @games %>
+<div class="feed col-sm-9">  
+<h3>Owned Games</h3>
+
+<div id="posts">
+<%= render @games%>
+</div>
+
+<div id="infinite-scrolling">
+	<%= will_paginate @games %>
+</div>
 </div>

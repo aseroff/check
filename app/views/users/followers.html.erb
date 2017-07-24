@@ -6,7 +6,14 @@
 <%= render 'controls' %>
 </div>
 
-<div class="feed col-sm-9">
-    <h3>Followers</h3>
-    <%= render @users %>
+<div class="feed col-sm-9">  
+<h3>Followers</h3>
+
+<div id="posts">
+<%= render @users %>
+</div>
+
+<div id="infinite-scrolling">
+	<%= will_paginate @users %>
+</div>
 </div>

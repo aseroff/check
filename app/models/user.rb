@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def following_users
-    self.following.map {|f| User.find(f.related_id) }
+    User.where("id in (?)", self.following.pluck(:related_id))
   end
 
   def followers
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def follower_users
-    self.followers.map {|f| User.find(f.user_id) }
+    User.where("id in (?)", self.followers.pluck(:user_id))
   end
 
   def favorites
