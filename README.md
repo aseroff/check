@@ -9,3 +9,4 @@
 # v 1.1
 
 1. React elements
+1. Shortcuts on games to checkin/fav/own

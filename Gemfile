@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'will_paginate'
 gem 'devise'
+gem 'sendgrid-ruby'
 gem 'koala'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
