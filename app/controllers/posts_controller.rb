@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where("user_id IN (?)", (current_user.following_users + [current_user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10) if current_user
+    if current_user
+      @user = current_user
+      @posts = Post.where("user_id IN (?)", (@user.following_users + [@user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      @following = @user.following.size.to_s
+      @followers = @user.followers.size.to_s
+    end
     respond_to do |format|
       format.html
       format.js

@@ -1,15 +1,24 @@
 <% if current_user %>
-<div class="feed">
+<% @user = current_user %>
+<%= content_for(:title, "Feed") %>
+
+<div class="profile col-sm-3">
+<% cache @user do %>
+<%= render 'users/profile' %>
+<% end %>
+<%= render 'users/controls' %>
+</div>
+
+<div class="feed col-sm-9">  
 <h3>Feed</h3>
 
 <div id="posts">
-  <%= render @posts %>
+<%= render @posts %>
 </div>
 
 <div id="infinite-scrolling">
-  <%= will_paginate @posts %>
+	<%= will_paginate @posts %>
 </div>
-
 </div>
 <% else %>
 
