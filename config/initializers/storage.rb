@@ -7,5 +7,5 @@ CarrierWave.configure do |config|
       region: 'us-west-1'
   }
   config.fog_directory  = "checkdata"
-  config.fog_public     = false
+  config.fog_public     = true
 end
