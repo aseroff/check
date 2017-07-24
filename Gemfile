@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'will_paginate'
 gem 'devise'
-gem 'sendgrid-ruby'
+# gem 'sendgrid-ruby'
 gem 'koala'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,9 +39,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', '~> 1'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog-aws'
 gem 'figaro'
 
 # Use Capistrano for deployment
