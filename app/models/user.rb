@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def following
-  	Relation.where(user_id: self.id, relationship: "follow")
+  	Relation.where(user_id: self.id, relationship: "follow").order(created_at: :desc)
   end
 
   def following_users
@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def followers
-  	Relation.where(related_id: self.id, relationship: "follow")
+  	Relation.where(related_id: self.id, relationship: "follow").order(created_at: :desc)
   end
 
   def follower_users

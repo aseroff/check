@@ -1,13 +1,14 @@
 # v 1.0
 
 1. fb/tw
-1. better search bar
+1. better discovery
 1. branding: splash & emails
 
 # v 1.1
 
 1. React elements
 1. Shortcuts on games to checkin/fav/own
+1. users' follow and favs are ordered desc
 1. more shortcuts on objects
 1. more data on pages
 
