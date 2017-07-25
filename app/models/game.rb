@@ -24,13 +24,13 @@ class Game < ApplicationRecord
 			resp = Nokogiri::XML.parse(resp.body)
 			if resp.xpath('//name').first
 				game = Game.new(id: id, title: resp.xpath('//name').first[:value])
-				game[:description] = (resp.xpath('//description').first.children.first.to_s.gsub('&amp;#10;&amp;#10;', ' ').gsub('&amp;quot;', '"')) if resp.xpath('//description').first
+				game[:description] = (resp.xpath('//description').first.children.first.to_s.html_safe.gsub('&amp;#10;', ' ')) if resp.xpath('//description').first
 				game[:year] = (resp.xpath('//yearpublished').first.attributes.first.last.value) if resp.xpath('//yearpublished').first
 				game[:img_url] = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 				game.save
 			end
 		else
-			game.update_attribute(:description, game.description.gsub('&amp;#10;&amp;#10;', ' ').gsub('&amp;quot;', '"')) 
+			game.update_attribute(:description, game.description.html_safe.gsub('&amp;#10;', ' ')) 
 		end
 		game
 	end
