@@ -19,7 +19,7 @@ class Game < ApplicationRecord
 
 	def self.import(id)
 		game = Game.find_by(id: id)
-		if game.nil? || game[:img_url][-4..-1] != '.jpg'
+		if game.nil?
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s + '&type=boardgame')
 			resp = Nokogiri::XML.parse(resp.body)
 			if resp.xpath('//name').first
@@ -29,6 +29,11 @@ class Game < ApplicationRecord
 				game.img_url = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 				game.save
 			end
+		elsif game[:img_url][-4..-1] != '.jpg'
+			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s + '&type=boardgame')
+			resp = Nokogiri::XML.parse(resp.body)
+			game.update_attribute(:img_url, (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s))) if resp.xpath('//image').first
+		
 		else
 			game.update_attribute(:description, game.description.html_safe.gsub('&amp;#10;', ' ')) 
 		end
