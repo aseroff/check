@@ -8,6 +8,15 @@ class Game < ApplicationRecord
   	extend FriendlyId
   	friendly_id :title, use: :slugged
 
+
+ 	def favorites
+  		Relation.where(related_id: self.id, relationship: "favorite")
+  	end
+
+  	def owned
+  		Relation.where(related_id: self.id, relationship: "owned")
+  	end
+
 	def self.import(id)
 		game = Game.find_by(id: id)
 		if game.nil?

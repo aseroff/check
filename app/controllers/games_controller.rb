@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :find_relations, only: [:show]
+  before_action :count_stats, only: [:show]
 
   # GET /games
   # GET /games.json
@@ -29,6 +30,12 @@ class GamesController < ApplicationController
         @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"favorite")
         @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship:"owns")
       end
+    end
+
+    def count_stats
+      @posts_count = @game.posts.size
+      @favorites_count = @game.favorites.size
+      @owned_count = @game.owned.size
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
