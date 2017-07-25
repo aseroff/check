@@ -18,8 +18,8 @@ class Game < ApplicationRecord
 				game[:description] = (resp.xpath('//description').first.children.first.to_s.gsub('&amp;#10;&amp;#10;', ' ')) if resp.xpath('//description').first
 				game[:year] = (resp.xpath('//yearpublished').first.attributes.first.last.value) if resp.xpath('//yearpublished').first
 				game[:image_url] = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
+				game.save
 			end
-			game.save
 		else
 			game.update_attribute(:description, game.description.gsub('&amp;#10;&amp;#10;', ' ')) 
 		end
