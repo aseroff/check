@@ -1,8 +1,8 @@
 <%= content_for(:title, @game.title) %>
 <div class="profile col-md-6">
-<% cache @game do %>
+<% #cache @game do %>
 <%= render 'profile' %>
-<% end %>
+<% #end %>
 
 <%= render 'controls' %>
 <span class='glyphicon glyphicon-expand' aria-hidden='true'></span> <%= @game.posts.size %><br>

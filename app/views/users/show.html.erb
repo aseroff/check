@@ -1,9 +1,9 @@
 <%= content_for(:title, @user.username) %>
 
 <div class="profile col-sm-3">
-<% cache @user do %>
+<% #cache @user do %>
 <%= render 'profile' %>
-<% end %>
+<% #end %>
 <%= render 'controls' %>
 </div>
 
