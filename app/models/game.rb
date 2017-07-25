@@ -13,11 +13,10 @@ class Game < ApplicationRecord
 		unless game
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s)
 			resp = Nokogiri::XML.parse(resp.body)
-			game = Game.new(title: (resp.xpath('//name').first[:value]),
-								description: (resp.xpath('//description').first.children.first.to_s.gsub('&amp;#10;&amp;#10;', ' ') if resp.xpath('//description').first),
-								year: (resp.xpath('//yearpublished').first.attributes.first.last.value if resp.xpath('//yearpublished').first),
-								img_url: (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s if resp.xpath('//image').first),
-								id: id)
+			game = Game.new(id: id, title: resp.xpath('//name').first[:value])
+			game[:description] = (resp.xpath('//description').first.children.first.to_s.gsub('&amp;#10;&amp;#10;', ' ')) if resp.xpath('//description').first
+			game[:year] = (resp.xpath('//yearpublished').first.attributes.first.last.value) if resp.xpath('//yearpublished').first
+			game[:image_url] = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 		else
 			game.update_attribute(:description, game.description.gsub('&amp;#10;&amp;#10;', ' ')) 
 		end
