@@ -10,7 +10,7 @@ class Game < ApplicationRecord
 
 	def self.import(id)
 		game = Game.find_by(id: id)
-		unless game
+		if game.nil?
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s)
 			resp = Nokogiri::XML.parse(resp.body)
 			if resp.xpath('//name').first
@@ -19,10 +19,11 @@ class Game < ApplicationRecord
 				game[:year] = (resp.xpath('//yearpublished').first.attributes.first.last.value) if resp.xpath('//yearpublished').first
 				game[:image_url] = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 			end
+			game.save
 		else
 			game.update_attribute(:description, game.description.gsub('&amp;#10;&amp;#10;', ' ')) 
 		end
-		game.save
+		game
 	end
 
 	def self.search(term)
