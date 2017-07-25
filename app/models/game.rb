@@ -26,11 +26,12 @@ class Game < ApplicationRecord
 				game = Game.new(id: id, title: resp.xpath('//name').first[:value])
 				game[:description] = (resp.xpath('//description').first.children.first.to_s.html_safe.gsub('&amp;#10;', ' ')) if resp.xpath('//description').first
 				game[:year] = (resp.xpath('//yearpublished').first.attributes.first.last.value) if resp.xpath('//yearpublished').first
-				game[:img_url] = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
+				game.img_url = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 				game.save
 			end
 		else
 			game.update_attribute(:description, game.description.html_safe.gsub('&amp;#10;', ' ')) 
+			game.img_url = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if game[:img_url][-4..-1] != '.jpg'
 		end
 		game
 	end
