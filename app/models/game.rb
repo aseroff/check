@@ -14,7 +14,7 @@ class Game < ApplicationRecord
   	end
 
   	def owned
-  		Relation.where(related_id: self.id, relationship: "owned")
+  		Relation.where(related_id: self.id, relationship: "owns")
   	end
 
 	def self.import(id)
@@ -33,7 +33,6 @@ class Game < ApplicationRecord
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s + '&type=boardgame')
 			resp = Nokogiri::XML.parse(resp.body)
 			game.update_attribute(:img_url, (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s))) if resp.xpath('//image').first
-		
 		else
 			game.update_attribute(:description, game.description.html_safe.gsub('&amp;#10;', ' ')) 
 		end
