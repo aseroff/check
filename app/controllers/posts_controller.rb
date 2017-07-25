@@ -10,6 +10,9 @@ class PostsController < ApplicationController
       @posts = Post.where("user_id IN (?)", (@user.following_users + [@user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
       @following = @user.following.size.to_s
       @followers = @user.followers.size.to_s
+      @posts_count = @user.posts.size.to_s
+      @favorited_count = @user.favorites.size.to_s
+      @owned_count = @user.owned.size.to_s
     end
     respond_to do |format|
       format.html
