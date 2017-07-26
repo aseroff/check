@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @users = @user.following_users.order(username: :desc).paginate(page: params[:page], per_page: 10) 
+    @users = @user.following_users.order(username: :asc).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @users = @user.follower_users.order(username: :desc).paginate(page: params[:page], per_page: 10)
+    @users = @user.follower_users.order(username: :asc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.js
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @games = @user.favorites.order(title: :desc).paginate(page: params[:page], per_page: 10)
+    @games = @user.favorites.order(title: :asc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.js
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def owned
-    @games = @user.owned.order(title: :desc).paginate(page: params[:page], per_page: 10)
+    @games = @user.owned.order(title: :asc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.js
