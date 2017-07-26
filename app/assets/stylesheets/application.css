@@ -165,3 +165,7 @@ footer a {
 .ui-helper-hidden-accessible { display: none }
 #results ul { list-style-type: none; padding: 0; border: 1px solid; }
 #results li { padding: 5px; display: inline-block; width:100%; }
+
+@media only screen and (max-width: 768px) {
+  .no-mobile {display:none;}
+}

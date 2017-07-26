@@ -2,10 +2,10 @@
 <% @user = current_user %>
 <%= content_for(:title, "Feed") %>
 
-<div class="profile col-sm-3">
-<% cache @user do %>
+<div class="no-mobile profile col-sm-3">
+<% #cache @user do %>
 <%= render 'users/profile' %>
-<% end %>
+<% #end %>
 <%= render 'users/controls' %>
 </div>
 

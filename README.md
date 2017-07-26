@@ -3,6 +3,7 @@
 1. fb/tw
 1. better discovery
 1. branding: splash & emails
+1. check in form on modal needs a prof pic and a game title
 
 # v 1.1
 
