@@ -1,8 +1,6 @@
 <%= form_with(model: post, local: true) do |form| %>
 
- <%= form.hidden_field :user_id, id: :post_user_id %>
-
-<div class="post">
+<div class="modal-body post">
   <div class="col-sm-3 images">
     <%= image_tag(current_user.avatar.thumb, class: 'circle user-image') %>
     <%= image_tag(@game.img_url.thumb, class: 'game-image') %>
@@ -14,6 +12,7 @@
 
     <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
   </div>
+  <div class="clearfix"></div>
 </div>
 
 <% end %>

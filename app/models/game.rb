@@ -29,7 +29,7 @@ class Game < ApplicationRecord
 				game.img_url = (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
 				game.save
 			end
-		elsif game[:img_url].nil? || game[:img_url][-1] == '>'
+		elsif game[:img_url].nil? || game[:img_url][-1] == '>' #probably not needed anymore
 			resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s + '&type=boardgame')
 			resp = Nokogiri::XML.parse(resp.body)
 			game.update_attribute(:img_url, (MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s))) if resp.xpath('//image').first

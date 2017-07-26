@@ -4,6 +4,7 @@
 1. better discovery
 1. branding: splash & emails
 1. check in form on modal needs a prof pic and a game title
+1. data integrity - string cleanup in game descriptions
 
 # v 1.1
 
