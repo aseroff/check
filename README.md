@@ -1,3 +1,7 @@
+# Bugs
+
+1. Unable to access log file on server
+
 # v 1.0
 
 1. fb/tw

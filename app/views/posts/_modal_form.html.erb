@@ -8,6 +8,7 @@
   <div class="col-sm-9">
     <h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
     <%= form.hidden_field :user_id, id: :post_user_id %>
+    <%= form.hidden_field :game_id, id: :post_game_id %>
     <%= form.text_area :text, id: :post_text, class: 'form-control' %>
 
     <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
