@@ -14,7 +14,9 @@
 1. more data on pages
 1. data integrity - string cleanup in game descriptions
 1. branding: splash & emails
+1. android app
 
 # other
 1. ad on ocho to check in
 1. project on andy.seroff.co
+1. log maintenence on aws servers
