@@ -1,5 +1,7 @@
 # Bugs
 
+1. restore env variables for dev/test
+1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
 1. Unable to access log file on server
 
 # v 1.0

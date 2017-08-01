@@ -1,3 +1,22 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile {
+  margin-top:25px;
+  text-align:center;
+}
+.profile-image {
+  width:150px; 
+  height:150px; 
+}
+
+.follow {}
+
+.follow-active:before {
+  content: 'Following';
+}
+.follow-active:hover:before {
+  content: 'Unfollow';
+}
+.list-user .user-image {
+  width:50px;
+  height:50px;
+  margin:10px;
+}
