@@ -6,4 +6,8 @@ class Post < ApplicationRecord
 	def nices
 		Relation.where(relationship: "nice", related_id: self.id)
 	end
+
+	def name
+		self.user.username + "'s check-in to " + self.game.title
+	end
 end

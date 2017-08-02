@@ -10,7 +10,7 @@
 <% elsif @post %>
 { "@context": "http://schema.org",
 "@type": "CheckInAction",
-"name": "<%= @post.user.username + "'s check-in to " + @post.game.title %>",
+"name": "<%= @post.name %>",
 "agent": "<%= @post.user.username %>",
 "url": "<%= post_url(@post) %>"
 }
