@@ -1,0 +1,18 @@
+<script type="application/ld+json">
+<% if @game %>
+{ "@context": "http://schema.org",
+"@type": "Game",
+"name": "<%= @game.title %>",
+"description": "<%= @game.description %>",
+"url": "<%= game_url(@game) %>",
+"sameAs": "<%= 'https://www.boardgamegeek.com/boardgame/' + @game.id.to_s %>"
+}
+<% elsif @post %>
+{ "@context": "http://schema.org",
+"@type": "CheckInAction",
+"name": "<%= @post.user.username + "'s check-in to " + @post.game.title %>",
+"agent": "<%= @post.user.username %>",
+"url": "<%= post_url(@post) %>"
+}
+<% end %>
+</script>
