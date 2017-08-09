@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username, use: :slugged
   mount_uploader :avatar, AvatarUploader
   validates_integrity_of  :avatar
   validates_processing_of :avatar
@@ -8,10 +10,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
   has_many :relations
-  extend FriendlyId
-  friendly_id :username, use: :slugged
   validates :username, uniqueness: true
   validates :email, uniqueness: true
+  scope :for_ids_with_order, ->(ids) {
+    order = sanitize_sql_array(
+      ["position(id::text in ?)", ids.join(',')]
+    )
+    where(:id => ids).order(order)
+  } 
 
   def display_name
     '@' + self.username.to_s
@@ -34,10 +40,18 @@ class User < ApplicationRecord
   end
 
   def favorites
+    self.relations.where(relationship: "favorite").order(created_at: :desc)
+  end
+
+  def favorite_games
   	Game.where("id in (?)", self.relations.where(relationship: "favorite").collect {|r| r.related_id})
   end
 
   def owned
+    self.relations.where(relationship: "owns").order(created_at: :desc)
+  end
+
+  def owned_games
   	Game.where("id in (?)", self.relations.where(relationship: "owns").collect {|r| r.related_id})
   end
 

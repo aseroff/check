@@ -21,3 +21,7 @@
 .owns-active:hover:before {
   content: 'Remove from Owned';
 }
+
+.nav-pills > li.active > a {
+    background-color: #e67e22!important;
+}

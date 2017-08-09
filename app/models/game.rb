@@ -1,13 +1,18 @@
 require 'httparty'
 
 class Game < ApplicationRecord
-	extend OrderAsSpecified
+  	extend FriendlyId
+  	friendly_id :title, use: :slugged
   	mount_uploader :img_url, GameUploader
   	validates_integrity_of  :img_url
   	validates_processing_of :img_url
 	has_many :posts
-  	extend FriendlyId
-  	friendly_id :title, use: :slugged
+  	scope :for_ids_with_order, ->(ids) {
+    order = sanitize_sql_array(
+      ["position(id::text in ?)", ids.join(',')]
+    )
+    where(:id => ids).order(order)
+  } 
 
 
  	def favorites
@@ -42,21 +47,21 @@ class Game < ApplicationRecord
 
 	def self.popular(limit = 5)
 		h = Post.where("created_at > ?", (DateTime.now - 2.weeks)).group(:game_id).order('count_id DESC').count(:id)
-		h.to_a[0..(h.size > limit ? limit : h.size)] 
+		h.size > limit ? h.to_a[0..(limit - 1)] : h.to_a 
 	end
 
 	def self.favorited(limit = 5)
 		h = Relation.where("relationship = ?", "favorite").group(:related_id).order('count_id DESC').count(:id)
-		h.to_a[0..(h.size > limit ? limit : h.size)] 
+		h.size > limit ? h.to_a[0..(limit - 1)] : h.to_a 
 	end
 
 	def self.owned(limit = 5)
 		h = Relation.where("relationship = ?", "owns").group(:related_id).order('count_id DESC').count(:id)
-		h.to_a[0..(h.size > limit ? limit : h.size)] 
+		h.size > limit ? h.to_a[0..(limit - 1)] : h.to_a
 	end
 
 	def self.recently_added(limit = 5)
-		Game.all.order("created_at desc")[0..limit]
+		Game.all.order("created_at desc").pluck(:id)[0..(limit - 1)]
 	end
 
 	def self.search(term)

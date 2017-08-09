@@ -10,19 +10,19 @@ class GamesController < ApplicationController
       @filter = params[:filter]
       ids = []
       if @filter == "popular"
-        Game.popular(20).each{|k,v| ids << k}
+        Game.popular(10).each{|k,v| ids << k}
       elsif @filter == "favorited"
-        Game.favorited(20).each{|k,v| ids << k}
+        Game.favorited(10).each{|k,v| ids << k}
       elsif @filter == "owned"
-        Game.owned(20).each{|k,v| ids << k}
+        Game.owned(10).each{|k,v| ids << k}
       elsif @filter == "recent"
-        Game.recently_added(20).each{|g| ids << g.id}
+        Game.recently_added(10).each{|g| ids << g}
       end
-      @games = Game.order_as_specified(id: ids)
+      @games = Game.for_ids_with_order(ids)
     elsif params[:term]
       @games = Game.search(params[:term])
     else
-      @games = []
+      redirect_to games_path(filter:"popular")
     end
   end
 

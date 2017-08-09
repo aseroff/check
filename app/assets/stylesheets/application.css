@@ -96,3 +96,8 @@ footer a {
 .nav-pills > li.active > a {
     background-color: #e67e22!important;
 }
+
+.pagination {
+  text-align:center;
+  width:100%;
+}
