@@ -43,7 +43,6 @@ gem 'carrierwave', '~> 1'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'figaro'
-gem 'order_as_specified'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
