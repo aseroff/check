@@ -1,4 +1,4 @@
-$('#posts').append('<%= j render @users %>');
+$('#users').append('<%= j render @users %>');
 <% if @users.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @users %>');
 <% else %>
