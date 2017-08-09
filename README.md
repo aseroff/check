@@ -1,4 +1,4 @@
-# Bugs
+# EB bugs
 
 1. restore env variables for dev/test
 1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
@@ -6,10 +6,10 @@
 
 # v 1.0
 
-1. fb/tw
+1. fb/tw login/share?
 1. better discovery
-1. customized/non-stock emails 
-1. temporary splash page
+1. customized/non-stock emails
+1. splash page images
 
 # v 1.1
 
@@ -20,6 +20,7 @@
 1. more data on pages
 1. data integrity - string cleanup in game descriptions
 1. branding: splash & emails
+1. branding: social presence
 1. android app
 
 # other

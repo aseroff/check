@@ -6,7 +6,20 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.search(params[:term])
+    if params[:filter]
+      @filter = params[:filter]
+      if @filter == "popular"
+        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+      elsif @filter == "favorited"
+        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+      elsif @filter == "owned"
+        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+      elsif @filter == "recent"
+        @games = Game.recently_added(20)
+      end
+    else
+      @games = Game.search(params[:term])
+    end
   end
 
   # GET /games/1

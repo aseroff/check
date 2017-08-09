@@ -1,17 +1,18 @@
-<script type="text/javascript">
-  $(function() {   
-    $('#games').autocomplete({
-            minLength: 2,
-            source: '<%= games_path(:json) %>',
-            appendTo: '#results' }).autocomplete("instance")._renderItem = function( ul, item ) {
-              return $( "<li>" )
-                .append( "<a href='/games/" + item.id + "'>" + item.title + "</a>" )
-                .appendTo (ul);
-    };
-  });
-</script>
+<div class="col-sm-3">
 
-<div class="ui-widget">
-<input id="games" class="form-control" placeholder="Search for a game">
-<div id="results"></div>
+<ul class="nav nav-pills nav-stacked">
+  <li role="presentation"  class="<%= @filter == "popular" ? "active" : "" %>"><%= link_to "Most Popular", games_path(filter: "popular") %></li>
+  <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(filter: "favorited") %></li>
+  <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(filter: "owned") %></li>
+  <li role="presentation" class="<%= @filter == "recent" ? "active" : "" %>" ><%= link_to "Most Recently Added", games_path(filter: "recent") %></li>
+</ul>
+
+</div>
+
+<div class="col-sm-9">
+
+<div id="games" class="game-list">
+	<%= render @games %>
+</div>
+
 </div>

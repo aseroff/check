@@ -13,6 +13,8 @@ class PostsController < ApplicationController
       @posts_count = @user.posts.size.to_s
       @favorited_count = @user.favorites.size.to_s
       @owned_count = @user.owned.size.to_s
+      @popular_with_friends = @user.popular_with_friends
+      @most_popular = Game.popular
     end
     respond_to do |format|
       format.html

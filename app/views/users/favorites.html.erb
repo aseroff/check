@@ -1,15 +1,15 @@
 <%= content_for(:title, @user.username + "'s favorite games") %>
 <div class="profile col-sm-3">
-<% cache @user do %>
+<% #cache @user do %>
 <%= render 'profile' %>
-<% end %>
+<% #end %>
 <%= render 'controls' %>
 </div>
 
 <div class="feed col-sm-9">  
 <h3>Favorite Games</h3>
 
-<div id="posts">
+<div id="games">
 <%= render @games %>
 </div>
 

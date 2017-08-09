@@ -57,6 +57,11 @@ class User < ApplicationRecord
   	!self.relations.where(relationship: "owns", related_id: game_id).empty?
   end
 
+  def popular_with_friends
+    h = Post.where("created_at > ? and user_id IN (?)", (DateTime.now - 2.weeks), self.following.pluck(:related_id)).group(:game_id).order('count_id DESC').count(:id)
+    h.to_a[0..(h.size > 5 ? 5 : h.size)] 
+  end
+
   private
     def avatar_size_validation
       errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes

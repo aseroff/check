@@ -39,6 +39,25 @@ class Game < ApplicationRecord
 		game
 	end
 
+	def self.popular(limit = 5)
+		h = Post.where("created_at > ?", (DateTime.now - 2.weeks)).group(:game_id).order('count_id DESC').count(:id)
+		h.to_a[0..(h.size > limit ? limit : h.size)] 
+	end
+
+	def self.favorited(limit = 5)
+		h = Relation.where("relationship = ?", "favorite").group(:related_id).order('count_id DESC').count(:id)
+		h.to_a[0..(h.size > limit ? limit : h.size)] 
+	end
+
+	def self.owned(limit = 5)
+		h = Relation.where("relationship = ?", "owns").group(:related_id).order('count_id DESC').count(:id)
+		h.to_a[0..(h.size > limit ? limit : h.size)] 
+	end
+
+	def self.recently_added(limit = 5)
+		Game.all.order(:created_at)[0..limit]
+	end
+
 	def self.search(term)
 		if term
 			Game.where("lower(title) like ?", "%" + term.downcase + "%")
