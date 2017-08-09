@@ -19,8 +19,10 @@ class GamesController < ApplicationController
         Game.recently_added(20).each{|g| ids << g.id}
       end
       @games = Game.order_as_specified(id: ids)
-    else
+    elsif params[:term]
       @games = Game.search(params[:term])
+    else
+      @games = []
     end
   end
 
