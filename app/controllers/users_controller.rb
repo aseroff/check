@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, :count_stats, :find_relation
 
   def show
-    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.js
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def following
     ids = @user.following.pluck(:related_id)
-    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 5) 
+    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def followers
     ids = @user.followers.pluck(:user_id)
-    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 5) 
+    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def favorites
     ids = @user.favorites.pluck(:related_id)
-    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 5) 
+    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def owned
     ids = @user.owned.pluck(:related_id)
-    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 5) 
+    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
