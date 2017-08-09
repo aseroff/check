@@ -8,15 +8,17 @@ class GamesController < ApplicationController
   def index
     if params[:filter]
       @filter = params[:filter]
+      ids = []
       if @filter == "popular"
-        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+        Game.popular(20).each{|k,v| ids << k}
       elsif @filter == "favorited"
-        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+        Game.favorited(20).each{|k,v| ids << k}
       elsif @filter == "owned"
-        @games = Game.where("id in (?)", Game.popular(20).map{|k,v| k })
+        Game.owned(20).each{|k,v| ids << k}
       elsif @filter == "recent"
-        @games = Game.recently_added(20)
+        Game.recently_added(20).each{|g| ids << g.id}
       end
+      @games = Game.order_as_specified(id: ids)
     else
       @games = Game.search(params[:term])
     end

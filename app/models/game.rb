@@ -1,6 +1,7 @@
 require 'httparty'
 
 class Game < ApplicationRecord
+	extend OrderAsSpecified
   	mount_uploader :img_url, GameUploader
   	validates_integrity_of  :img_url
   	validates_processing_of :img_url
@@ -55,7 +56,7 @@ class Game < ApplicationRecord
 	end
 
 	def self.recently_added(limit = 5)
-		Game.all.order(:created_at)[0..limit]
+		Game.all.order("created_at desc")[0..limit]
 	end
 
 	def self.search(term)
