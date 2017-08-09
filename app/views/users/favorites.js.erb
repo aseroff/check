@@ -1,4 +1,4 @@
-$('#games').append('<%= j render @games %>');
+$('#game-list').append('<%= j render @games %>');
 <% if @games.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @games %>');
 <% else %>
