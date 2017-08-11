@@ -1,13 +1,13 @@
 <div class="popular">
 
 <% unless @popular_with_friends.empty? %>
-<h4>Your Friends Have Been Playing</h4>
+<h4>Trending with your Friends</h4>
 <% @popular = @popular_with_friends %>
 <%= render 'games/popular' %>
 <% end %>
 <br>
 <% unless @most_popular.empty? %>
-<h4>Most Popular Games</h4>
+<h4>Trending</h4>
 <% @popular = @most_popular %>
 <%= render 'games/popular' %>
 <%= link_to "More...", games_path(filter: "popular") %>
