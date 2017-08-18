@@ -53,8 +53,18 @@
 <% end %>
 
 
-<h3>Connect my account</h3>
+<h3>Social Networks</h3>
+<% if @user.uid.nil? %>
 
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+
+<% else %>
+
+  Connected to Twitter!
+
+<% end %>
 
 <h3>Cancel my account</h3>
 
