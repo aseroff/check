@@ -14,5 +14,5 @@
         <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
     </div>
     <div class="col-xs-6">
-        <%= social_share_button_tag(post.text, :url => "http://check.seroff.co/check-ins/10") %>
+        <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: "aseroff") %>
     </div>
