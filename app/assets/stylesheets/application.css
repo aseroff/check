@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require navbar.scss
+ *= require social-share-button
  */
  
 .body {

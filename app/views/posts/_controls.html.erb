@@ -1,0 +1,18 @@
+    <div class="col-xs-6">
+        <% if current_user %>
+            <% relation = Relation.find_by(user_id: current_user.id, related_id: post.id, relationship: "nice") %> 
+            <% if relation %>
+                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span>"), relation_path(relation), :method => :delete %>
+            <% else %>
+                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
+            <% end %>
+        <% else %>
+        <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
+        <% end %>
+        <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
+
+        <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
+    </div>
+    <div class="col-xs-6">
+        <%= social_share_button_tag(post.text, :url => "http://check.seroff.co/check-ins/10") %>
+    </div>

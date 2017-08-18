@@ -8,23 +8,7 @@
         <%= content_tag(:p, post.text) %>
         <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post, class: 'timestamp' %><br>
         <hr>
-
-        
-        <% if current_user %>
-            <% relation = Relation.find_by(user_id: current_user.id, related_id: post.id, relationship: "nice") %> 
-            <% if relation %>
-                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span>"), relation_path(relation), :method => :delete %>
-            <% else %>
-                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
-            <% end %>
-        <% else %>
-            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
-        <% end %>
-
-        <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
-
-
-        <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
+    <%= render 'posts/controls', post: post %>
     </div>
 </div>
 <div class="clearfix"></div>

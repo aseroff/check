@@ -8,6 +8,6 @@ class Post < ApplicationRecord
 	end
 
 	def name
-		self.user.username + "'s check-in to " + self.game.title
+		self.user.display_name + "'s check-in to " + self.game.title
 	end
 end

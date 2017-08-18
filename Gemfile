@@ -43,6 +43,8 @@ gem 'carrierwave', '~> 1'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'figaro'
+gem 'social-share-button'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
