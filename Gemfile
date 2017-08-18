@@ -44,7 +44,8 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'figaro'
 gem 'social-share-button'
-
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

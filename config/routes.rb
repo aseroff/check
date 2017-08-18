@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :posts, path: 'check-ins'
   resources :relations
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users do 
     get "following"
     get "followers"

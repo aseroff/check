@@ -7,9 +7,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  has_many :posts
-  has_many :relations
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  has_many :posts, :dependent => :destroy
+  has_many :relations, :dependent => :destroy
   validates :username, uniqueness: true
   validates :email, uniqueness: true
   scope :for_ids_with_order, ->(ids) {
@@ -18,6 +18,28 @@ class User < ApplicationRecord
     )
     where(:id => ids).order(order)
   } 
+
+  has_many :authorizations, :dependent => :destroy
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.username = auth.info.name
+      user.avatar = auth.info.image
+    # If you are using confirmable and the provider(s) you use validate emails, 
+    # uncomment the line below to skip the confirmation emails.
+    # user.skip_confirmation!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 
   def display_name
     '@' + self.username.to_s
@@ -69,6 +91,15 @@ class User < ApplicationRecord
 
   def owns?(game_id)
   	!self.relations.where(relationship: "owns", related_id: game_id).empty?
+  end
+
+  def has_connection_with(provider)
+      auth = self.authorizations.where(provider: provider).first
+      if auth.present?
+          auth.token.present?
+      else
+          false
+      end
   end
 
   def popular_with_friends
