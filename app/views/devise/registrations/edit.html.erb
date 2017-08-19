@@ -46,6 +46,9 @@
       <label>Change avatar</label>
       <br>
       <%= f.file_field :avatar %>
+      <br>
+      <span class="fine"ing-top:5px">Max image size 1.5MB</span>
+      <br>
       <%= f.hidden_field :avatar_cache %>
       <br>
       <% if current_user.avatar.present? %>

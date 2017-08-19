@@ -6,20 +6,18 @@
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
   </div>
 
   <div class="col-sm-6" style="padding-left:0px">
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
       <%= f.check_box :remember_me %><span class="remember"> Rememeber Me</span>
-    </div>
   <% end -%>
   </div>
   <div class="col-sm-6 right" style="padding-right:0px">
