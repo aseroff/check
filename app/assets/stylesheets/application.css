@@ -28,6 +28,7 @@
 }
 
 /* forms */
+.field {padding:10px 0 20px;}
 .actions {text-align:center; margin:20px 0 20px 0;}
 .forgot {
   font-style: italic;
