@@ -15,11 +15,17 @@
     <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
   </div>
 
+  <div class="col-sm-6" style="padding-left:0px">
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %><span class="remember"> Rememeber Me</span>
     </div>
   <% end -%>
+  </div>
+  <div class="col-sm-6 right" style="padding-right:0px">
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot" %><br />
+  </div>
+  <div class="clearfix"></div>
 
   <div class="actions">
     <%= f.submit "Sign in", class: 'btn btn-success' %>
