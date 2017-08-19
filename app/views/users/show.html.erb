@@ -1,14 +1,14 @@
 <%= content_for(:title, @user.username) %>
 
-<div class="profile col-sm-3">
+<div class="profile col-sm-4 contain">
 <% #cache @user do %>
 <%= render 'profile' %>
 <% #end %>
 <%= render 'controls' %>
 </div>
 
-<div class="feed col-sm-9">  
-<h3>Check-ins</h3>
+<div class="feed col-sm-8">  
+<h3 class="col-sm-12">Check-ins</h3>
 
 <div id="posts">
 <%= render @posts %>

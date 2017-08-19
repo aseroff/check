@@ -2,7 +2,7 @@
 <% @user = current_user %>
 <%= content_for(:title, "Feed") %>
 
-<div class="no-mobile profile col-sm-3">
+<div class="no-mobile profile col-sm-4 contain">
 <% #cache @user do %>
 <%= render 'users/profile' %>
 <% #end %>
@@ -12,8 +12,7 @@
 
 </div>
 
-<div class="feed col-sm-9">  
-<h3>Feed</h3>
+<div class="feed col-sm-8">
 
 <div id="posts">
 <%= render @posts %>
@@ -28,7 +27,7 @@
 <%= content_for(:title, "Gamekeeper") %>
 <%= content_for(:description, "The Check-in App for Board Games!") %>
 
-<div class="splash">
+<div class="splash contain">
 
 <div class="intro col-lg-12">
 	<h1>Gamekeeper: the Check-in App for Board Games</h1>

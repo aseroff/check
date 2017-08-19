@@ -20,18 +20,25 @@
   background-color: #eee;
 }
 
+.contain {
+  background-color: #fff;
+  border-radius:10px;
+  padding:20px;
+}
+
 /* forms */
 .actions {text-align:center;}
 .forgot {font-size:.9em;}
 .remember {font-weight:800;}
 
 
-.profile, .feed {
-  padding-bottom:50px;
+.feed {
+  padding:20px;
 }
 
 .list-user, .list-game {
   padding: 10px;
+  margin: 5px;
 }
 
 .game-avatar {
@@ -56,6 +63,10 @@
 
 .center {
   text-align:center;
+}
+
+.no-border {
+  border:0px;
 }
 
 a {
@@ -108,4 +119,13 @@ footer a {
 }
 .forgot {
   line-height:2.5em!important;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 5px;
 }
+.fine {
+    color: #999;
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 5px;
+  }

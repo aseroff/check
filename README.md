@@ -6,7 +6,8 @@
 
 # v 1.0
 
-1. fb/tw login/share?
+1. terms of service and privacy policy for twitter posting permission 
+1. fb login/share? twitter share?
 1. better discovery
 1. customized/non-stock emails
 1. splash page images
