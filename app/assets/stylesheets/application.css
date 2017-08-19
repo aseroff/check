@@ -54,6 +54,10 @@
   border-radius: 50%;
 }
 
+.center {
+  text-align:center;
+}
+
 a {
   color: #e67e22;
   text-decoration: none !important;
@@ -101,4 +105,7 @@ footer a {
 .pagination {
   text-align:center;
   width:100%;
+}
+.forgot {
+  line-height:2.5em!important;
 }

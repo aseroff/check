@@ -1,5 +1,9 @@
-<h2>Log in</h2>
-
+<div class="col-sm-6 col-sm-offset-3">
+<h2 class="center">Sign in</h2>
+<div class="center omniauthbox">
+  <%= link_to "Sign in with Twitter", omniauth_authorize_path(User, "twitter"), class: "btn btn-info" %>
+<h3>or</h3>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -18,8 +22,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-success' %>
+    <%= f.submit "Sign in", class: 'btn btn-success' %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>
+</div>
 
+<div class="clearfix"></div>

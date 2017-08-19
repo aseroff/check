@@ -1,24 +1,26 @@
-<h2>Sign up</h2>
+<div class="col-sm-5 col-sm-offset-1">
+<h2 class="center">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.hidden_field :provider, value: session["devise.twitter_data"]["provider"] %>
-
-  <%= f.hidden_field :uid, value: session["devise.twitter_data"]["uid"] %>
+  <% if session["devise.twitter_data"] %>
+    <%= f.hidden_field :provider, value: session["devise.twitter_data"]["provider"] %>
+    <%= f.hidden_field :uid, value: session["devise.twitter_data"]["uid"] %>
+  <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, value: session["devise.twitter_data"]["info"]["nickname"], class: 'form-control', autofocus: true %>
+    <%= f.label "Username *" %><br />
+    <%= f.text_field :username, value: (session["devise.twitter_data"]["info"]["nickname"] if session["devise.twitter_data"]), class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "Email *" %><br />
     <%= f.email_field :email, class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label "Password *" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -26,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Password Confirmation *" %><br />
     <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
   </div>
 
@@ -38,7 +40,21 @@
 
   <div class="actions">
     <%= f.submit "Sign up", class: 'btn btn-success' %>
-    <%= render "devise/shared/links" %>
   </div>
 <% end %>
+</div>
+<div class="col-sm-5">
+<h2 class="center">Connect an account</h2>
 
+<div class="omniauthbox">
+<% unless session["devise.twitter_data"] %>
+  <%= link_to "Connect with Twitter", omniauth_authorize_path(User, "twitter"), class: "btn btn-info" %>
+<% else %>
+  <p>Twitter account connected!<br>
+  Please complete the regisration on the left!</p>
+<% end %>
+<br />
+</div>
+
+</div>
+<div class="clearfix"></div>

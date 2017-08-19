@@ -1,8 +1,9 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="center">Edit Account</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="col-sm-6">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, class: 'form-control', autofocus: true %>
@@ -32,17 +33,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :avatar %><br />
-  <% if current_user.avatar.url.present? %>
-    <%= image_tag(current_user.avatar.url) %><br>
-    <%= f.check_box :remove_avatar %>
-    <%= f.label :remove_avatar %>
-  <% end %>
-  <%= f.file_field :avatar %>
-  <%= f.hidden_field :avatar_cache %>
-  </div>
-
-  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, class: 'form-control', autocomplete: "off" %>
   </div>
@@ -50,24 +40,37 @@
   <div class="actions">
     <%= f.submit "Update", class: 'btn btn-success' %>
   </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :avatar %><br />
+        <%= image_tag(current_user.avatar.url, class: "circle profile-image") %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label>Change avatar</label>
+      <br>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+      <br>
+      <% if current_user.avatar.present? %>
+          <%= f.check_box :remove_avatar %> Remove Avatar
+        <% end %>
+    </div>
+    <div class="clearfix"></div>
+    <label>Social Networks</label>
+      <% if @user.uid.nil? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+        <% end -%>
+      <% else %>
+        <p>Connected to Twitter!</p>
+      <% end %>
+
+    <label>Delete Account</label>
+      <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleing your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger', style: "font-size:0.9em;padding:3px" %>
+      <p style="padding-top:5px">This will unrecoverably destroy your account and associated activity.</p>
+  </div>
+  <div class="clearfix"></div>
 <% end %>
-
-
-<h3>Social Networks</h3>
-<% if @user.uid.nil? %>
-
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-
-<% else %>
-
-  Connected to Twitter!
-
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
-
-<br>
