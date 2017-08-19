@@ -62,9 +62,6 @@
         <p>Connected to Twitter!</p>
       <% end %>
     <br>
-    <label>Delete Account</label>
-      <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleing your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger', style: "font-size:0.9em;padding:3px;margin-bottom:5px" %><br>
-      <span class="fine">This will unrecoverably destroy your account and associated activity.</span>
   </div>
   <div class="clearfix"></div>
   <div class="col-sm-6 col-sm-offset-3">
@@ -80,4 +77,10 @@
   </div>
   <div class="clearfix"></div>
 <% end %>
+</div>
+
+<div class="contain" style="margin-top:10px">
+  <label>Delete Account</label>
+  <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleing your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger', style: "font-size:0.9em;padding:3px;margin-bottom:5px" %><br>
+  <span class="fine">This will unrecoverably destroy your account and associated activity.</span>
 </div>

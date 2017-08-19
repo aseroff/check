@@ -24,6 +24,7 @@
   background-color: #fff;
   border-radius:10px;
   padding:20px;
+  margin-bottom:20px;
 }
 
 /* forms */
@@ -76,6 +77,12 @@
 .no-gap {
   padding-left:0px;
   padding-right:0px
+}
+.fit {
+  width:100%;
+}
+.delete {
+  margin-top:20px;
 }
 
 a {
