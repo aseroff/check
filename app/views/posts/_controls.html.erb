@@ -1,4 +1,4 @@
-    <div class="col-xs-6" style="padding-left:0px">
+    <div class="col-xs-6 no-gap">
         <% if current_user %>
             <% relation = Relation.find_by(user_id: current_user.id, related_id: post.id, relationship: "nice") %> 
             <% if relation %>
@@ -13,6 +13,6 @@
 
         <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
     </div>
-    <div class="col-xs-6" style="padding-right:0px">
+    <div class="col-xs-6 no-gap">
         <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: "aseroff") %>
     </div>

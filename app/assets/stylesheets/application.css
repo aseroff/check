@@ -64,16 +64,18 @@
 .circle {
   border-radius: 50%;
 }
-
 .center {
   text-align:center;
 }
 .right {
   text-align:right;
 }
-
 .no-border {
   border:0px;
+}
+.no-gap {
+  padding-left:0px;
+  padding-right:0px
 }
 
 a {
