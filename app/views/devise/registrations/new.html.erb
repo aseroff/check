@@ -12,12 +12,12 @@
 
   <div class="field">
     <%= f.label "Username *" %>
-    <%= f.text_field :username, value: (session["devise.twitter_data"]["info"]["nickname"] if session["devise.twitter_data"]["nickname"]), class: 'form-control', autofocus: true %>
+    <%= f.text_field :username, value: (session["devise.twitter_data"]["info"]["nickname"] if session["devise.twitter_data"]["info"]["nickname"]), class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "Email *" %>
-    <%= f.email_field :email, value: (session["devise.twitter_data"]["info"]["email"] if session["devise.twitter_data"]["email"]), class: 'form-control', autofocus: true %>
+    <%= f.email_field :email, value: (session["devise.twitter_data"]["info"]["email"] if session["devise.twitter_data"]["info"]["email"]), class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
@@ -53,7 +53,7 @@
   <%= link_to "Connect with Twitter", omniauth_authorize_path(User, "twitter"), class: "btn btn-info" %>
 <% else %>
   <p>Twitter account connected!<br>
-  Please complete the regisration on the left!</p>
+  Please complete your regisration by choosing a password.</p>
 <% end %>
 <br />
 </div>
