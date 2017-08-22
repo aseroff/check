@@ -1,4 +1,5 @@
 <div class="contain">
+
 <h2 class="center">Edit Account</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -61,10 +62,10 @@
     <label>Social Networks</label>
       <% if @user.uid.nil? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+          <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
         <% end -%>
       <% else %>
-        <p>Connected to Twitter!</p>
+        <%= link_to "Disconnect Twitter Account", edit_user_registration_path, class: "btn btn-danger" %><br />
       <% end %>
     <br>
   </div>

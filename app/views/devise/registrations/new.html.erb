@@ -12,12 +12,12 @@
 
   <div class="field">
     <%= f.label "Username *" %>
-    <%= f.text_field :username, value: (session["devise.twitter_data"]["info"]["nickname"] if session["devise.twitter_data"]), class: 'form-control', autofocus: true %>
+    <%= f.text_field :username, value: (session["devise.twitter_data"]["info"]["nickname"] if session["devise.twitter_data"]["nickname"]), class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "Email *" %>
-    <%= f.email_field :email, class: 'form-control', autofocus: true %>
+    <%= f.email_field :email, value: (session["devise.twitter_data"]["info"]["email"] if session["devise.twitter_data"]["email"]), class: 'form-control', autofocus: true %>
   </div>
 
   <div class="field">

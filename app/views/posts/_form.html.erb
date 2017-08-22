@@ -12,6 +12,8 @@
     <%= form.hidden_field :user_id, id: :post_user_id %>
     <%= form.text_area :text, id: :post_text, class: 'form-control' %>
 
+    <%= form.check_box :tweet, id: :post_tweet, class: 'form-control' %>
+
     <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
   </div>
 </div>

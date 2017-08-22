@@ -6,9 +6,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Twitter")
-    else
       session["devise.twitter_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to new_user_registration_url
+
+    else
+      if current_user
+        current_user.update(provider: request.env["omniauth.auth"]["provider"], uid: request.env["omniauth.auth"]["uid"])
+        redirect_to edit_user_registration_url, :event => :authentication
+        set_flash_message(:notice, :success, :kind => "Twitter")
+      else
+        session["devise.twitter_data"] = request.env["omniauth.auth"].except("extra")
+        redirect_to new_user_registration_url
+      end
     end
   end
 

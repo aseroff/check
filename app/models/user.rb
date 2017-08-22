@@ -32,6 +32,19 @@ class User < ApplicationRecord
     end
   end
 
+  def tweet(post, token, secret)
+    if self.provider == "twitter" && self.uid
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = "dFPIQW8rTerq2ncKA90NJt8ty"
+        config.consumer_secret     = "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
+        config.access_token        = token
+        config.access_token_secret = secret
+      end
+      resp = client.update(post)
+    end
+    resp
+  end
+
   def display_name
     '@' + self.username.to_s
   end

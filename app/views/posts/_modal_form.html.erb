@@ -11,6 +11,11 @@
     <%= form.hidden_field :game_id, id: :post_game_id %>
     <%= form.text_area :text, id: :post_text, class: 'form-control' %>
 
+    <% if current_user.provider == "twitter" %>
+      <%= form.check_box :tweet, id: :post_tweet, class: 'tweet' %> 
+      Share to Twitter
+    <% end %>
+
     <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
   </div>
   <div class="clearfix"></div>

@@ -41,12 +41,18 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(user_id: post_params[:user_id], game_id: post_params[:game_id], text: post_params[:text])
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        if post_params["tweet"].to_i == 1
+          tweet_url = current_user.tweet(@post, session["devise.twitter_data"]["token"], session["devise.twitter_data"]["secret"])
+          format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a href="' + tweet_url + '">here</a>.' }
+          format.json { render :show, status: :created, location: @post }
+        else
+          format.html { redirect_to @post, notice: 'Check in created!' }
+          format.json { render :show, status: :created, location: @post }
+        end
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -86,7 +92,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :game_id, :text)
+      params.require(:post).permit(:user_id, :game_id, :text, :tweet)
     end
 
     def must_be_logged_in
