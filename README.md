@@ -7,11 +7,12 @@
 
 # v 1.0
 
-1. terms of service and privacy policy for twitter posting permission 
-1. fb login/share? twitter share?
-1. better discovery
+1. route to and boilerplate terms of service and privacy policy for twitter posting permission
+1. confirm twitter working (resource not blah blah blah) 
+1. facebook? 
+1. more/better discovery
 1. customized/non-stock emails
-1. splash page images
+1. custom splash page images
 
 # v 1.1
 
