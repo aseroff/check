@@ -40,7 +40,7 @@ class User < ApplicationRecord
         config.access_token        = token
         config.access_token_secret = secret
       end
-      resp = client.update("I checked in to #{post.game.title} on GameKeeper! " + Rails.root + '/check-ins/' + post.id )
+      resp = client.update("I checked in to #{post.game.title} on GameKeeper! " + post.url )
     end
     resp.id
   end
