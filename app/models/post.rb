@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  	include Rails.application.routes.url_helpers
 	validate :user_id, :game_id
 	belongs_to :user
 	belongs_to :game
@@ -13,6 +12,6 @@ class Post < ApplicationRecord
 	end
 
   	def url
-    	Rails.root.to_s + post_path(self)
+    	'http://check.seroff.co/checkins/' + self.id.to_s
   	end
 end
