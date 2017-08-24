@@ -59,7 +59,7 @@
     </div>
     <div class="clearfix"></div>
     <br>
-    <label>Social Networks</label>
+    <label>Social Network Login</label>
       <% if @user.uid.nil? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
           <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />

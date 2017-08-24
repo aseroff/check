@@ -46,8 +46,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         if post_params["tweet"].to_i == 1 && Rails.env == "production"
-          tweet_id = current_user.tweet(@post, session["devise.twitter_data"]["token"], session["devise.twitter_data"]["secret"])
-          format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a href="http://twitter.com/statuses/' + tweet_id + '">here</a>.' }
+          tweet_id = current_user.tweet(@post)
+          format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a href="http://twitter.com/statuses/' + tweet_id.to_s + '">here</a>.' }
           format.json { render :show, status: :created, location: @post }
         else
           format.html { redirect_to @post, notice: 'Check in created!' }
