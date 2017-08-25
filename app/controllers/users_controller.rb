@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, :count_stats, :find_relation
+  before_action :set_user
+  before_action :count_stats, except: :disconnect
+  before_action :find_relation, except: :disconnect
 
   def show
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
@@ -43,6 +45,11 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def disconnect
+    @user.update(uid: nil, provider: nil)
+    redirect_to edit_user_registration_path, notice: "Account disconnected."
   end
 
     private

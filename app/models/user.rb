@@ -32,13 +32,13 @@ class User < ApplicationRecord
     end
   end
 
-  def tweet(post)
+  def tweet(post, token, secret)
     if self.provider == "twitter" && self.uid
       client = Twitter::REST::Client.new do |config|
         config.consumer_key        = "dFPIQW8rTerq2ncKA90NJt8ty"
         config.consumer_secret     = "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
-        config.access_token        = "20259584-ZKEtJ9JHNVpWITiv5qTHQSVtN6R4kyL6EhlmsZJUN"
-        config.access_token_secret = "JYA9i2eAQ2Gp1rHjgDc2d37XWiAaBfp7EBTE7p96YZygT"
+        config.access_token        = token
+        config.access_token_secret = secret
       end
       resp = client.update("I checked in to #{post.game.title} on GameKeeper! " + post.url )
     end

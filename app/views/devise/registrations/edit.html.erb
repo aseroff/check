@@ -62,10 +62,10 @@
     <label>Social Network Login</label>
       <% if @user.uid.nil? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
+          <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
         <% end -%>
       <% else %>
-        <%= link_to "Disconnect Twitter Account", edit_user_registration_path, class: "btn btn-danger" %><br />
+        <%= link_to "Disconnect Twitter Account", user_disconnect_path(@user), class: "btn btn-danger" %><br />
       <% end %>
     <br>
   </div>

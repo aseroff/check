@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get "followers"
     get "favorites"
     get "owned"
+    get "disconnect"
   end
   resources :games
   root 'posts#index'
