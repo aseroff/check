@@ -40,7 +40,12 @@ class User < ApplicationRecord
         config.access_token        = token
         config.access_token_secret = secret
       end
-      resp = client.update("I checked in to #{post.game.title} on GameKeeper! " + post.url )
+      if post.text.empty?
+        message = "I checked in to #{post.game.title} on GameKeeper! " + post.url
+      else
+        message = post.text[0..114] + (post.text.length > 114 ? "..." : "") +  post.url
+      end
+      resp = client.update(message)
     end
     resp.id
   end
