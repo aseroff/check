@@ -12,6 +12,6 @@ class Post < ApplicationRecord
 	end
 
   	def url
-    	'http://check.seroff.co/checkins/' + self.id.to_s
+    	'http://check.seroff.co/check-ins/' + self.id.to_s
   	end
 end
