@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :must_be_logged_in, only: [:new, :edit, :update, :destroy]
+  before_action :must_be_logged_in, only: [:new]
+  before_action :must_be_owner, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -97,5 +98,9 @@ class PostsController < ApplicationController
 
     def must_be_logged_in
       redirect_to new_user_session_path, notice: "You must be logged in to do that." unless current_user
+    end
+
+    def must_be_owner
+      redirect_to posts_path, notice: "You can't do that." unless current_user && current_user == post.user
     end
 end
