@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-sm-offset-3 contain">
 <h2 class="center">Sign in</h2>
 <div class="center omniauthbox">
-  <%= link_to "Sign in with Twitter", omniauth_authorize_path(User, "twitter"), class: "btn btn-info" %>
+  <%= link_to "Sign in with Twitter", omniauth_authorize_path(User, "twitter") + "?use_authorize=true", class: "btn btn-info" %>
 <h3>or</h3>
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
