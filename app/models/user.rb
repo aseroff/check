@@ -43,7 +43,7 @@ class User < ApplicationRecord
       if post.text.empty?
         message = "I checked in to #{post.game.title} on GameKeeper! " + post.url
       else
-        message = post.text[0..114] + (post.text.length > 114 ? "..." : "") +  post.url
+        message = (post.text.length > 112 ? post.text[0..112] + "... " : " ") +  post.url
       end
       resp = client.update(message)
     end

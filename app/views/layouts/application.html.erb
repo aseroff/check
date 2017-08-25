@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    <title><%= content_for?(:title) ?  yield(:title) + " on Gamekeeper" : "Gamekeeper" %></title>
+    <title><%= content_for?(:title) ?  yield(:title) : "Gamekeeper" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:title) + " on Gamekeeper" : "Gamekeeper" %>">
     
     <%= render 'application/favicon' %>
