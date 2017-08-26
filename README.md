@@ -7,6 +7,7 @@
 
 # v 1.0
 
+1. store twitter token on user and switch links back to authenticate
 1. route to and boilerplate terms of service and privacy policy for twitter posting permission
 1. facebook? 
 1. more/better discovery
