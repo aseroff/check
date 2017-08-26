@@ -1,8 +1,10 @@
 <div class="col-sm-6 col-sm-offset-3 contain">
 <h2 class="center">Sign in</h2>
 <div class="center omniauthbox">
-  <%= link_to "Sign in with Twitter", omniauth_authorize_path(User, "twitter") + "?use_authorize=true", class: "btn btn-info" %>
-<h3>or</h3>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
+  <% end -%>
+<h4 style="margin-top:20px">or</h4>
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
