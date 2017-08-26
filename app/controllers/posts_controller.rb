@@ -101,6 +101,6 @@ class PostsController < ApplicationController
     end
 
     def must_be_owner
-      redirect_to posts_path, notice: "You can't do that." unless current_user && current_user == post.user
+      redirect_to posts_path, notice: "You can't do that." unless current_user && current_user == @post.user
     end
 end
