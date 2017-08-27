@@ -2,7 +2,7 @@
 <h2 class="center">Sign in</h2>
 <div class="center omniauthbox">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
   <% end -%>
 <h4 style="margin-top:20px">or</h4>
 </div>

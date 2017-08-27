@@ -59,13 +59,20 @@
     </div>
     <div class="clearfix"></div>
     <br>
-    <label>Social Network Login</label>
+    <label>Connect to Twitter</label>
       <% if @user.uid.nil? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
           <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
         <% end -%>
       <% else %>
-        <%= link_to "Disconnect Twitter Account", user_disconnect_path(@user), class: "btn btn-danger" %><br />
+        <% if @user.twitter_token.nil? %>
+          Login with Twitter is enabled. Authorize once more to enable sharing your check-ins to Twitter.
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to "Authorize Sharing to #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
+          <% end -%>
+        <% else %>
+          <%= link_to "Disconnect Twitter Account", user_disconnect_path(@user), class: "btn btn-danger" %><br />
+        <% end %>
       <% end %>
     <br>
   </div>

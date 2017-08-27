@@ -8,6 +8,8 @@
   <% if session["devise.twitter_data"] %>
     <%= f.hidden_field :provider, value: session["devise.twitter_data"]["provider"] %>
     <%= f.hidden_field :uid, value: session["devise.twitter_data"]["uid"] %>
+    <%= f.hidden_field :twitter_token, value: session["devise.twitter_data"]["credentials"]["token"] %>
+    <%= f.hidden_field :twitter_token_secret, value: session["devise.twitter_data"]["credentials"]["secret"] %>
   <% end %>
 
   <div class="field">
@@ -50,7 +52,7 @@
 
 <div class="omniauthbox">
 <% unless session["devise.twitter_data"] %>
-  <%= link_to "Connect with Twitter", omniauth_authorize_path(User, "twitter"), class: "btn btn-info" %>
+  <%= link_to "Connect with Twitter", omniauth_authorize_path(User, "twitter") + "?use_authorize=true", class: "btn btn-info" %>
 <% else %>
   <p>Twitter account connected!<br>
   Please complete your regisration by choosing a password.</p>
