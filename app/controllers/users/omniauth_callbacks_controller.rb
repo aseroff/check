@@ -13,6 +13,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       @user = User.from_omniauth(request.env["omniauth.auth"])
       if @user.persisted?
+        @user.assign_attributes(
+          twitter_token: request.env["omniauth.auth"]["credentials"]["token"], 
+          twitter_token_secret: request.env["omniauth.auth"]["credentials"]["secret"]
+        )
+        @user.save if @user.changed?
         sign_in_and_redirect @user, :event => :authentication
         set_flash_message(:notice, :success, :kind => "Twitter")
         session["devise.twitter_data"] = request.env["omniauth.auth"].except("extra")
