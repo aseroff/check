@@ -18,6 +18,8 @@
  
 .body {
   background-color: #eee;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:13px;
 }
 
 .contain {
@@ -28,19 +30,17 @@
 }
 
 /* forms */
-.field {padding:10px 0 20px;}
-.actions {text-align:center; margin:20px 0 20px 0;}
+.field { padding:10px 0 20px; }
+.actions { text-align:center; margin:20px 0 20px 0; }
+label { display: block; }
 .forgot {
   font-style: italic;
   font-size: 0.9em;
   line-height: 1.5em;
 }
-.remember {font-weight:800; }
+.remember { font-weight:800; }
 
-
-.feed {
-  padding:20px;
-}
+.feed { padding:20px; }
 
 .list-user, .list-game {
   padding: 10px;
@@ -63,25 +63,6 @@
   border-radius: 5px;
 }
 
-.circle {
-  border-radius: 50%;
-}
-.center {
-  text-align:center;
-}
-.right {
-  text-align:right;
-}
-.no-border {
-  border:0px;
-}
-.no-gap {
-  padding-left:0px;
-  padding-right:0px
-}
-.fit {
-  width:100%;
-}
 .delete {
   margin-top:20px;
 }
@@ -96,7 +77,7 @@ a:hover {
 }
 
 hr { 
-  margin: 5px 0 5px; 
+  margin: 10px 0 10px; 
 }
 
 footer {
@@ -140,3 +121,10 @@ footer a {
     font-size: 12px;
     margin-top: 5px;
   }
+.left { text-align:left; }
+.center { text-align:center; }
+.right { text-align:right; }
+.no-border { border:0px; }
+.no-gap { padding-left:0px; padding-right:0px }
+.fit { width:100%; }
+.circle { border-radius: 50%; }

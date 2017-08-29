@@ -1,4 +1,4 @@
-var Posts = React.createClass({
+var Nices = React.createClass({
 	render: function() {
 		return (
 			<div class='feed'>

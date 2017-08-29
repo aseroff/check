@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user
-  before_action :count_stats, except: :disconnect
-  before_action :find_relation, except: :disconnect
+  before_action :set_user, except: :index
+  before_action :count_stats, except: [:index, :disconnect]
+  before_action :find_relation, except: [:index, :disconnect]
+
+  def index
+    redirect_to :root
+  end
 
   def show
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)

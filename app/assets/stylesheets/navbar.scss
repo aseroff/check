@@ -1,8 +1,4 @@
-
-$bgDefault      : #e67e22;
-$bgHighlight    : #d35400;
-$colDefault     : #ecf0f1;
-$colHighlight   : #ffe6d1;
+@import 'variables';
 
 .navbar-default {
   background-color: $bgDefault;

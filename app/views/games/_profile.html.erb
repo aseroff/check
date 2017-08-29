@@ -1,8 +1,11 @@
-<%= image_tag(@game.img_url.medium, class: 'game-image') %>
+<%= image_tag(@game.img_url.medium, class: 'image') %>
+
 <h2><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
+
 <% if current_user %>
-<button type="button" data-toggle="modal" data-target="#checkin" class="col-xs-12 btn btn-success"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span> Check in</button>
+	<button type="button" data-toggle="modal" data-target="#checkin" class="col-xs-12 btn btn-success"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span> Check in</button>
 <% else %>
-<%= link_to raw("<span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check in"), new_post_path(game_id: @game.id), class: 'col-xs-12 btn btn-success' %><br>
+	<%= link_to raw("<span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check in"), new_post_path(game_id: @game.id), class: 'col-xs-12 btn btn-success' %><br>
 <% end %>
-<%= link_to raw("<span class='glyphicon glyphicon-book' aria-hidden='true'></span> View on BoardGameGeek"), ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'col-xs-12 btn btn-default'  unless @game.id < 0 %><br>
+
+<%= link_to raw("<span class='glyphicon glyphicon-book' aria-hidden='true'></span> View on BoardGameGeek"), ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'col-xs-12 btn btn-default' unless @game.id < 0 %><br>

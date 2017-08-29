@@ -1,74 +1,43 @@
+@import 'variables';
 
 .post {
   padding: 25px;
   margin: 10px;
   border-radius: 15px;
-  background-color:#e67e22;
+  background-color: $main-color;
   overflow:auto;
+  
+  a {
+    color: white;
+    text-decoration: none !important;
+    font-weight: 800;
+    &:visited {
+      color: $lighten;
+    };
+  } 
+  a:hover { color: $darken}
+
+  .user-image {
+    width:50px;
+    height:50px;
+    margin:10px;
+  }
+
+  .game-image {
+    max-width:50px;
+    margin:10px;
+  }
+
+  .timestamp {
+    font-size:.8em;
+  }
+
+  hr { margin: 5px 0 5px }
+
 }
 
-.post a {
-  color: white;
-  text-decoration: none !important;
-  font-weight: 800;
-  &:visited {
-    color: #ffe6d1;
-  };
-} 
+$size: 12px;
 
-.post a:hover {
-  color:#d35400;
-}
-
-.post .user-image {
-  width:50px;
-  height:50px;
-  margin:10px;
-}
-
-.post .game-image {
-  max-width:50px;
-  margin:10px;
-}
-
-.post .timestamp {
-  font-size:.8em;
-}
-
-.splash {
-  text-align:center;
-}
-
-.intro {
-  margin:50px 0 50px;
-}
-
-.cta {
-  margin-top:50px;
-  margin-bottom:50px;
-}
-
-.cta a {
-  font-size:2em;
-}
-
-.feature {
-  overflow:auto;
-}
-
-.feature h2 {
-  margin-top:1.2em;
-}
-.feature h4 {
-  margin-bottom:50px;
-}
-
-.feature-graphic {
-  padding:0;
-  min-height:200px;
-}
-
-$size: 24px;
 .social-share-button {
   text-align:right;
   .ssb-icon {

@@ -1,4 +1,5 @@
 <% if current_user %>
+
 <% @user = current_user %>
 <%= content_for(:title, "Feed") %>
 
@@ -27,7 +28,7 @@
 <%= content_for(:title, "Gamekeeper") %>
 <%= content_for(:description, "The Check-in App for Board Games!") %>
 
-<div class="splash contain">
+<div class="center contain">
 
 <div class="intro col-lg-12">
 	<h1>Gamekeeper: the Check-in App for Board Games</h1>
@@ -36,7 +37,7 @@
 <div class="features col-lg-12">
   
   <div class="feature">
-  	<div class="col-xs-12 col-md-6 feature-graphic"><%= image_tag('https://upload.wikimedia.org/wikipedia/commons/4/46/A_Game_Of_Thrones_board_game_detail.jpg', class: "fit") %></div>
+  	<div class="col-xs-12 col-md-6 graphic"><%= image_tag('https://upload.wikimedia.org/wikipedia/commons/4/46/A_Game_Of_Thrones_board_game_detail.jpg', class: "fit") %></div>
   	<div class="col-xs-12 col-md-6">
     	<h2>Keep track of the games you play</h2>
     	<h4>and share your check-ins to social networks.</h4>
@@ -46,7 +47,7 @@
   <div class="clearfix"></div>
 
   <div class="feature">
-  	<div class="col-xs-12 col-md-6 pull-right feature-graphic"><%= image_tag('https://static.pexels.com/photos/84663/pexels-photo-84663.jpeg', class: "fit") %></div>
+  	<div class="col-xs-12 col-md-6 pull-right graphic"><%= image_tag('https://static.pexels.com/photos/84663/pexels-photo-84663.jpeg', class: "fit") %></div>
   	<div class="col-xs-12 col-md-6">
     	<h2>See what your friends are playing</h2>
     	<h4>and find out who to challenge to a game.</h4>
@@ -56,7 +57,7 @@
   <div class="clearfix"></div>
 
   <div class="feature">
-  	<div class="col-xs-12 col-md-6 feature-graphic"><%= image_tag('https://upload.wikimedia.org/wikipedia/commons/a/a2/Pandemic_board_game.jpg', class: "fit") %></div>
+  	<div class="col-xs-12 col-md-6 graphic"><%= image_tag('https://upload.wikimedia.org/wikipedia/commons/a/a2/Pandemic_board_game.jpg', class: "fit") %></div>
   	<div class="col-xs-12 col-md-6">
     	<h2>Keep your games organized</h2>
     	<h4>by adding them to your profile's lists.</h4>

@@ -1,32 +1,53 @@
-.ui-helper-hidden-accessible { display: none }
-#results ul { list-style-type: none; padding: 0; border: 1px solid; }
-#results li { padding: 5px; display: inline-block; width:100%; }
+@import 'variables';
 
-.game-image {
-  max-width: 100%;
-  max-height: 500px;
-}
-.year {
-	font-size:.5em;
-}
-.favorite-active:before {
-  content: 'Favorited';
-}
-.favorite-active:hover:before {
-  content: 'Remove from Favorites';
-}
-.owns-active:before {
-  content: 'Owned';
-}
-.owns-active:hover:before {
-  content: 'Remove from Owned';
-}
-
-.nav-pills > li.active > a {
-    background-color: #e67e22!important;
+.game {
+  .image {
+    max-width: 100%;
+    max-height: 500px;
+  }
+  .stats {
+    margin: 15px 0 5px;
+  }
+  .description {
+    text-align:left;
+    margin-top:20px;
+  }
+  .year {
+	 font-size:.5em;
+  }
+  .feed { padding:20px; }
+  .posts {
+    padding: 25px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: $main-color;
+    overflow:auto;
+  }
 }
 
 .popular {
   margin-top:20px;
   padding:10px;
+}
+
+.favorite-active:before { content: 'Favorited'; }
+.favorite-active:hover:before { content: 'Remove from Favorites'; }
+.owns-active:before { content: 'Owned'; }
+.owns-active:hover:before { content: 'Remove from Owned'; }
+
+.ui-helper-hidden-accessible { display: none }
+#results {
+  ul { 
+    list-style-type: none; 
+    padding: 0; 
+    border: 1px solid; 
+  }
+  li { 
+    padding: 5px;
+    display: inline-block;
+    width:100%; 
+    &:hover { background-color: $main-color; }
+  }
+  a:hover { color:white }
+  .ui-state-focus { background-color: inherit; }
 }

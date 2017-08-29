@@ -1,82 +1,70 @@
-<div class="contain">
+<div class="col-sm-3">
+  <ul class="nav nav-pills nav-stacked pill-menu">
+    <li role="presentation" class="active"><a href="#edit">Edit Account</a></li>
+    <li role="presentation"><a href="#connect">Connect to Social</a></li>
+    <li role="presentation"><a href="#delete">Delete Account</a></li>
+  </ul>
+</div>
 
-<h2 class="center">Edit Account</h2>
+<div class="contain col-sm-9">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div id="edit" class="active pill-content">
+  <h2 class="center">Edit Account</h2>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="col-sm-6">
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username, class: 'form-control', autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <span class="fine">(leave blank if you don't want to change it)</span>
-    <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <span class="fine"><%= @minimum_password_length %> characters minimum</span>
+  <div class="col-sm-3 col-sm-offset-1">
+    <div class="field">
+      <%= image_tag(current_user.avatar.medium, class: "circle profile-image") %>
+    </div>
+    <div class="field">
+    <label>Change avatar</label>
+    <%= f.file_field :avatar %>
+    <br>
+    <span class="fine">Max image size 1MB</span>
+    <br>
+    <%= f.hidden_field :avatar_cache %>
+    <br>
+    <% if current_user.avatar.present? %>
+      <%= f.check_box :remove_avatar %> Remove Avatar
     <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
-  </div>
+  <div class="col-sm-6 col-sm-offset-1">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', autofocus: true %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control', autofocus: true %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :password %> <span class="fine">(leave blank if you don't want to change it)</span>
+      <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <br />
+        <span class="fine"><%= @minimum_password_length %> characters minimum</span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
+    </div>
 
   </div>
-  <div class="col-sm-6">
-    <div class="col-sm-6 no-gap">
-      <div class="field">
-        <%= f.label :avatar %>
-        <%= image_tag(current_user.avatar.medium, class: "circle profile-image") %>
-      </div>
-    </div>
-    <div class="col-sm-6 no-gap">
-      <div class="field">
-      <label>Change avatar</label>
-      <br>
-      <%= f.file_field :avatar %>
-      <br>
-      <span class="fine"ing-top:5px">Max image size 1MB</span>
-      <br>
-      <%= f.hidden_field :avatar_cache %>
-      <br>
-      <% if current_user.avatar.present? %>
-        <%= f.check_box :remove_avatar %> Remove Avatar
-      <% end %>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-    <br>
-    <label>Connect to Twitter</label>
-      <% if @user.uid.nil? %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
-        <% end -%>
-      <% else %>
-        <% if @user.twitter_token.nil? %>
-          Login with Twitter is enabled. Authorize once more to enable sharing your check-ins to Twitter.
-          <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to "Authorize Sharing to #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info" %><br />
-          <% end -%>
-        <% else %>
-          <%= link_to "Disconnect Twitter Account", user_disconnect_path(@user), class: "btn btn-danger" %><br />
-        <% end %>
-      <% end %>
-    <br>
-  </div>
+
   <div class="clearfix"></div>
+
   <div class="col-sm-6 col-sm-offset-3">
 
     <div class="field">
@@ -92,8 +80,29 @@
 <% end %>
 </div>
 
-<div class="col-xs-12 contain" style="margin-top:10px">
-  <label>Delete Account</label>
-  <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleing your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger', style: "font-size:0.9em;padding:3px;margin-bottom:5px" %><br>
+<div id="connect" class="pill-content">
+  <h2 class="center">Connect to Social</h2>
+  <% if @user.uid.nil? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info col-xs-6 col-xs-offset-3" %><br />
+    <% end -%>
+  <% else %>
+    <% if @user.twitter_token.nil? %>
+      Login with Twitter is enabled. Authorize once more to enable sharing your check-ins to Twitter.
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to "Authorize Sharing to #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info col-xs-6 col-xs-offset-3" %><br />
+      <% end -%>
+    <% else %>
+      <%= link_to "Disconnect Twitter Account", user_disconnect_path(@user), class: "btn btn-danger col-xs-6 col-xs-offset-3" %><br />
+    <% end %>
+  <% end %>
+</div>
+
+<div id="delete" class="pill-content center">
+  <h2 class="center">Delete Account</h2>
+  <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleting your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger col-xs-6 col-xs-offset-3' %><br><br>
   <span class="fine">This will unrecoverably destroy your account and associated activity.</span>
 </div>
+
+</div>
+<div class="clearfix"></div>

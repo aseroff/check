@@ -18,3 +18,14 @@
 //= require components
 //= require social-share-button
 //= require_tree .
+
+$(document).ready(function() {
+  $(".pill-menu a").click(function(event) {
+    event.preventDefault();
+    $(this).parent().addClass("active");
+    $(this).parent().siblings().removeClass("active");
+    var content = $(this).attr("href");
+    $(".pill-content").not(content).css("display", "none");
+    $(content).fadeIn();
+  });
+});

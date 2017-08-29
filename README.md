@@ -17,7 +17,6 @@
 
 1. React elements
 1. Shortcuts on games to checkin/fav/own
-1. users' follow and favs are ordered desc
 1. more shortcuts on objects
 1. more data on pages
 1. data integrity - string cleanup in game descriptions
