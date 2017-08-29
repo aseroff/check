@@ -12,11 +12,13 @@
     <%= form.text_area :text, id: :post_text, class: 'form-control' %>
 
     <% if current_user.twitter_token && current_user.twitter_token_secret %>
-      <%= form.check_box :tweet, id: :post_tweet, class: 'tweet' %> 
-      Share to Twitter
+      <div class="share">
+        <%= form.check_box :tweet, id: :post_tweet %> 
+        <span>Share to Twitter</span>
+      </div>
     <% end %>
 
-    <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
+    <%= form.submit "Check in!", class: 'btn btn-success col-xs-12' %>
   </div>
   <div class="clearfix"></div>
 </div>
