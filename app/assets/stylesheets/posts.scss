@@ -18,14 +18,13 @@
   a:hover { color: $darken}
 
   .images {
-    text-align:center;
     .user-image {
-      width:100px;
-      height:100px;
+      width:80px;
+      height:80px;
       margin:10px 0 10px;
     }
     .game-image {
-      width:100px;
+      max-width:80px;
       margin:10px 0 10px;
     }
   }

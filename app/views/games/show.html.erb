@@ -1,7 +1,7 @@
 <div class="game">
 <%= content_for(:title, @game.title) %>
 
-<div class="col-sm-6 contain profile">
+<div class="col-sm-5 contain profile">
 	<%= render 'profile' %>
 	<%= render 'controls' %>
 	<%= render 'stats' %>
@@ -13,7 +13,7 @@
 	</p>
 </div>
 
-<div class="feed col-sm-6">
+<div class="feed col-sm-7">
 
 <div id="posts">
 	<%= render @posts %>
