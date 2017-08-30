@@ -1,9 +1,9 @@
 @import 'variables';
 
 .post {
+  @include border-radius(15px);
   padding: 25px;
   margin: 10px;
-  border-radius: 15px;
   background-color: $main-color;
   overflow:auto;
   box-shadow: 5px 5px 5px #888888;

@@ -9,7 +9,7 @@
 <div class="contain col-sm-9">
 
   <div id="edit" class="active pill-content">
-  <h2 class="center">Edit Account</h2>
+  <h2 class="center serif">Edit Account</h2>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -81,7 +81,7 @@
 </div>
 
 <div id="connect" class="pill-content" style="display:none">
-  <h2 class="center">Connect to Social</h2>
+  <h2 class="center serif">Connect to Social</h2>
   <% if @user.uid.nil? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to "Connect with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) + "?use_authorize=true", class: "btn btn-info col-xs-6 col-xs-offset-3" %><br />
@@ -100,7 +100,7 @@
 </div>
 
 <div id="delete" class="pill-content center" style="display:none">
-  <h2 class="center">Delete Account</h2>
+  <h2 class="serif">Delete Account</h2>
   <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Deleting your account cannot be undone. Are you sure?" }, method: :delete, class: 'btn btn-danger col-xs-6 col-xs-offset-3' %><br>
   <br><br>
   <span class="fine">This will unrecoverably destroy your account and associated activity.</span>

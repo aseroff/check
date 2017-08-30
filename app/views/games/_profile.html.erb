@@ -1,6 +1,6 @@
 <%= image_tag(@game.img_url.medium, class: 'image') %>
 
-<h2><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
+<h2 class="serif"><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
 
 <% if current_user %>
 	<button type="button" data-toggle="modal" data-target="#checkin" class="col-xs-12 btn btn-success"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span> Check in</button>

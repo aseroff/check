@@ -15,10 +15,17 @@
  *= require navbar.scss
  *= require social-share-button
  */
- 
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+ .turbolinks-progress-bar {
+  height: 5px;
+  background-color: white;
+}
+
 .body {
   background-color: #eee;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Droid Sans', verdana, arial, helvetica, sans-serif;
   font-size:13px;
 }
 
@@ -98,22 +105,11 @@ footer a {
   }
 } 
 
-.turbolinks-progress-bar {
-  height: 5px;
-  background-color: white;
-}
 
-@media only screen and (max-width: 768px) {
-  .no-mobile {display:none;}
-}
-@media only screen and (min-width: 768px) {
-  .only-mobile {display:none;}
-}
 
 .nav-pills > li.active > a {
-    background-color: #e67e22!important;
+  background-color: #e67e22!important;
 }
-
 .pagination {
   text-align:center;
   width:100%;
@@ -132,3 +128,10 @@ footer a {
 .fit { width:100%; }
 .circle { border-radius: 50%; }
 .fixed { position:fixed; }
+.serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
+@media only screen and (max-width: 768px) {
+  .no-mobile {display:none;}
+}
+@media only screen and (min-width: 768px) {
+  .only-mobile {display:none;}
+}
