@@ -1,10 +1,10 @@
 <div class="post">
-    <div class="col-sm-3 images">
-        <%= link_to image_tag(post.user.avatar.thumb, class: 'circle user-image'), post.user %>
+    <div class="col-sm-3 col-sm-offset-1 images no-gap">
+        <%= link_to image_tag(post.user.avatar.thumb, class: 'circle user-image'), post.user %>&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to image_tag(post.game.img_url.thumb, class: 'game-image'), post.game %>
     </div>
-    <div class="col-sm-9">
-    	<h4><%= link_to post.user.display_name, post.user %> checked into <%= link_to post.game.title, post.game %></h4>
+    <div class="col-sm-7 col-sm-offset-1 no-gap">
+    	<h4><%= link_to post.user.display_name, post.user %> played <%= link_to post.game.title, post.game %></h4>
         <%= content_tag(:p, post.text) %>
         <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post, class: 'timestamp' %><br>
         <hr>

@@ -1,0 +1,18 @@
+@import 'variables';
+
+.ui-helper-hidden-accessible { display: none }
+#results {
+  ul { 
+    list-style-type: none; 
+    padding: 0; 
+    border: 1px solid; 
+  }
+  li { 
+    padding: 5px;
+    display: inline-block;
+    width:100%; 
+    &:hover { background-color: $main-color; }
+  }
+  a:hover { color:white }
+  .ui-state-focus { background-color: inherit; }
+}
