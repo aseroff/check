@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def favorites
     ids = @user.favorites.pluck(:related_id)
-    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 5) 
+    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
       format.js
