@@ -129,6 +129,7 @@ footer a {
 .circle { border-radius: 50%; }
 .fixed { position:fixed; }
 .serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
+.yellow { color:yellow; }
 @media only screen and (max-width: 768px) {
   .no-mobile {display:none;}
 }
