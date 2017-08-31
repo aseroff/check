@@ -1,9 +1,16 @@
 <%= content_for(:title, @user.username + "'s followers") %>
-<div class="profile col-sm-4 contain">
-<% #cache @user do %>
+<div class="col-sm-4">
+
+<div class="no-mobile fixed contain profile">
 <%= render 'profile' %>
-<% #end %>
 <%= render 'controls' %>
+</div>
+
+<div class="only-mobile contain profile">
+<%= render 'profile' %>
+<%= render 'controls' %>
+</div>
+
 </div>
 
 <div class="feed col-sm-8">  

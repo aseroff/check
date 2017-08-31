@@ -7,7 +7,7 @@
 <% end %>
 <br>
 <% unless @most_popular.empty? %>
-<h4>Trending</h4>
+<h4>Trending Now</h4>
 <% @popular = @most_popular %>
 <%= render 'games/popular' %>
 <%= link_to "More...", games_path(filter: "popular") %>
