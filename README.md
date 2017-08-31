@@ -7,8 +7,9 @@
 
 # v 1.0
 
+1. more useful side pane on home screen
 1. react: game description text expand
-1. better looking game/user 'search result'
+1. more on game/user 'search result'
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
 1. route to and boilerplate terms of service and privacy policy for twitter posting permission
 1. facebook? 
