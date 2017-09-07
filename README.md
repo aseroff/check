@@ -7,6 +7,7 @@
 
 # v 1.0
 
+1. validate amp and fix amp-img
 1. Notifications
 1. Import Game
 1. Find twitter friends

@@ -1,4 +1,10 @@
-<div class="list-user contain center">
-    <%= link_to image_tag(user.avatar.thumb.to_s, size: "50", class: 'circle user-image'), user_path(user, format: :amp) %>
-    <h3><%= link_to user.display_name, user_path(user, format: :amp) %></h3>
+<div class="list-user contain">
+	<div class="col-xs-3 center">
+        <%= link_to image_tag(user.avatar.thumb, size: '50', class: 'circle user-image'), user_path(user, format: :amp) %>
+    </div>
+    <div class="col-xs-6 col-xs-offset-2">
+    	<h3><%= link_to user.display_name, user_path(user, format: :amp) %></h3>
+    </div>
+	<div class="clearfix"></div>
 </div>
+<div class="clearfix"></div>

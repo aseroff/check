@@ -1,7 +1,7 @@
-<%= image_tag(@game.img_url.medium.to_s, size:'200', class: 'image') %>
+<%= image_tag(@game.img_url.medium, size:'200', class: 'image') %>
 
 <h2 class="serif"><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
 
-<%= link_to raw("<span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check in"), new_post_path(game_id: @game.id, format: :amp), class: 'col-xs-12 btn btn-success' %><br>
+<%= link_to raw("<span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check in"), new_post_path(game_id: @game.id), class: 'col-xs-12 btn btn-success' %><br>
 
 <%= link_to raw("<span class='glyphicon glyphicon-book' aria-hidden='true'></span> View on BoardGameGeek"), ("https://www.boardgamegeek.com/boardgame/" + @game.id.to_s), class: 'col-xs-12 btn btn-default' unless @game.id < 0 %><br>

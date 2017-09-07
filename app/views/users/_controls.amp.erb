@@ -1,8 +1,28 @@
-<%= link_to raw(@following + " Following"), user_following_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
-<%= link_to raw(@followers + " Followers"), user_followers_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+<% if current_user && @relation %>
+<%= link_to "", relation_path(@relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
+<% else %>
+<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: @user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless @user == current_user %>
+<% end %>
 
+<div class="clearfix"></div>
+<hr>
+
+<div class="col-xs-6 follow">
+	<%= link_to raw("<h4>" + @following + "</h4>Following"), user_following_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+</div>
+<div class="col-xs-6 follow">
+	<%= link_to raw("<h4>" + @followers + "</h4>Followers"), user_followers_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+</div>
+
+<div class="clearfix"></div>
+<hr>
+
+<div class="col-xs-12">
+<%= link_to raw(@posts_count + " <span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check-ins"), user_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
 <br>
+<%= link_to raw(@favorited_count + " <span class='glyphicon glyphicon-heart' aria-hidden='true'></span> Favorite Games"), user_favorites_path(@user, format: :amp), data: {no_turbolink: :true}, class: "col-xs-12 btn btn-default no-border" %><br>
+<br>
+<%= link_to raw(@owned_count + " <span class='glyphicon glyphicon-home' aria-hidden='true'></span> Owned Games"), user_owned_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+</div>
 
-<%= link_to raw(@posts_count + " Check-ins"), user_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
-<%= link_to raw(@favorited_count + " Favorite Games"), user_favorites_path(@user, format: :amp), data: {no_turbolink: :true}, class: "col-xs-12 btn btn-default no-border" %><br>
-<%= link_to raw(@owned_count + " Owned Games"), user_owned_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+<div class="clearfix"></div>
