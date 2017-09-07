@@ -24,11 +24,13 @@
   background-color: white;
 }
 
-.body {
+body {
   background-color: #eee;
   font-family: 'Droid Sans', verdana, arial, helvetica, sans-serif;
   font-size:13px;
 }
+
+header {margin-bottom:70px}
 
 .contain {
   background-color: #fff;
