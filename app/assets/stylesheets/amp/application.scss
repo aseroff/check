@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
-  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
-       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
-       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
@@ -18,7 +18,9 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}.glyphicon-pencil:before {
+}
+
+.glyphicon-pencil:before {
   content: "\270f";
 }
 .glyphicon-search:before {
@@ -1968,6 +1970,7 @@ footer a {
 } 
 
 
+@import 'variables';
 
 .nav-pills > li.active > a {
   background-color: #e67e2;
@@ -1992,13 +1995,13 @@ footer a {
 .fixed { position:fixed; }
 .serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
 .yellow { color:yellow; }
+
 @media only screen and (max-width: 768px) {
   .no-mobile {display:none;}
 }
 @media only screen and (min-width: 768px) {
   .only-mobile {display:none;}
 }
-@import 'variables';
 
 .intro {
   margin:50px 0 50px;
@@ -2156,23 +2159,6 @@ $size: 12px;
     height: $size;
     width: $size;
   }
-}
-
-.ui-helper-hidden-accessible { display: none }
-#results {
-  ul { 
-    list-style-type: none; 
-    padding: 0; 
-    border: 1px solid; 
-  }
-  li { 
-    padding: 5px;
-    display: inline-block;
-    width:100%; 
-    &:hover { background-color: $main-color; }
-  }
-  a:hover { color:white }
-  .ui-state-focus { background-color: inherit; }
 }
 
 .profile {
