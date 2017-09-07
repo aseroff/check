@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
-       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
-       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
+  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
@@ -18,9 +18,7 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.glyphicon-pencil:before {
+}.glyphicon-pencil:before {
   content: "\270f";
 }
 .glyphicon-search:before {
@@ -68,7 +66,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -1873,25 +1871,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 
 @font-face {
   font-family: 'Droid Sans';
-  src: url('https://fonts.googleapis.com/css?family=Droid+Sans');
+  src: url('//fonts.googleapis.com/css?family=Droid+Sans');
 }
 @font-face {
   font-family: 'Droid Serif';
-  src: url('https://fonts.googleapis.com/css?family=Droid+Serif');
+  src: url('//fonts.googleapis.com/css?family=Droid+Serif');
 }
 
 header {margin-bottom:70px}
-
-.turbolinks-progress-bar {
-  height: 5px;
-  background-color: white;
-}
-
-.body {
-  background-color: #eee;
-  font-family: 'Droid Sans', verdana, arial, helvetica, sans-serif;
-  font-size:13px;
-}
 
 .contain {
   background-color: #fff;
@@ -1970,7 +1957,6 @@ footer a {
 } 
 
 
-@import 'variables';
 
 .nav-pills > li.active > a {
   background-color: #e67e2;
@@ -1993,15 +1979,15 @@ footer a {
 .fit { width:100%; }
 .circle { border-radius: 50%; }
 .fixed { position:fixed; }
-.serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
+.serif { font-family: 'Droid Serif', serif; }
 .yellow { color:yellow; }
-
 @media only screen and (max-width: 768px) {
   .no-mobile {display:none;}
 }
 @media only screen and (min-width: 768px) {
   .only-mobile {display:none;}
 }
+@import 'variables';
 
 .intro {
   margin:50px 0 50px;
@@ -2159,6 +2145,23 @@ $size: 12px;
     height: $size;
     width: $size;
   }
+}
+
+.ui-helper-hidden-accessible { display: none }
+#results {
+  ul { 
+    list-style-type: none; 
+    padding: 0; 
+    border: 1px solid; 
+  }
+  li { 
+    padding: 5px;
+    display: inline-block;
+    width:100%; 
+    &:hover { background-color: $main-color; }
+  }
+  a:hover { color:white }
+  .ui-state-focus { background-color: inherit; }
 }
 
 .profile {
