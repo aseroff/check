@@ -6760,8 +6760,14 @@ button.close {
 
 /*# end bootstrap */
 
-@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
-@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('https://fonts.googleapis.com/css?family=Droid+Sans');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  src: url('https://fonts.googleapis.com/css?family=Droid+Serif');
+}
 
 .turbolinks-progress-bar {
   height: 5px;
