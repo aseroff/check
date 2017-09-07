@@ -17,6 +17,9 @@
     <%= rails_amp_html_header %>
   </head>
   <body>
+    <header style="margin-bottom: 70px">
+      <%= render 'layouts/navigation.amp.erb' %>
+    </header>
     <%= rails_amp_google_analytics_page_tracking %>
     <%= yield %>
   </body>
