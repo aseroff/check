@@ -1,6 +1,6 @@
 <div class="list-game contain">
 	<div class="col-xs-3 center">
-        <%= link_to image_tag(game.img_url.thumb, class: 'game-image'), game %>
+        <%= link_to image_tag(game.img_url.thumb.to_s, options:{width: "500"}, class: 'game-image'), game %>
     </div>
     <div class="col-xs-6 col-xs-offset-2">
     	<h3><%= link_to game.title, game %></h3>

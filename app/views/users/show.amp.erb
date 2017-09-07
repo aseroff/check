@@ -1,0 +1,9 @@
+<%= content_for(:title, @user.username) %>
+<div class="center contain">
+	<%= render 'profile.amp.erb' %>
+	<%= render 'controls.amp.erb' %>
+</div>
+
+<div id="posts">
+	<%= render @posts %>
+</div>

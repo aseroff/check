@@ -7,6 +7,10 @@
 
 # v 1.0
 
+1. Notifications
+1. Import Game
+1. Find twitter friends
+1. Exception handler (404s)
 1. more useful side pane on home screen
 1. react: game description text expand
 1. more on game/user 'search result'

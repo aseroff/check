@@ -48,6 +48,8 @@ gem 'social-share-button'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+gem 'rails_amp'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'newrelic_rpm'

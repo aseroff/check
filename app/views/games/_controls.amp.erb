@@ -1,9 +1,9 @@
 <% if current_user && @favorite_relation %>
 	<%= link_to "", relation_path(@favorite_relation), :method => :delete, class: 'col-xs-12 btn btn-warning favorite-active' %>
 <% else %>
-	<%= link_to raw(" <span class='glyphicon glyphicon-heart' aria-hidden='true'></span> Add to Favorites"), relations_path(related_id: @game.id, relationship: "favorite"), method: :post, class: 'col-xs-12 btn btn-default favorite' %>
+	<%= link_to raw(" <span class='glyphicon glyphicon-star' aria-hidden='true'></span> Add to Favorites"), relations_path(related_id: @game.id, relationship: "favorite"), method: :post, class: 'col-xs-12 btn btn-default favorite' %>
 <% end %>
-
+<br>
 <% if current_user && @owned_relation %>
 	<%= link_to "", relation_path(@owned_relation), :method => :delete, class: 'col-xs-12 btn btn-warning owns-active' %>
 <% else %>

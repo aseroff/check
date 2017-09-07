@@ -1,0 +1,15 @@
+<%= content_for(:title, @user.username + "'s followers") %>
+
+<div class="center contain">
+	<%= render 'profile.amp.erb' %>
+	<%= render 'controls.amp.erb' %>
+</div>
+
+<div class="col-sm-4">
+
+<div id="user-list" class="center">
+<h3 class="col-sm-12">Followers</h3>
+<%= render @users %>
+</div>
+
+</div>

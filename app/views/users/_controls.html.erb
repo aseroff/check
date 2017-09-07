@@ -20,7 +20,7 @@
 <div class="col-xs-12">
 <%= link_to raw(@posts_count + " <span class='glyphicon glyphicon-expand' aria-hidden='true'></span> Check-ins"), @user, class: "col-xs-12 btn btn-default no-border" %><br>
 <br>
-<%= link_to raw(@favorited_count + " <span class='glyphicon glyphicon-star' aria-hidden='true'></span> Favorite Games"), user_favorites_path(@user), data: {no_turbolink: :true}, class: "col-xs-12 btn btn-default no-border" %><br>
+<%= link_to raw(@favorited_count + " <span class='glyphicon glyphicon-heart' aria-hidden='true'></span> Favorite Games"), user_favorites_path(@user), data: {no_turbolink: :true}, class: "col-xs-12 btn btn-default no-border" %><br>
 <br>
 <%= link_to raw(@owned_count + " <span class='glyphicon glyphicon-home' aria-hidden='true'></span> Owned Games"), user_owned_path(@user), class: "col-xs-12 btn btn-default no-border" %><br>
 </div>

@@ -1,0 +1,19 @@
+<%= form_with(model: post, local: true) do |form| %>
+
+ <%= form.hidden_field :user_id, id: :post_user_id %>
+
+<div class="post">
+  <div class="col-sm-3 images">
+    <%= image_tag(current_user.avatar.thumb, size: '50', class: 'circle user-image') %>
+    <%= image_tag(post.game.img_url.thumb, size: '50', class: 'game-image') %>
+  </div>
+  <div class="col-sm-9">
+    <h4><%= link_to post.user.display_name, user_path(post.user, format: :amp) %> checked into <%= link_to post.game.title, game_path(post.game, format: :amp) %></h4>
+    <%= form.hidden_field :user_id, id: :post_user_id %>
+    <%= form.text_area :text, id: :post_text, class: 'form-control' %>
+    <br>
+    <%= form.submit "Save", class: 'btn btn-success col-xs-12' %>
+  </div>
+</div>
+
+<% end %>

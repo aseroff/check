@@ -1,0 +1,6 @@
+targets:
+  users: show followers following owned favorites
+  games: show
+  posts: show new
+
+analytics: UA-102460737-1

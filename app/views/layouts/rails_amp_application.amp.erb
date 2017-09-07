@@ -1,0 +1,23 @@
+<!doctype html>
+<html amp>
+  <head>
+    <meta charset="utf-8">
+    <title>Rails AMP</title>
+    <link rel="canonical" href="<%= rails_amp_canonical_url %>" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <%= render 'application/metadata' %>
+    <% if Rails.application.assets && Rails.application.assets['amp/application'] %>
+      <style amp-custom><%= Rails.application.assets['amp/application'].to_s.html_safe %></style>
+    <% else %>
+      <style amp-custom><%= File.read "#{Rails.root}/public#{stylesheet_path('amp/application', host: nil)}" %></style>
+    <% end %>
+
+    <%= rails_amp_google_analytics_head %>
+    <%= rails_amp_html_header %>
+  </head>
+  <body>
+    <%= rails_amp_google_analytics_page_tracking %>
+    <%= yield %>
+  </body>
+</html>

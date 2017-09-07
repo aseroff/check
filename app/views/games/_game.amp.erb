@@ -1,0 +1,5 @@
+<div class="list-game contain center">
+	<%= link_to image_tag(game.img_url.thumb.to_s, size: "50", class: 'game-image'), game %>
+	<h3><%= link_to game.title, game_path(game, format: :amp) %></h3>
+    
+</div>

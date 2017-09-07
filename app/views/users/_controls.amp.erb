@@ -1,0 +1,8 @@
+<%= link_to raw(@following + " Following"), user_following_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+<%= link_to raw(@followers + " Followers"), user_followers_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+
+<br>
+
+<%= link_to raw(@posts_count + " Check-ins"), user_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+<%= link_to raw(@favorited_count + " Favorite Games"), user_favorites_path(@user, format: :amp), data: {no_turbolink: :true}, class: "col-xs-12 btn btn-default no-border" %><br>
+<%= link_to raw(@owned_count + " Owned Games"), user_owned_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>

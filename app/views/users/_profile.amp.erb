@@ -1,0 +1,4 @@
+<div>
+<%= image_tag(@user.avatar.medium.to_s, size: "50") %>
+<h3><%= link_to @user.display_name, user_path(@user, format: :amp) %></h3>
+</div>
