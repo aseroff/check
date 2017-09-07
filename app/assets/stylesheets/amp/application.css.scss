@@ -1,3 +1,17 @@
+@import 'variables';
+
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('//fonts.googleapis.com/css?family=Droid+Sans');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  src: url('//fonts.googleapis.com/css?family=Droid+Serif');
+}
+
+
+/*# start bootstrap */
+
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
@@ -19,34 +33,34 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }.glyphicon-pencil:before {
-  content: '\270f';
+  content: "\270f";
 }
 .glyphicon-search:before {
-  content: '\e003';
+  content: "\e003";
 }
 .glyphicon-heart:before {
-  content: '\e005';
+  content: "\e005";
 }
 .glyphicon-star:before {
-  content: '\e006';
+  content: "\e006";
 }
 .glyphicon-star-empty:before {
-  content: '\e007';
+  content: "\e007";
 }
 .glyphicon-trash:before {
-  content: '\e020';
+  content: "\e020";
 }
 .glyphicon-home:before {
-  content: '\e021';
+  content: "\e021";
 }
 .glyphicon-book:before {
-  content: '\e043';
+  content: "\e043";
 }
 .glyphicon-edit:before {
-  content: '\e065';
+  content: "\e065";
 }
 .glyphicon-expand:before {
-  content: '\e158';
+  content: "\e158";
 }
 
 
@@ -66,7 +80,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -148,7 +162,7 @@ hr {
   overflow: visible;
   clip: auto;
 }
-[role='button'] {
+[role="button"] {
   cursor: pointer;
 }
 .container {
@@ -1116,9 +1130,9 @@ fieldset[disabled] .btn-link:focus {
 .btn-block + .btn-block {
   margin-top: 5px;
 }
-input[type='submit'].btn-block,
-input[type='reset'].btn-block,
-input[type='button'].btn-block {
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
   width: 100%;
 }
 .nav {
@@ -1566,8 +1580,8 @@ input[type='button'].btn-block {
   .navbar-form .checkbox label {
     padding-left: 0;
   }
-  .navbar-form .radio input[type='radio'],
-  .navbar-form .checkbox input[type='checkbox'] {
+  .navbar-form .radio input[type="radio"],
+  .navbar-form .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0;
   }
@@ -1852,7 +1866,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-header:after,
 .navbar-collapse:before,
 .navbar-collapse:after {
-  content: ' ';
+  content: " ";
   display: table;
 }
 .clearfix:after,
@@ -1868,15 +1882,6 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 /*# end bootstrap */
-
-@font-face {
-  font-family: 'Droid Sans';
-  src: url('//fonts.googleapis.com/css?family=Droid+Sans');
-}
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('//fonts.googleapis.com/css?family=Droid+Serif');
-}
 
 header {margin-bottom:70px}
 
@@ -1956,8 +1961,6 @@ footer a {
   }
 } 
 
-
-
 .nav-pills > li.active > a {
   background-color: #e67e2;
 }
@@ -1987,7 +1990,6 @@ footer a {
 @media only screen and (min-width: 768px) {
   .only-mobile {display:none;}
 }
-@import 'variables';
 
 .intro {
   margin:50px 0 50px;
