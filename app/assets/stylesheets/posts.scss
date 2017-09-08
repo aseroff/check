@@ -2,21 +2,15 @@
 
 .post {
   @include border-radius(15px);
-  padding: 25px;
-  margin: 10px;
   background-color: $main-color;
-  overflow:auto;
   box-shadow: 5px 5px 5px #888888;
   a {
     color: white;
     text-decoration: none !important;
     font-weight: 800;
-    &:visited {
-      color: $lighten;
-    };
+    &:visited { color: $lighten; };
+    &:hover { color: $darken; }
   } 
-  a:hover { color: $darken}
-
   .images {
     .user-image {
       width:80px;
@@ -28,14 +22,10 @@
       margin:10px 0 10px;
     }
   }
-  
-
   .timestamp {
     font-size:.8em;
   }
-
   hr { margin: 5px 0 5px }
-
   .share { 
     margin: 5px 5px 5px 0; 
     color: white;

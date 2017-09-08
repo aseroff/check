@@ -1,6 +1,6 @@
 <div class="col-sm-6 col-sm-offset-3 contain">
 <h2 class="center">Sign in</h2>
-<div class="center omniauthbox">
+<div class="center omniauthbox padded">
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
   <% end -%>
@@ -19,7 +19,7 @@
 
   <div class="col-sm-6" style="padding-left:0px">
   <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %><span class="remember"> Remember Me</span>
+      <%= f.check_box :remember_me %><span class="strong"> Remember Me</span>
   <% end -%>
   </div>
   <div class="col-sm-6 right" style="padding-right:0px">

@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= link_to current_user.display_name, user_path(current_user, format: :amp), class: 'strong' %>
+  <%# link_to 'Edit', edit_user_registration_path, class: 'strong' %>
+ 	<%# link_to 'Sign out', destroy_user_session_path, :method=>'delete', class: 'strong' %>
+<% else %>
+  <%# link_to 'Sign in', new_user_session_path, class: 'strong' %>
+<% end %>

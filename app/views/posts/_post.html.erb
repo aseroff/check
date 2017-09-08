@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post padded">
     <div class="col-sm-3 col-sm-offset-1 images no-gap">
         <%= link_to image_tag(post.user.avatar.thumb, class: 'circle user-image'), post.user %>&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to image_tag(post.game.img_url.thumb, class: 'game-image'), post.game %>
@@ -10,5 +10,5 @@
         <hr>
     <%= render 'posts/controls', post: post %>
     </div>
+    <div class="clearfix"></div>
 </div>
-<div class="clearfix"></div>

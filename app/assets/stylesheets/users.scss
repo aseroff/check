@@ -9,8 +9,6 @@
   height:150px; 
 }
 
-.follow {}
-
 .follow-active:before { content: 'Following'; }
 .follow-active:hover:before { content: 'Unfollow'; }
 
@@ -20,13 +18,4 @@
     height:50px;
     margin:10px;
   }
-}
-
-.omniauthbox {
-	padding-top:20px;
-	text-align:center;
-}
-
-.menu {
-  padding-bottom:10px;
 }

@@ -1,7 +1,6 @@
 <%= content_for(:title, @user.username) %>
 
 <div class="col-sm-4">
-
 <div class="no-mobile fixed contain profile">
 <%= render 'profile' %>
 <%= render 'controls' %>
@@ -14,9 +13,9 @@
 
 </div>
 
-<div class="feed col-sm-8">
+<div class="feed col-sm-7 col-sm-offset-1">
 
-<div id="posts">
+<div id="posts ">
 <%= render @posts %>
 </div>
 

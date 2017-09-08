@@ -21,6 +21,8 @@
       <%= render 'layouts/navigation.amp.erb' %>
     </header>
     <%= rails_amp_google_analytics_page_tracking %>
-    <%= yield %>
+    <div class="body">
+      <%= yield %>
+    </div>
   </body>
 </html>

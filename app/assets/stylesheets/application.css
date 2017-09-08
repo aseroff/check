@@ -30,6 +30,8 @@ body {
   font-size:13px;
 }
 
+main { padding-top:50px; }
+
 header {margin-bottom:70px}
 
 .contain {
@@ -48,9 +50,8 @@ label { display: block; }
   font-size: 0.9em;
   line-height: 1.5em;
 }
-.remember { font-weight:800; }
 
-.feed { padding:20px; }
+.feed, .padded { padding:20px; }
 
 .list-user, .list-game {
   padding: 10px;
@@ -108,8 +109,6 @@ footer a {
   }
 } 
 
-
-
 .nav-pills > li.active > a {
   background-color: #e67e22!important;
 }
@@ -133,9 +132,6 @@ footer a {
 .fixed { position:fixed; }
 .serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
 .yellow { color:yellow; }
-@media only screen and (max-width: 768px) {
-  .no-mobile {display:none;}
-}
-@media only screen and (min-width: 768px) {
-  .only-mobile {display:none;}
-}
+.strong { font-weight:800; }
+@media only screen and (max-width: 768px) { .no-mobile {display:none;} }
+@media only screen and (min-width: 768px) { .only-mobile {display:none;} }

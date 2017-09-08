@@ -1,6 +1,7 @@
 targets:
   users: show followers following owned favorites
   games: show
-  posts: index new show
+  posts: index new show edit
+  relations: create destroy
 
 analytics: UA-102460737-1
