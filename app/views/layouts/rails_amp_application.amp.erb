@@ -10,7 +10,7 @@
     <% if Rails.application.assets && Rails.application.assets['amp/application'] %>
       <style amp-custom><%= Rails.application.assets['amp/application'].to_s.html_safe %></style>
     <% else %>
-      <style amp-custom><%= File.read "#{Rails.root}/public#{stylesheet_path('amp/application', host: nil)}" %></style>
+      <style amp-custom><%= File.read("#{Rails.root}/public#{stylesheet_path('amp/application', host: nil)}").html_safe %></style>
     <% end %>
 
     <%= rails_amp_google_analytics_head %>
