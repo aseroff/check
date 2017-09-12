@@ -52,6 +52,22 @@ class User < ApplicationRecord
     id.to_i if id
   end
 
+  def friends_from_twitter
+    if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = "dFPIQW8rTerq2ncKA90NJt8ty"
+        config.consumer_secret     = "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
+        config.access_token        = self.twitter_token
+        config.access_token_secret = self.twitter_token_secret
+      end
+      twitter_friends = client.friend_ids
+      friends = User.where("uid in (?)", twitter_friends.to_h.first.last.map{|x| x.to_s})
+    else 
+      friends = []
+    end
+    friends
+  end
+
   def display_name
     '@' + self.username.to_s
   end
@@ -116,6 +132,14 @@ class User < ApplicationRecord
   def popular_with_friends
     h = Post.where("created_at > ? and user_id IN (?)", (DateTime.now - 2.weeks), self.following.pluck(:related_id)).group(:game_id).order('count_id DESC').count(:id)
     h.to_a[0..(h.size > 5 ? 5 : h.size)] 
+  end
+
+  def self.search(term)
+    if term
+      User.where("lower(username) like ? or lower(email) like ?", "%" + term.downcase + "%", "%" + term.downcase + "%")
+    else
+      User.none
+    end
   end
 
   private

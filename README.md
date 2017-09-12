@@ -7,12 +7,10 @@
 
 # v 1.0
 
-1. validate amp and fix amp-img
-1. privacy policy et al
 1. Notifications
 1. Import Game
-1. Find twitter friends
 1. Exception handler (404s)
+1. privacy policy et al
 1. more useful side pane on home screen
 1. react: game description text expand
 1. more on game/user 'search result'
@@ -25,6 +23,7 @@
 
 # v 1.1
 
+1. AMP session control & more
 1. React elements
 1. Shortcuts on games to checkin/fav/own
 1. more shortcuts on objects

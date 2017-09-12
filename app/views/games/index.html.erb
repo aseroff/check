@@ -1,6 +1,6 @@
 <div class="col-sm-3">
 
-<ul class="nav nav-pills nav-stacked">
+<ul class="nav nav-pills nav-stacked padded">
   <li role="presentation"  class="<%= @filter == "popular" ? "active" : "" %>"><%= link_to "Trending", games_path(filter: "popular") %></li>
   <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(filter: "favorited") %></li>
   <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(filter: "owned") %></li>
@@ -11,7 +11,7 @@
 
 <div class="col-sm-9">
 
-<div id="games" class="game-list">
+<div id="games" class="game-list padded">
 	<%= render @games %>
 </div>
 

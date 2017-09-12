@@ -1,6 +1,6 @@
 targets:
-  users: show followers following owned favorites
-  games: show
+  users: index show followers following owned favorites
+  games: index show
   posts: index new show edit
   relations: create destroy
 

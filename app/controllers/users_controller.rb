@@ -4,7 +4,14 @@ class UsersController < ApplicationController
   before_action :find_relation, except: [:index, :disconnect]
 
   def index
-    redirect_to :root
+    if params[:filter]
+      @filter = params[:filter]
+      if @filter == "twitter" && current_user
+        @users = current_user.friends_from_twitter
+      end
+    else
+      @users = User.search(params[:term])
+    end
   end
 
   def show

@@ -4,11 +4,7 @@
 <%= content_for(:title, "Feed") %>
 
 <div class="no-mobile profile col-sm-4 contain">
-<% #cache @user do %>
 <%= render 'users/profile' %>
-<% #end %>
-<%= render 'users/controls' %>
-
 <%= render 'users/discovery' %>
 
 </div>

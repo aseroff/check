@@ -1,0 +1,18 @@
+<div class="col-sm-3">
+
+<ul class="nav nav-pills nav-stacked">
+  <li role="presentation"  class="<%= @filter == "popular" ? "active" : "" %>"><%= link_to "Trending", games_path(format: :amp, filter: "popular") %></li>
+  <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(format: :amp, filter: "favorited") %></li>
+  <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(format: :amp, filter: "owned") %></li>
+  <li role="presentation" class="<%= @filter == "recent" ? "active" : "" %>" ><%= link_to "Most Recently Added", games_path(format: :amp, filter: "recent") %></li>
+</ul>
+
+</div>
+
+<div class="col-sm-9">
+
+<div id="games" class="game-list">
+	<%= render @games %>
+</div>
+
+</div>

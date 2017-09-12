@@ -1,0 +1,20 @@
+<div class="col-sm-3 padded">
+
+<ul class="nav nav-pills nav-stacked padded">
+  <li role="presentation" class="<%= @filter == "twitter" ? "active" : "" %>"><%= link_to "Friends from Twitter", users_path(filter: "twitter") %></li>
+</ul>
+
+<%= form_tag users_path, :method => 'get' do %>
+    <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Search by username or email" %><br>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+<% end %>
+
+</div>
+
+<div class="col-sm-9">
+
+<div id="users" class="user-list padded">
+	<%= render @users if @users %>
+</div>
+
+</div>

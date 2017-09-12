@@ -1,0 +1,26 @@
+<div class="col-sm-3 padded">
+
+<ul class="nav nav-pills nav-stacked padded">
+  <li role="presentation" class="<%= @filter.nil? ? "active" : "" %>"><%= link_to "Search", users_path %></li>
+
+  <li role="presentation" class="<%= @filter == "twitter" ? "active" : "" %>"><%= link_to "Friends from Twitter", users_path(filter: "twitter") %></li>
+</ul>
+
+</div>
+
+<div class="col-sm-9">
+
+<% if @filter.nil? %>
+<div class="padded">
+<%= form_tag users_path, :method => 'get' do %>
+    <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Username or email" %><br>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+<% end %>
+</div>
+<% end %>
+
+<div id="users" class="user-list padded">
+	<%= render @users if @users %>
+</div>
+
+</div>
