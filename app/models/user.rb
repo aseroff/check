@@ -63,7 +63,7 @@ class User < ApplicationRecord
       twitter_friends = client.friend_ids
       friends = User.where("uid in (?)", twitter_friends.to_h.first.last.map{|x| x.to_s})
     else 
-      friends = []
+      friends = User.none
     end
     friends
   end
