@@ -28,8 +28,12 @@
 
 <% end %>
 
-<div id="users" class="user-list padded">
+<div id="user-list" class="user-list padded">
 	<%= render @users if @users %>
+</div>
+
+<div id="infinite-scrolling">
+	<%= will_paginate @users unless @users.empty? %>
 </div>
 
 </div>

@@ -10,6 +10,13 @@
     <%= f.hidden_field :uid, value: session["devise.twitter_data"]["uid"] %>
     <%= f.hidden_field :twitter_token, value: session["devise.twitter_data"]["credentials"]["token"] %>
     <%= f.hidden_field :twitter_token_secret, value: session["devise.twitter_data"]["credentials"]["secret"] %>
+
+    <div class="field center">
+      <%= image_tag((session["devise.twitter_data"]["info"]["image"].sub("_normal","") if session["devise.twitter_data"]), class: "circle profile-image") %><br>
+      <%= f.hidden_field :remote_avatar_url, value: session["devise.twitter_data"]["info"]["image"].sub("_normal","") %>
+      <span class="fine">You can change your avatar later.</span>
+    </div>
+
   <% end %>
 
   <div class="field">
@@ -35,12 +42,14 @@
     <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <span class="fine">Max image size 1MB</span>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
+  <% unless session["devise.twitter_data"] %>
+    <div class="field">
+      <%= f.label :avatar %>
+      <span class="fine">Max image size 1MB</span>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up", class: 'btn btn-success' %>
@@ -50,12 +59,15 @@
 <div class="col-sm-5">
 <h2 class="center">Connect an account</h2>
 
-<div class="omniauthbox">
+<div class="center omniauthbox padded">
 <% unless session["devise.twitter_data"] %>
   <%= link_to "Connect with Twitter", omniauth_authorize_path(User, "twitter") + "?use_authorize=true", class: "btn btn-info" %>
 <% else %>
   <p>Twitter account connected!<br>
-  Please complete your regisration by choosing a password.</p>
+  <br>
+  You can now log in with one click and find Twitter friends on Gamekeeper.<br>
+  <br>
+  Please complete your regisration by choosing a password (just in case).</p>
 <% end %>
 <br />
 </div>

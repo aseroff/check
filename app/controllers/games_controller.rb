@@ -10,19 +10,25 @@ class GamesController < ApplicationController
       @filter = params[:filter]
       ids = []
       if @filter == "popular"
-        Game.popular(10).each{|k,v| ids << k}
+        Game.popular(25).each{|k,v| ids << k}
       elsif @filter == "favorited"
-        Game.favorited(10).each{|k,v| ids << k}
+        Game.favorited(25).each{|k,v| ids << k}
       elsif @filter == "owned"
-        Game.owned(10).each{|k,v| ids << k}
+        Game.owned(25).each{|k,v| ids << k}
       elsif @filter == "recent"
-        Game.recently_added(10).each{|g| ids << g}
+        Game.recently_added(25).each{|g| ids << g}
+      elsif @filter == "import"
+        Game.none
       end
-      @games = Game.for_ids_with_order(ids)
+      @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     elsif params[:term]
-      @games = Game.search(params[:term])
+      @games = Game.search(params[:term]).paginate(page: params[:page], per_page: 10) 
     else
-      redirect_to games_path(filter:"popular")
+      @games = Game.none
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

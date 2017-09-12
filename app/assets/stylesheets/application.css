@@ -29,10 +29,7 @@ body {
   font-family: 'Droid Sans', verdana, arial, helvetica, sans-serif;
   font-size:13px;
 }
-
-main { padding-top:50px; }
-
-header {margin-bottom:70px}
+main { padding-top: 70px; }
 
 .contain {
   background-color: #fff;

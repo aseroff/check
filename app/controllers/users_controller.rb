@@ -7,15 +7,21 @@ class UsersController < ApplicationController
     if params[:filter]
       @filter = params[:filter]
       if @filter == "twitter" && current_user
-        @users = current_user.friends_from_twitter
+        @users = current_user.friends_from_twitter.paginate(page: params[:page], per_page: 10) 
       end
+    elsif params[:term]
+      @users = User.search(params[:term]).paginate(page: params[:page], per_page: 10) 
     else
-      @users = User.search(params[:term])
+      @users = User.none
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
   def show
-    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
       format.js

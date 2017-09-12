@@ -1,6 +1,7 @@
 <div class="col-sm-3">
 
 <ul class="nav nav-pills nav-stacked padded">
+  <li role="presentation"  class="<%= @filter.nil? ? "active" : "" %>"><%= link_to "Search", games_path %></li>
   <li role="presentation"  class="<%= @filter == "popular" ? "active" : "" %>"><%= link_to "Trending", games_path(filter: "popular") %></li>
   <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(filter: "favorited") %></li>
   <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(filter: "owned") %></li>
@@ -9,10 +10,30 @@
 
 </div>
 
-<div class="col-sm-9">
+<div class="padded col-sm-9">
 
-<div id="games" class="game-list padded">
+<% if @filter.nil? %>
+
+<div class="row">
+  <div class="col-lg-6">
+  	<%= form_tag games_path, :method => 'get' do %>	
+    <div class="input-group">
+      <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Name of game" %>      <span class="input-group-btn">
+        <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+      </span>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% end %>
+
+<div id="game-list" class="game-list padded">
 	<%= render @games %>
+</div>
+
+<div id="infinite-scrolling">
+	<%= will_paginate @games unless @games.empty?  %>
 </div>
 
 </div>
