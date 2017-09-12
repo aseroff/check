@@ -6,6 +6,7 @@
   <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(filter: "favorited") %></li>
   <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(filter: "owned") %></li>
   <li role="presentation" class="<%= @filter == "recent" ? "active" : "" %>" ><%= link_to "Most Recently Added", games_path(filter: "recent") %></li>
+  <li role="presentation" class="<%= @filter == "import" ? "active" : "" %>" ><%= link_to "Import missing game", games_path(filter: "import") %></li>
 </ul>
 
 </div>
@@ -13,18 +14,21 @@
 <div class="padded col-sm-9">
 
 <% if @filter.nil? %>
-
-<div class="row">
-  <div class="col-lg-6">
-  	<%= form_tag games_path, :method => 'get' do %>	
-    <div class="input-group">
-      <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Name of game" %>      <span class="input-group-btn">
-        <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
-      </span>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form_tag games_path, :method => 'get' do %>	
+        <div class="input-group">
+          <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Name of game" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          </span>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-<% end %>
+<% elsif @filter == "import" %>
+
+
 
 <% end %>
 

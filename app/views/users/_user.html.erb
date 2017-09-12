@@ -1,6 +1,14 @@
 <div class="list-user contain">
 	<div class="col-xs-3 center">
         <%= link_to image_tag(user.avatar.thumb, class: 'circle user-image'), user %>
+		<% if current_user %>
+			<% relation = Relation.find_by(user_id: current_user.id, related_id: user.id, relationship:"follow") %>
+			<% if relation %>
+				<%= link_to "", relation_path(relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
+			<% else %>
+				<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless user == current_user %>
+			<% end %>
+		<% end %>
     </div>
     <div class="col-xs-6 col-xs-offset-2">
     	<h3><%= link_to user.display_name, user %></h3>
