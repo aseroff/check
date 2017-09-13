@@ -6,7 +6,7 @@
   <li role="presentation" class="<%= @filter == "favorited" ? "active" : "" %>"><%= link_to "Most Favorited", games_path(filter: "favorited") %></li>
   <li role="presentation" class="<%= @filter == "owned" ? "active" : "" %>" ><%= link_to "Most Owned", games_path(filter: "owned") %></li>
   <li role="presentation" class="<%= @filter == "recent" ? "active" : "" %>" ><%= link_to "Most Recently Added", games_path(filter: "recent") %></li>
-  <li role="presentation" class="<%= @filter == "import" ? "active" : "" %>" ><%= link_to "Import missing game", games_path(filter: "import") %></li>
+  <li role="presentation" class="<%= @filter == "import" ? "active" : "" %>" ><%= link_to "Import Missing Game", games_path(filter: "import") %></li>
 </ul>
 
 </div>
@@ -28,7 +28,7 @@
   </div>
 <% elsif @filter == "import" %>
 
-
+<p>Coming soon</p>
 
 <% end %>
 

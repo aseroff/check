@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: :index
-  before_action :count_stats, except: [:index, :disconnect]
-  before_action :find_relation, except: [:index, :disconnect]
+  before_action :set_user, except: [:index, :notifications]
+  before_action :count_stats, except: [:index, :notifications, :disconnect]
+  before_action :find_relation, except: [:index, :notifications, :disconnect]
 
   def index
     if params[:filter]
@@ -26,6 +26,11 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def notifications
+    @user = current_user
+    @notifications.update_all(updated_at: Time.now)
   end
 
   def following

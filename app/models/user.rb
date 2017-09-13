@@ -142,6 +142,13 @@ class User < ApplicationRecord
     end
   end
 
+  def notifications
+    notifications = []
+    Relation.where("related_id = ? and relationship = ? and created_at = updated_at", self.id, "follow").pluck(:id).each {|i| notifications << i}
+    Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", self.posts.pluck(:id), "nice").pluck(:id).each {|i| notifications << i}
+    Relation.where("id in (?)", notifications).order(created_at: :desc)
+  end
+
   private
     def avatar_size_validation
       errors[:avatar] << "should be less than 1MB" if avatar.size > 1.megabytes

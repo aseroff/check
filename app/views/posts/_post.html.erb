@@ -6,7 +6,7 @@
     <div class="col-sm-7 col-sm-offset-1 no-gap">
     	<h4><%= link_to post.user.display_name, post.user %> played <%= link_to post.game.title, post.game %></h4>
         <%= content_tag(:p, post.text) %>
-        <%= link_to ('on ' + post.created_at.strftime("%B %d %Y")), post, class: 'timestamp' %><br>
+        <%= link_to ('on ' + post.created_at.strftime("%B %d, %Y")), post, class: 'timestamp' %><br>
         <hr>
     <%= render 'posts/controls', post: post %>
     </div>
