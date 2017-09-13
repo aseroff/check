@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
     @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
     @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
@@ -56,6 +59,7 @@ class UsersController < ApplicationController
     @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
@@ -65,6 +69,7 @@ class UsersController < ApplicationController
     @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end

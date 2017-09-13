@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
@@ -27,6 +28,10 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /posts/new

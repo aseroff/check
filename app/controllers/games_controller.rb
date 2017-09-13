@@ -28,6 +28,7 @@ class GamesController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.json
       format.js
     end
   end
