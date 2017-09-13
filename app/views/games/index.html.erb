@@ -28,7 +28,28 @@
   </div>
 <% elsif @filter == "import" %>
 
-<p>Coming soon</p>
+  <h3>Import Missing Game</h3>
+  <p>If you cannot find the game you're looking for, try to find it on <%= link_to 'BoardGameGeek', 'https://www.boardgamegeek.com' %>, then copy and paste the id from the url.
+  </p>
+
+  <p>For example, <em>Catan</em> can be found at 'https://boardgamegeek.com/boardgame/13/catan', so if it were missing, you would submit "13" in the bar below.
+  </p>
+
+  <p>Thank you for contributing to GameKeeper!
+  </p>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form_tag import_path, :method => 'get' do %> 
+        <div class="input-group">
+          <%= number_field_tag :id, params[:id], class: "form-control", placeholder:"Board Game Geek ID of Missing Game" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Import", :name => nil, class: "btn btn-default" %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
 <% end %>
 

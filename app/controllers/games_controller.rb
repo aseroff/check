@@ -42,6 +42,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def import
+    @game = Game.import(params[:id]) if params[:id]
+    redirect_to @game
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

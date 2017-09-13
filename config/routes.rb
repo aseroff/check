@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "disconnect"
   end
   resources :games
+  get "import", controller: "games", action: "import"
   get "notifications", controller: "users", action: "notifications"
   root 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
