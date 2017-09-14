@@ -136,7 +136,7 @@ class User < ApplicationRecord
 
   def self.search(term)
     if term
-      User.where("lower(username) like ? or lower(email) like ?", "%" + term.downcase + "%", "%" + term.downcase + "%")
+      User.where("lower(username) like ?", "%" + term.downcase + "%")
     else
       User.none
     end

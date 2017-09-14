@@ -1,11 +1,14 @@
 <div class="list-game contain">
-	<div class="col-xs-3 center">
-        <%= link_to image_tag(game.img_url.thumb.to_s, size:'50', class: 'game-image'), game_path(game, format: :amp) %>
+	<div class="col-sm-3 center">
+        <%= link_to image_tag(game.img_url.thumb, class: 'game-image'), game %>
     </div>
-    <div class="col-xs-6 col-xs-offset-2">
-    	<h3><%= link_to game.title, game_path(game, format: :amp) %></h3>
-    </div>
-    <div class="clearfix"></div>
+    <div class="col-sm-9 center">
+    	<span class="game-title col-xs-12"><%= link_to game.title, game_path(game, format: :amp) %></span>
+    	<div class="col-xs-12">
+			<%= render 'stats', game: game %>
+		</div>
+	</div>
+	<div class="clearfix"></div>
 </div>
 
 <div class="clearfix"></div>

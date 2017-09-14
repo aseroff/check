@@ -16,6 +16,13 @@
   padding:10px;
 }
 
+.list-game {
+  .game-title { font-size:2em }
+  .stats { 
+    color: $main-color;
+  }
+}
+
 .favorite-active:before { content: 'Favorited'; }
 .favorite-active:hover:before { content: 'Remove from Favorites'; }
 .owns-active:before { content: 'Owned'; }
