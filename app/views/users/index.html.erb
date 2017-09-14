@@ -18,7 +18,7 @@
   <div class="col-lg-6">
   	<%= form_tag users_path, :method => 'get' do %>	
     <div class="input-group">
-      <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Username or email" %>
+      <%= text_field_tag :term, params[:term], class: "form-control", placeholder:"Username" %>
       <span class="input-group-btn">
         <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
       </span>
