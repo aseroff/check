@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "cookies", controller: "application"
   get "privacy", controller: "application"
   get "terms", controller: "application"
+  get "investors", controller: "application"
   get "notifications", controller: "users", action: "notifications"
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all

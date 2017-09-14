@@ -7,13 +7,10 @@
 
 # v 1.0
 
-1. Notifications
-1. Import Game
-1. Exception handler (404s)
-1. privacy policy et al
+1. about
+1. privacy policy / terms / cookies
 1. react: game description text expand
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
-1. more/better discovery
 1. customized/non-stock emails
 1. custom splash page images
 
@@ -21,7 +18,7 @@
 
 1. mentions on users
 1. comment on checkins
-1. more useful side pane on home screen
+1. more useful side pane on home screen slash more/better discovery
 1. AMP session control & more
 1. React elements
 1. facebook? 
