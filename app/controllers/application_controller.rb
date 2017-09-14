@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ignore_newrelic, :if => :amp_request?
 
+  def about
+  end
+  def cookies
+  end
+  def privacy
+  end
+  def terms
+  end
+
   protected
 
   def ignore_newrelic

@@ -3,10 +3,15 @@
 <% @user = current_user %>
 <%= content_for(:title, "Feed") %>
 
-<div class="no-mobile profile col-sm-4 contain">
+<div class="col-sm-4">
+
+<div class="no-mobile profile contain">
 <%= render 'users/profile' %>
 <%= render 'users/discovery' %>
+<div class="clearfix"></div>
+</div>
 
+<%= render 'application/masthead' %>
 </div>
 
 <div class="feed col-sm-7 col-sm-offset-1">

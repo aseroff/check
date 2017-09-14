@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     get "disconnect"
   end
   resources :games
+  get "about", controller: "application"
+  get "cookies", controller: "application"
+  get "privacy", controller: "application"
+  get "terms", controller: "application"
   root 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
