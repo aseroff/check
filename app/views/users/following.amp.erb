@@ -1,16 +1,21 @@
-<%= content_for(:title, "Who " + @user.username + " is following") %>
-
-<div class="center contain">
-	<%= render 'profile.amp.erb' %>
-	<%= render 'controls.amp.erb' %>
-</div>
-
+<%= content_for(:title, @user.username + "'s followers") %>
 <div class="col-sm-4">
 
-<div id="user-list" class="col-sm-12">
-
-<h3 class="col-sm-12">Following</h3>
-	<%= render @users %>
+<div class="only-mobile contain profile">
+<%= render 'profile' %>
+<%= render 'controls' %>
 </div>
 
+</div>
+
+<div class="feed col-sm-8">  
+<h3 class="col-sm-12">Following</h3>
+
+<div id="user-list" class="col-sm-12">
+<%= render @users %>
+</div>
+
+<div id="infinite-scrolling">
+	<%= will_paginate @users %>
+</div>
 </div>
