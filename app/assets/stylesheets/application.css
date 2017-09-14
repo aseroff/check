@@ -108,6 +108,8 @@ footer a {
 
 .masthead li {
   list-style:none;
+  display:inline;
+  padding:0 2px 0 2px;
 }
 
 .nav-pills > li.active > a {
