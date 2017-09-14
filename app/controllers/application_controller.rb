@@ -7,10 +7,13 @@ class ApplicationController < ActionController::Base
 
   def about
   end
+
   def cookies
   end
+
   def privacy
   end
+  
   def terms
   end
 

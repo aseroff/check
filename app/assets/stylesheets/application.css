@@ -130,6 +130,7 @@ footer a {
 .no-gap { padding-left:0px; padding-right:0px }
 .fit { width:100%; }
 .circle { border-radius: 50%; }
+.badge { background-color: #d35400; }
 .fixed { position:fixed; }
 .serif { font-family: 'Droid Serif', verdana, arial, helvetica, sans-serif; }
 .yellow { color:yellow; }
