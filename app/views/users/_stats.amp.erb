@@ -1,12 +1,12 @@
 <div class="stats col-xs-12">
 	<div class="col-xs-4" title="Total Check-ins">
-		<span class='glyphicon glyphicon-expand'></span> <%= @posts_count ? @posts_count : user.posts.size %>
+		<span class='glyphicon glyphicon-expand'></span> <%= posts_count ? posts_count : user.posts.size %>
 	</div>
 	<div class="col-xs-4" title='Number of Favorite Games'>
-		<span class='glyphicon glyphicon-heart'></span> <%= @favorites_count ? @favorites_count : user.favorites.size %>
+		<span class='glyphicon glyphicon-heart'></span> <%= favorites_count ? favorites_count : user.favorites.size %>
 	</div>
 	<div class="col-xs-4" title='Number of Owned Games'>
-		<span class='glyphicon glyphicon-home'></span> <%= @owned_count ? @owned_count : user.owned.size %>
+		<span class='glyphicon glyphicon-home'></span> <%= owned_count ? owned_count : user.owned.size %>
 	</div>
 </div>
 
