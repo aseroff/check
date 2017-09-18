@@ -1,3 +1,5 @@
+<%= content_for(:title, current_user.display_name + "'s notifications") %>
+
 <h3>Notifications</h3>
 <% @notifications.each do |n| %>
 
