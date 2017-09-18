@@ -3,7 +3,7 @@
 <ul class="nav nav-pills nav-stacked padded">
   <li role="presentation" class="<%= @filter.nil? ? "active" : "" %>"><%= link_to "Search", users_path %></li>
 
-  <% if current_user.provider == "twitter" && current_user.uid && current_user.twitter_token && current_user.twitter_token_secret %>
+  <% if current_user &&mcurrent_user.provider == "twitter" && current_user.uid && current_user.twitter_token && current_user.twitter_token_secret %>
   	<li role="presentation" class="<%= @filter == "twitter" ? "active" : "" %>"><%= link_to "Friends from Twitter", users_path(filter: "twitter") %></li>
   <% end %>
 </ul>

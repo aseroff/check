@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+follow:
   user_id: 1
-  related_id: 1
-  relationship: MyString
+  relationship: follow
+  related_id: 2
 
-two:
+owned:
   user_id: 1
+  relationship: owned
   related_id: 1
-  relationship: MyString
+
+favorite:
+  user_id: 1
+  relationship: favorite
+  related_id: 1
+
+nice:
+  user_id: 1
+  relationship: nice
+  related_id: 1

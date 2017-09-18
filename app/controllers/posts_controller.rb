@@ -36,8 +36,12 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @game = Game.find(params[:game_id]) if params[:game_id]
-    @post = Post.new(user_id: current_user.id, game_id: params[:game_id])
+    if params[:game_id]
+      @game = Game.find(params[:game_id]) 
+      @post = Post.new(user_id: current_user.id, game_id: params[:game_id])
+    else
+      redirect_to :root
+    end
   end
 
   # GET /posts/1/edit

@@ -7,6 +7,8 @@
 
 # v 1.0
 
+1. ensure all variables are hidden
+1. testing
 1. about
 1. privacy policy / terms / cookies
 1. react: game description text expand
