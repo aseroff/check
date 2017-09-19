@@ -21,13 +21,13 @@
 
 <% else %>
 
-<%= content_for(:title, "Gamekeeper") %>
+<%= content_for(:title, Rails.application.config.app_name) %>
 <%= content_for(:description, "The Check-in App for Board Games!") %>
 
 <div class="center contain no-gap">
 
-<div class="intro col-lg-12 serif">
-	<h1>Gamekeeper</h1>
+<div class="intro col-lg-12">
+  <%= image_tag('tokens_brand_color.png') %>
   <h3>The Check-in App for Board Games</h3>
 </div>
 

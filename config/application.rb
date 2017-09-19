@@ -17,6 +17,6 @@ module Check
     # -- all .rb files in that directory are automatically loaded.
   	config.exceptions_app = self.routes
   	config.app_name = "Tokens"
-    config.app_domain = "tokenapp.co"
+    config.app_domain = "tokensapp.co"
   end
 end

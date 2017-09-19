@@ -7,17 +7,16 @@
 
 # v 1.0
 
-1. ensure all variables are hidden
 1. testing
 1. about
 1. privacy policy / terms / cookies
-1. react: game description text expand
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
 1. update oauth platform app name, emails
 1. custom splash page images
 
 # v 1.1
 
+1. react-native app
 1. mentions on users
 1. comment on checkins
 1. more useful side pane on home screen slash more/better discovery

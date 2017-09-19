@@ -60,7 +60,7 @@ class PostsController < ApplicationController
           format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a target="0" href="http://twitter.com/statuses/' + tweet_id.to_s + '">here</a>.' }
           format.json { render :show, status: :created, location: @post }
         else
-          format.html { redirect_to @post, notice: 'Check in created!' }
+          format.html { redirect_to @post, notice: 'Check-in created!' }
           format.json { render :show, status: :created, location: @post }
         end
       else
