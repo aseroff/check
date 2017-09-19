@@ -12,6 +12,6 @@ class Post < ApplicationRecord
 	end
 
   	def url
-    	'http://check.seroff.co/check-ins/' + self.id.to_s
+    	Rails.root.join("check-ins", self.id.to_s).to_s
   	end
 end

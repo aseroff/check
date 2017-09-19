@@ -13,7 +13,7 @@
 1. privacy policy / terms / cookies
 1. react: game description text expand
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
-1. customized/non-stock emails
+1. update oauth platform app name, emails
 1. custom splash page images
 
 # v 1.1
