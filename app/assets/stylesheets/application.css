@@ -135,5 +135,17 @@ footer a {
 .fixed { position:fixed; }
 .yellow { color:yellow; }
 .strong { font-weight:800; }
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #e67e22; 
+  border-color: #e67e22;
+}
+.btn-primary:hover {
+  background-color: #d35400; 
+  border-color: #d35400;
+  
+}
 @media only screen and (max-width: 768px) { .no-mobile {display:none;} }
 @media only screen and (min-width: 768px) { .only-mobile {display:none;} }
