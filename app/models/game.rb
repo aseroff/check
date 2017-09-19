@@ -72,7 +72,4 @@ class Game < ApplicationRecord
 		end
 	end
 
-	private
-    	def avatar_size_validation
-    	end
 end

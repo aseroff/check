@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.app_name = "Tokens (staging)"
+  config.app_domain = "immense-atoll-75723.herokuapp.com"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

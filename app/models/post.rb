@@ -12,6 +12,6 @@ class Post < ApplicationRecord
 	end
 
   	def url
-    	Rails.root.join("check-ins", self.id.to_s).to_s
+    	Rails.app.config.app_domain + '/check-ins/' + self.id.to_s
   	end
 end

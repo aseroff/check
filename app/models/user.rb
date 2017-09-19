@@ -23,51 +23,6 @@ class User < ApplicationRecord
 
   has_many :authorizations, :dependent => :destroy
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    #  user.email = auth.info.email
-    #  user.password = Devise.friendly_token[0,20]
-    #  user.username = auth.info.email
-    # If you are using confirmable and the provider(s) you use validate emails, 
-    # uncomment the line below to skip the confirmation emails.
-    # user.skip_confirmation!
-    end
-  end
-
-  def tweet(post)
-    if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
-      client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "dFPIQW8rTerq2ncKA90NJt8ty"
-        config.consumer_secret     = "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
-        config.access_token        = self.twitter_token
-        config.access_token_secret = self.twitter_token_secret
-      end
-      if post.text.empty?
-        message = "I checked in to #{post.game.title} on GameKeeper! " + post.url
-      else
-        message = (post.text.length > 112 ? post.text[0..112] + "... " : post.text + " ") +  post.url
-      end
-      id = client.update(message).id
-    end
-    id.to_i if id
-  end
-
-  def friends_from_twitter
-    if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
-      client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "dFPIQW8rTerq2ncKA90NJt8ty"
-        config.consumer_secret     = "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
-        config.access_token        = self.twitter_token
-        config.access_token_secret = self.twitter_token_secret
-      end
-      twitter_friends = client.friend_ids
-      friends = User.where("uid in (?)", twitter_friends.to_h.first.last.map{|x| x.to_s})
-    else 
-      friends = User.none
-    end
-    friends
-  end
-
   def display_name
     '@' + self.username.to_s
   end
@@ -134,19 +89,63 @@ class User < ApplicationRecord
     h.to_a[0..(h.size > 5 ? 5 : h.size)] 
   end
 
+  def notifications
+    notifications = []
+    Relation.where("related_id = ? and relationship = ? and created_at = updated_at", self.id, "follow").pluck(:id).each {|i| notifications << i}
+    Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", self.posts.pluck(:id), "nice").pluck(:id).each {|i| notifications << i}
+    Relation.where("id in (?)", notifications).order(created_at: :desc)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    #  user.email = auth.info.email
+    #  user.password = Devise.friendly_token[0,20]
+    #  user.username = auth.info.email
+    # If you are using confirmable and the provider(s) you use validate emails, 
+    # uncomment the line below to skip the confirmation emails.
+    # user.skip_confirmation!
+    end
+  end
+
+  def twitter_client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = self.twitter_token
+      config.access_token_secret = self.twitter_token_secret
+    end
+  end
+
+  def tweet(post)
+    if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
+      client = self.twitter_client
+      if post.text.empty?
+        message = "I checked in to #{post.game.title} on " + Rails.application.config.app_name + "! " + post.url
+      else
+        message = (post.text.length > 112 ? post.text[0..112] + "... " : post.text + " ") +  post.url
+      end
+      id = client.update(message).id
+    end
+    id.to_i if id
+  end
+
+  def friends_from_twitter
+    if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
+      client = self.twitter_client
+      twitter_friends = client.friend_ids
+      friends = User.where("uid in (?)", twitter_friends.to_h.first.last.map{|x| x.to_s})
+    else 
+      friends = User.none
+    end
+    friends
+  end
+  
   def self.search(term)
     if term
       User.where("lower(username) like ?", "%" + term.downcase + "%")
     else
       User.none
     end
-  end
-
-  def notifications
-    notifications = []
-    Relation.where("related_id = ? and relationship = ? and created_at = updated_at", self.id, "follow").pluck(:id).each {|i| notifications << i}
-    Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", self.posts.pluck(:id), "nice").pluck(:id).each {|i| notifications << i}
-    Relation.where("id in (?)", notifications).order(created_at: :desc)
   end
 
   private
