@@ -33,7 +33,7 @@
 <div class="center contain no-gap">
 
 <div class="intro col-lg-12">
-	<%= image_tag('tokens_brand_color.png') %>
+	<%= image_tag('tokens_brand_color.png', class: 'fit', style: 'max-width:450px') %>
   <h3>The Check-in App for Board Games</h3>
 </div>
 
@@ -72,7 +72,7 @@
   <div class="clearfix"></div>
 
 <div class="cta col-xs-12 col-md-6 col-md-offset-3">
-	<%= link_to raw("Create a " + image_tag('tokens_brand.png', height: "25px") + " Account"), new_user_registration_path, class: 'col-xs-12 btn btn-primary' %>
+	<%= link_to raw("Create an Account"), new_user_registration_path, class: 'col-xs-12 btn btn-primary' %>
 </div>
 
   <div class="clearfix"></div>
