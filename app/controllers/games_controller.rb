@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json
+      format.json.array! @games, partial: "game.json"
       format.js
     end
   end
@@ -39,6 +39,7 @@ class GamesController < ApplicationController
     @posts = @game.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
+      format.json.partial! "game.json", as: @game
       format.js
     end
   end

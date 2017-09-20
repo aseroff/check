@@ -16,6 +16,7 @@
 
 # v 1.1
 
+1. avatar preview, game strings
 1. react-native app
 1. mentions on users
 1. comment on checkins
