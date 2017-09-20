@@ -1,11 +1,11 @@
 <div class="list-game contain">
 	<div class="col-sm-3 center">
-        <%= link_to image_tag(game.img_url.thumb, class: 'game-image'), game %>
+        <%= link_to image_tag(game.img_url.thumb.to_s, class: 'game-image'), game %>
     </div>
     <div class="col-sm-9 center">
     	<span class="game-title col-xs-12"><%= link_to game.title, game_path(game, format: :amp) %></span>
     	<div class="col-xs-12">
-			<%= render 'game/stats', game: game %>
+			<%= render 'games/stats', game: game %>
 		</div>
 	</div>
 	<div class="clearfix"></div>
