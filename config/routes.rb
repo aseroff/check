@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "privacy", controller: "application"
   get "terms", controller: "application"
   get "investors", controller: "application"
+  get 'stats', controller: "application"
   get "notifications", controller: "users", action: "notifications"
   get 'errors/not_found'
   get 'errors/internal_server_error'

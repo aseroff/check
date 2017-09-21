@@ -1,14 +1,10 @@
 <%= content_for(:title, @post.name) %>
 
 <div class="col-sm-4">
-<div class="no-mobile fixed contain profile">
-<%= render 'users/profile' %>
-<%= render 'users/controls' %>
-</div>
 
-<div class="only-mobile contain profile">
-<%= render 'users/profile' %>
-<%= render 'users/controls' %>
+<div class="contain profile">
+	<%= render 'users/profile.amp.erb' %>
+	<%= render 'users/controls.amp.erb' %>
 </div>
 
 </div>

@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
   def investors
   end
 
+  def stats
+  end
+
   protected
 
   def ignore_newrelic
