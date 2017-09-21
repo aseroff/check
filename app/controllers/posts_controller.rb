@@ -27,6 +27,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @user = @post.user
+    @following = @user.following.size.to_s
+    @followers = @user.followers.size.to_s
+    @posts_count = @user.posts.size.to_s
+    @favorited_count = @user.favorites.size.to_s
+    @owned_count = @user.owned.size.to_s
     @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
     respond_to do |format|
       format.html
