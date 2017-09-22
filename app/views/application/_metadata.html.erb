@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta name="twitter:title" content="<%= @post.name %>" />
-<meta name="twitter:description" content="<%= @post.text.length > 112 ? "See the rest of <%= @post.user.display_name %>'s check-in on Tokens" : !@post.text.empty? ? @post.text : @post.user.display_name + " is checking into board games on " + Rails.application.config.app_name %>!" />
+<meta name="twitter:description" content="<%= @post.text.length > 112 ? "See the rest of " + @post.user.display_name + "'s check-in on Tokens!" : !@post.text.empty? ? @post.text : @post.user.display_name + " is checking into board games on " + Rails.application.config.app_name + "!" %>" />
 <meta name="twitter:image" content="<%= @post.game.img_url.medium %>" />
 
 <% elsif @game %>
@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta name="twitter:title" content="<%= @game.title + " on " + Rails.application.config.app_name %>" />
-<meta name="twitter:description" content="<%= @game.title + " on " + Rails.application.config.app_name %>, the check-in app for board games!" />
+<meta name="twitter:description" content="<%= @game.title + " on " + Rails.application.config.app_name + ", the check-in app for board games!" %>" />
 <meta name="twitter:image" content="<%= @game.img_url.medium %>" />
 
 <% elsif @user %>
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta name="twitter:title" content="<%= @user.display_name + " on " + Rails.application.config.app_name %>" />
-<meta name="twitter:description" content="<%= @user.display_name + " on " + Rails.application.config.app_name %>, the check-in app for board games!" />
+<meta name="twitter:description" content="<%= @user.display_name + " on " + Rails.application.config.app_name + ", the check-in app for board games!" %>" />
 <meta name="twitter:image" content="<%= @user.avatar.medium %>" />
 
 <% end %>
