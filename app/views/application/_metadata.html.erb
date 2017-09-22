@@ -14,7 +14,7 @@
 <meta name="twitter:site" content="@TokensTeam" />
 <meta name="twitter:title" content="<%= @game.title %>" />
 <meta name="twitter:description" content="<%= @game.title %> on <%= Rails.application.config.app_name %>" />
-<meta name="twitter:image" content="<%= @game.img_url.thumb %>" />
+<meta name="twitter:image" content="<%= @game.img_url.medium %>" />
 
 <% elsif @post %>
 
@@ -31,6 +31,6 @@
 <meta name="twitter:site" content="@TokensTeam" />
 <meta name="twitter:title" content="<%= @post.name %>" />
 <meta name="twitter:description" content="<%= @post.text %>" />
-<meta name="twitter:image" content="<%= @post.game.img_url.thumb %>" />
+<meta name="twitter:image" content="<%= @post.game.img_url.medium %>" />
 
 <% end %>
