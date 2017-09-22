@@ -33,6 +33,6 @@
 1. android app
 
 # other
-1. ad on ocho to check in
-1. project on andy.seroff.co
+1. New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.
 1. log maintenence on aws servers
+1. anyone want to play x tonight?
