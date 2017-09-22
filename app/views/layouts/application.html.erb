@@ -3,7 +3,7 @@
   <head>
     
     <title><%= content_for?(:title) ?  yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The check-in app for board games!" %>">
     
     <%= render 'application/favicon' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
