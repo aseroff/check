@@ -17,6 +17,6 @@
     <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
 </div>
 <div class="col-xs-6 no-gap">
-    <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: Rails.application.config.twitter_handle) %>
+    <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: Rails.application.config.twitter_handle[1..-1]) %>
 </div>
 <div class="clearfix"></div>
