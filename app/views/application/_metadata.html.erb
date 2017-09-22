@@ -1,22 +1,4 @@
-<% if @game %>
-
-<script type="application/ld+json">
-{ "@context": "http://schema.org",
-"@type": "Game",
-"name": "<%= @game.title %>",
-"description": "<%= @game.description %>",
-"url": "<%= game_url(@game) %>",
-"sameAs": "<%= 'https://www.boardgamegeek.com/boardgame/' + @game.id.to_s %>"
-}
-</script>
-
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@TokensTeam" />
-<meta name="twitter:title" content="<%= @game.title %>" />
-<meta name="twitter:description" content="<%= @game.title %> on <%= Rails.application.config.app_name %>, the check-in app for board games!" />
-<meta name="twitter:image" content="<%= @game.img_url.medium %>" />
-
-<% elsif @post %>
+<% if @post %>
 
 <script type="application/ld+json">
 { "@context": "http://schema.org",
@@ -30,15 +12,33 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta name="twitter:title" content="<%= @post.name %>" />
-<meta name="twitter:description" content="<%= @post.text %>" />
+<meta name="twitter:description" content="<%= @post.text ? @post.text : @post.user.display_name + " is checking into board games on " + Rails.application.config.app_name %>" />
 <meta name="twitter:image" content="<%= @post.game.img_url.medium %>" />
+
+<% elsif @game %>
+
+<script type="application/ld+json">
+{ "@context": "http://schema.org",
+"@type": "Game",
+"name": "<%= @game.title %>",
+"description": "<%= @game.description %>",
+"url": "<%= game_url(@game) %>",
+"sameAs": "<%= 'https://www.boardgamegeek.com/boardgame/' + @game.id.to_s %>"
+}
+</script>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
+<meta name="twitter:title" content="<%= @game.title + ' on ' + Rails.application.config.app_name %>" />
+<meta name="twitter:description" content="<%= @game.title %> on <%= Rails.application.config.app_name %>, the check-in app for board games!" />
+<meta name="twitter:image" content="<%= @game.img_url.medium %>" />
 
 <% elsif @user %>
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
-<meta name="twitter:title" content="<%= @user.display_name %> on <%= Rails.application.config.app_name %>" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:title" content="<%= @user.display_name + ' on ' + Rails.application.config.app_name %>" />
+<meta name="twitter:description" content="<%= "See what " + @post.user.display_name + " on " + Rails.application.config.app_name %>, the check-in app for board games!" />
 <meta name="twitter:image" content="<%= @user.avatar.medium %>" />
 
 <% end %>
