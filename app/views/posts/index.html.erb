@@ -2,6 +2,7 @@
 
 <% @user = current_user %>
 <%= content_for(:title, "Feed") %>
+<%= content_for(:description, "Check-in Feed") %>
 
 <div class="col-sm-5">
 
@@ -26,8 +27,6 @@
 </div>
 </div>
 <% else %>
-
-<%= content_for(:description, "The Check-in App for Board Games!") %>
 
 <div class="center contain no-gap">
 

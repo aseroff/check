@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title><%= content_for?(:title) ?  yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The check-in app for board games!" %>">
     <link rel="canonical" href="<%= rails_amp_canonical_url %>" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
