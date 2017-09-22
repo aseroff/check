@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@TokensTeam" />
 <meta name="twitter:title" content="<%= @game.title %>" />
-<meta name="twitter:description" content="<%= @game.title %> on <%= Rails.application.config.app_name %>" />
+<meta name="twitter:description" content="<%= @game.title %> on <%= Rails.application.config.app_name %>, the check-in app for board games!" />
 <meta name="twitter:image" content="<%= @game.img_url.medium %>" />
 
 <% elsif @post %>
@@ -28,9 +28,17 @@
 </script>
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@TokensTeam" />
+<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta name="twitter:title" content="<%= @post.name %>" />
 <meta name="twitter:description" content="<%= @post.text %>" />
 <meta name="twitter:image" content="<%= @post.game.img_url.medium %>" />
+
+<% elsif @user %>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
+<meta name="twitter:title" content="<%= @user.display_name %> on <%= Rails.application.config.app_name %>" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="<%= @user.avatar.medium %>" />
 
 <% end %>

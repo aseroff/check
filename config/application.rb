@@ -18,5 +18,6 @@ module Check
   	config.exceptions_app = self.routes
   	config.app_name = "Tokens"
     config.app_domain = "tokensapp.co"
+    config.twitter_handle = "@TokensTeam"
   end
 end
