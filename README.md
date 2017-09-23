@@ -13,7 +13,6 @@
 1. emails
 1. testing
 1. about
-1. privacy policy / terms / cookies
 
 # v 1.1
 
