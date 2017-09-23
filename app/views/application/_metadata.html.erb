@@ -13,7 +13,7 @@
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta property="og:title" name="twitter:title" content="<%= @post.name %>" />
 <meta property="og:description"  name="twitter:description" content="<%= !@post.text.empty? ? @post.text : @post.user.display_name + " is checking into board games on " + Rails.application.config.app_name + "!" %>" />
-<meta property="og:image" name="twitter:image" content="<%= @post.game.img_url.medium %>" />
+<meta property="og:image" name="twitter:image" content="<%= @post.game.img_url.thumb %>" />
 
 <% elsif @game %>
 
@@ -31,7 +31,7 @@
 <meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta property="og:title" name="twitter:title" content="<%= @game.title + " on " + Rails.application.config.app_name %>" />
 <meta property="og:description" name="twitter:description" content="<%= @game.title + " on " + Rails.application.config.app_name + ", the check-in app for board games!" %>" />
-<meta property="og:image" name="twitter:image" content="<%= @game.img_url.medium %>" />
+<meta property="og:image" name="twitter:image" content="<%= @game.img_url.thumb %>" />
 
 <% elsif @user && controller_name != "posts" %>
 
@@ -43,7 +43,9 @@
 
 <% else %>
 
-<meta property="og:image" name="twitter:image" content="<%= 'http://www.' + Rails.application.config.app_domain + image_path('tokens_brand_color_fb.png') %>" />
+<meta property="og:title" name="twitter:title" content="<%= Rails.application.config.app_name %>" />
+<meta property="og:description"  name="twitter:description" content="The check-in app for board games!" %>" />
+<meta property="og:image" name="twitter:image" content="<%= 'http://www.' + Rails.application.config.app_domain + image_path('tokens_logo.png') %>" />
 
 <% end %>
 
