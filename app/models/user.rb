@@ -119,12 +119,7 @@ class User < ApplicationRecord
   def tweet(post)
     if self.provider == "twitter" && self.twitter_token && self.twitter_token_secret
       client = self.twitter_client
-      if post.text.empty?
-        message = "I checked in to #{post.game.title} on " + Rails.application.config.app_name + "! " + post.url
-      else
-        message = (post.text.length > 112 ? post.text[0..112] + "... " : post.text + " ") +  post.url
-      end
-      id = client.update(message).id
+      id = client.update("I checked in to " + post.game.title + " on " + Rails.application.config.app_name + "! " + post.url).id
     end
     id.to_i if id
   end
