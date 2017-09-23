@@ -46,6 +46,8 @@
 
 <% else %>
 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
 <meta property="og:title" name="twitter:title" content="<%= Rails.application.config.app_name %>" />
 <meta property="og:description"  name="twitter:description" content="The check-in app for board games!" />
 <meta property="og:image" name="twitter:image" content="<%= 'http://www.' + Rails.application.config.app_domain + image_path('tokens_logo.png') %>" />
