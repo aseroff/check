@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-7 col-sm-offset-1 no-gap">
     	<h4><%= link_to post.user.display_name, user_path(post.user, format: :amp) %> played <%= link_to post.game.title, game_path(post.game, format: :amp) %></h4>
-        <%= content_tag(:p, post.text) %>
+        <%= content_tag(:p, post_with_links(post).html_safe) if post.text && !post.text.empty? %>
         <%= link_to ('on ' + post.created_at.strftime("%B %d, %Y")), post_path(post, format: :amp), class: 'timestamp' %><br>
         <hr>
     <%= render 'posts/controls', post: post %>
