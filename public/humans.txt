@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+                            
+	Developer: Andrew Seroff
+	Site: tokensapp.co
+	Twitter: @TokensTeam
+
+/* THANKS */
+
+    Gregory Schoolcraft
+                            
+/* SITE */
+
+	Went live: 2015-09-20
+	Last update: 2017-09-24               
+	Standards: HTML5, CSS3  
+	Components: Bootstrap, jQuery
+	Software: Ruby on Rails
