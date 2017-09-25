@@ -7,7 +7,6 @@
 
 # v 1.0
 
-1. username to change friendly-id
 1. amp link on feed doesnt work
 1. amp following button has no text
 1. emails
@@ -18,7 +17,6 @@
 
 1. comments
 1. hashtags
-1. mentions
 1. AMP session control, complete style fix
 1. React elements
 1. react-native
