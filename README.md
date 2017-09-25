@@ -17,7 +17,7 @@
 
 1. comments
 1. hashtags 
-1. AMP session control, complete style fix
+1. AMP session control
 1. React elements
 1. react-native
 
