@@ -93,6 +93,7 @@ class User < ApplicationRecord
     notifications = []
     Relation.where("related_id = ? and relationship = ? and created_at = updated_at", self.id, "follow").pluck(:id).each {|i| notifications << i}
     Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", self.posts.pluck(:id), "nice").pluck(:id).each {|i| notifications << i}
+    Relation.where("user_id = ? and relationship = ? and created_at = updated_at", self.id, "mention").pluck(:id).each {|i| notifications << i}
     Relation.where("id in (?)", notifications).order(created_at: :desc)
   end
 

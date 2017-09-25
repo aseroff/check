@@ -14,4 +14,9 @@ class Post < ApplicationRecord
   	def url
     	Rails.application.config.app_domain + '/check-ins/' + self.id.to_s
   	end
+
+  	def destroy_associated
+  		Relation.where(related_id: self.id, relationship: "nice").delete_all
+  		Relation.where(related_id: self.id, relationship: "mention").delete_all
+  	end
 end

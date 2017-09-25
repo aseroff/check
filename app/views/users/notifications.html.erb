@@ -5,12 +5,23 @@
 
 	<div class="list-user contain">
 		<div class="col-xs-3 center">
-        	<%= link_to image_tag(n.user.avatar.thumb, class: 'circle user-image'), n.user %>
-			<% relation = Relation.find_by(user_id: current_user.id, related_id: n.user.id, relationship:"follow") %>
-			<% if relation %>
-				<%= link_to "", relation_path(relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
+			<% unless n.relationship == "mention" %>
+        		<%= link_to image_tag(n.user.avatar.thumb, class: 'circle user-image'), n.user %>
+				<% relation = Relation.find_by(user_id: current_user.id, related_id: n.user.id, relationship:"follow") %>
+				<% if relation %>
+					<%= link_to "", relation_path(relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
+				<% else %>
+					<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: n.user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless n.user == current_user %>
+				<% end %>
 			<% else %>
-				<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: n.user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless n.user == current_user %>
+				<% u = Post.find(n.related_id).user %>
+				<%= link_to image_tag(u.avatar.thumb, class: 'circle user-image'), u %>
+				<% relation = Relation.find_by(user_id: current_user.id, related_id: n.id, relationship:"follow") %>
+				<% if relation %>
+					<%= link_to "", relation_path(relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
+				<% else %>
+					<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: u.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless u == current_user %>
+				<% end %>
 			<% end %>
    		</div>
     	<div class="col-xs-6 col-xs-offset-2">
@@ -18,6 +29,8 @@
     			<h4><%= link_to n.user.display_name, n.user %> has followed you!</h4>
     		<% elsif n.relationship == "nice" %>
     			<h4><%= link_to n.user.display_name, n.user %> niced your <%= link_to 'post', post_path(n.related_id) %>!</h4>
+    		<% elsif n.relationship == "mention" %>
+    			<h4><%= link_to u.display_name, u %> mentioned you in a <%= link_to 'post', post_path(n.related_id) %>!</h4>
     		<% end %>
     		<p class="fine"><%= n.created_at.strftime("%B %d, %Y") %></p>
     	</div>
