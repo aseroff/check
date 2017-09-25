@@ -148,4 +148,8 @@ class User < ApplicationRecord
     def avatar_size_validation
       errors[:avatar] << "should be less than 1MB" if avatar.size > 1.megabytes
     end
+
+    def should_generate_new_friendly_id?
+      slug.blank? || username_changed?
+    end
 end
