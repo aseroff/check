@@ -3,11 +3,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      .header { background-color: #e67e22; text-align:center; padding:10px;}
+      .content { padding-left: 25%; width: 50%;}
+      .content a { color: #e67e22; }
     </style>
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="header">
+  		<%= link_to image_tag('tokens_brand.png'), 'http://www.' + Rails.application.config.app_domain %>
+  	</div>
+  	<div class="content">
+    	<%= yield %>
+    </div>
   </body>
 </html>

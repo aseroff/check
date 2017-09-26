@@ -7,19 +7,19 @@
 
 # v 1.0
 
-1. amp images and styles
-1. emails
+1. about and any other static pages?
 1. testing
-1. about
 
 # v 1.1
 
 1. comments
-1. hashtags
-1. AMP session control
 1. React elements
 1. react-native
 
+# backlog
+1. amp images and styles cleaning
+1. hashtags v2
+1. emails v2
 1. typeahead.js integration for autocomplete?
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
 1. avatar preview, game strings
