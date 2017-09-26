@@ -41,11 +41,11 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Mailer settings 
-  Rails.application.routes.default_url_options[:host] = 'checkapp.co'
+  Rails.application.routes.default_url_options[:host] = 'tokensapp.co'
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = {:host => 'checkapp.co'}
+  config.action_mailer.default_url_options = {:host => 'tokensapp.co'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',

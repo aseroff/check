@@ -2,9 +2,6 @@ Rails.application.configure do
   config.app_name = "Tokens (staging)"
   config.app_domain = "staging.tokensapp.co"
 
-  config.action_controller.asset_host = 'http://staging.tokensapp.co'
-  config.action_mailer.asset_host = 'http://staging.tokensapp.co'
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
