@@ -7,8 +7,7 @@
 
 # v 1.0
 
-1. amp link on feed doesnt work
-1. amp following button has no text
+1. amp images and styles
 1. emails
 1. testing
 1. about
