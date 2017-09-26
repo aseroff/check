@@ -7,7 +7,7 @@
 
 # v 1.0
 
-1. about and any other static pages?
+1. about and any other static pages? donate pages...
 1. testing
 
 # v 1.1
