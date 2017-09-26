@@ -8,7 +8,12 @@ class PostsController < ApplicationController
   def index
     if current_user
       @user = current_user
-      @posts = Post.where("user_id IN (?)", (@user.following_users + [@user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      if params[:term]
+        @term = params[:term]
+        @posts = Post.search(@term).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      else
+        @posts = Post.where("user_id IN (?)", (@user.following_users + [@user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      end
       @following = @user.following.size.to_s
       @followers = @user.followers.size.to_s
       @posts_count = @user.posts.size.to_s

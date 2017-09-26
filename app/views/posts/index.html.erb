@@ -17,6 +17,11 @@
 
 <div class="feed col-sm-7">
 
+<% if @term %>
+<h3 class="center">Search</h3>
+<span class="label label-info">#<%= @term %> <%= link_to "x", posts_path %></span>
+<% end %>
+
 <div id="posts">
 <%= render @posts %>
 </div>

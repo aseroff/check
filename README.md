@@ -16,7 +16,7 @@
 # v 1.1
 
 1. comments
-1. hashtags 
+1. hashtags
 1. AMP session control
 1. React elements
 1. react-native
@@ -25,8 +25,10 @@
 1. stats for games - # of checkins - and stats on check ins - your # vs their #
 1. avatar preview, game strings
 1. more useful side pane on home screen slash more/better discovery
+1. your friend from twitter signed up notification
 1. facebook? 
 1. Shortcuts on games to checkin/fav/own
+1. private checkins?
 1. more shortcuts on objects
 1. more data on pages
 1. data integrity - string cleanup in game descriptions

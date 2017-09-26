@@ -19,4 +19,13 @@ class Post < ApplicationRecord
   		Relation.where(related_id: self.id, relationship: "nice").delete_all
   		Relation.where(related_id: self.id, relationship: "mention").delete_all
   	end
+
+	def self.search(term)
+		if term
+			Post.where("lower(text) like ?", "%" + term.downcase + "%")
+		else
+			Post.all
+		end
+	end
+
 end
