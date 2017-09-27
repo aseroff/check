@@ -12,7 +12,14 @@
 <h3 class="col-sm-12">Following</h3>
 
 <div id="user-list" class="col-sm-12">
-<%= render @users %>
+  <% unless @users.empty? %>
+    <%= render @users %>
+  <% else %>
+      <div class="center padded">
+        <h4><%= current_user == @user ? "You aren't" : @user.display_name + " isn't" %> following anyone yet!</h4>
+        <p><%= link_to 'Find friends to follow here', users_path(format: :amp) %></p>
+      </div>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

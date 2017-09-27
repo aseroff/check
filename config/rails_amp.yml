@@ -1,5 +1,5 @@
 targets:
-  users: index show followers following owned favorites
+  users: index show followers following owned favorites notifications
   games: index show
   posts: index new show edit
   relations: create destroy

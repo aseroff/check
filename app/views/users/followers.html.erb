@@ -17,7 +17,13 @@
 <h3 class="col-sm-12">Followers</h3>
 
 <div id="user-list" class="col-sm-12">
-<%= render @users %>
+  <% unless @users.empty? %>
+    <%= render @users %>
+  <% else %>
+      <div class="center padded">
+        <h4><%= current_user == @user ? "You don't" : @user.display_name + " doesn't" %> have any followers yet!</h4>
+      </div>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

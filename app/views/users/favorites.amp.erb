@@ -13,7 +13,13 @@
 <h3 class="col-sm-12">Favorite Games</h3>
 
 <div id="game-list" class="col-sm-12">
-	<%= render @games %>
+  <% unless @games.empty? %>
+    <%= render @games %>
+  <% else %>
+      <div class="center padded">
+        <h4><%= current_user == @user ? "You haven't" : @user.display_name + " hasn't" %> favorited any games yet!</h4>
+      </div>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

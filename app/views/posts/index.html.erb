@@ -23,7 +23,14 @@
 <% end %>
 
 <div id="posts">
-<%= render @posts %>
+  <% unless @posts.empty? %>
+    <%= render @posts %>
+  <% else %>
+      <div class="center padded">
+        <h4>No one you're following has checked in yet.</h4>
+        <p><%= link_to 'Find friends to follow here', users_path %></p>
+      </div>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

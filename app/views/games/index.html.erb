@@ -37,6 +37,10 @@
   <p>For example, <em>Catan</em> can be found at 'https://boardgamegeek.com/boardgame/13/catan', so if it were missing, you would submit "13" in the bar below.
   </p>
 
+  <p>
+  Note that if the game is an expansion, the import process will fail. This is indicated by a url that has 'boardgameexpansion' instead of 'boardgame'. Support for checking in to expansions is coming soon.
+  </p>
+
   <p>Thank you for contributing to <%= Rails.application.config.app_name %>!
   </p>
 
@@ -56,7 +60,11 @@
 <% end %>
 
 <div id="game-list" class="game-list padded">
-	<%= render @games %>
+  <% unless @games.empty? %>
+	  <%= render @games %>
+  <% else %>
+    <h4>No games found.</h4>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

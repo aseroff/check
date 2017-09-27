@@ -17,7 +17,14 @@
 <div class="feed col-sm-7">
 
 <div id="posts">
-	<%= render @posts %>
+	<% unless @posts.empty? %>
+		<%= render @posts %>
+	<% else %>
+  		<div class="center padded">
+    		<h4>No one has checked in to this game yet!</h4>
+    		<p>Will you be the first?</p>
+    	</div>
+	<% end %>
 </div>
 
 <div id="infinite-scrolling">

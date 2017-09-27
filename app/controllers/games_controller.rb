@@ -46,7 +46,11 @@ class GamesController < ApplicationController
 
   def import
     @game = Game.import(params[:id]) if params[:id]
-    redirect_to @game
+    if @game
+      redirect_to @game 
+    else 
+      redirect_to games_path(filter: "import"), notice: "Game is invalid (support for expansions coming soon!)" 
+    end
   end
 
 

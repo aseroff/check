@@ -1,13 +1,15 @@
-# EB bugs
+# bugs
 
 1. any way to prevent a too-large file from throwing that nginx error?
 1. restore env variables for dev/test
 1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
 1. Unable to access log file on server
+1. avatar upload working easily?
 
 # v 1.0
 
 1. about and any other static pages? donate pages...
+1. ssl jfc
 1. testing
 
 # v 1.1

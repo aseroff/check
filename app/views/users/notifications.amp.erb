@@ -1,4 +1,6 @@
 <h3>Notifications</h3>
+<% unless @notifications.empty? %>
+
 <% @notifications.each do |n| %>
 
 	<div class="list-user contain">
@@ -24,3 +26,11 @@
 	<div class="clearfix"></div>
 
 <% end %> 
+
+<% else %>
+
+	<div class="center padded">
+        <h4>You have no notifications!</h4>
+    </div>
+
+<% end %>

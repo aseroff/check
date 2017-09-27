@@ -56,7 +56,11 @@
 <% end %>
 
 <div id="game-list" class="game-list padded">
-  <%= render @games %>
+    <% unless @games.empty? %>
+    <%= render @games %>
+  <% else %>
+    <h4>No games found.</h4>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">

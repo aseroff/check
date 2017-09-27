@@ -12,7 +12,13 @@
 <div class="feed col-sm-8">
 
 <div id="post-list">
-	<%= render @posts %>
+  <% unless @posts.empty? %>
+    <%= render @posts %>
+  <% else %>
+      <div class="center padded">
+        <h4><%= current_user == @user ? "You haven't" : @user.display_name + " hasn't" %> checked in to any games yet!</h4>
+      </div>
+  <% end %>
 </div>
 
 <div id="infinite-scrolling">
