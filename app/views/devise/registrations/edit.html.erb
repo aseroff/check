@@ -24,12 +24,13 @@
     <%= f.file_field :avatar %>
     <br>
     <span class="fine">Max image size 1MB</span>
-    <span class="fine">We'll use your email's Gravatar if you have one and don't upload an avatar.</span>
     <br>
     <%= f.hidden_field :avatar_cache %>
     <br>
     <% if current_user.avatar.present? %>
       <%= f.check_box :remove_avatar %> Remove Avatar
+    <% elsif gravatar?(current_user.email) %>
+      <strong>Using your Gravatar, upload a new avatar to override.</strong>
     <% end %>
     </div>
   </div>
