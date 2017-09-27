@@ -4,6 +4,7 @@
 1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
 1. Unable to access log file on server
 1. avatar upload working easily?
+1. email doesnt change?
 
 # v 1.0
 
