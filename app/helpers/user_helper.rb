@@ -1,7 +1,7 @@
 module UserHelper
 
 	def profile_picture(user, thumb = false)
-		!user.avatar.present? && gravatar?(user.email) ? gravatar_url(user.email, (thumb ? 100 : 300)) : user.avatar
+		!user.avatar.present? && gravatar?(user.email) ? gravatar_url(user.email, (thumb ? 100 : 300)) : thumb ? user.avatar.thumb : user.avatar.medium
 	end
 
 	def gravatar?(email)
