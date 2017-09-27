@@ -22,7 +22,7 @@
   <% else %>
       <div class="center padded">
         <h4><%= current_user == @user ? "You aren't" : @user.display_name + " isn't" %> following anyone yet!</h4>
-        <p><%= link_to 'Find friends to follow here', users_path %></p>
+        <p><%= link_to 'Find friends to follow here', users_path if current_user == @user %></p>
       </div>
   <% end %>
 </div>
