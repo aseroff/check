@@ -4,7 +4,7 @@
 
 <div class="post">
   <div class="col-sm-3 images">
-    <%= image_tag(current_user.avatar.thumb, size: '50', class: 'circle user-image') %>
+    <%= image_tag(profile_picture(current_user, true), size: '50', class: 'circle user-image') %>
     <%= image_tag(post.game.img_url.thumb, size: '50', class: 'game-image') %>
   </div>
   <div class="col-sm-9">

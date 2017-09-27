@@ -46,9 +46,10 @@
   <% unless session["devise.twitter_data"] %>
     <div class="field">
       <%= f.label :avatar %>
-      <span class="fine">Max image size 1MB</span>
       <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %>
+      <span class="fine">Max image size 1MB</span><br>
+      <span class="fine">We'll use your email's Gravatar if you have one and don't upload an avatar.</span>
     </div>
   <% end %>
 

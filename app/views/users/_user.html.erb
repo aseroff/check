@@ -1,6 +1,6 @@
 <div class="list-user contain">
 	<div class="col-sm-4 center">
-        <%= link_to image_tag(user.avatar.thumb, class: 'circle user-image'), user %>
+        <%= link_to image_tag(profile_picture(user), class: 'circle user-image'), user %>
 		<% if current_user %>
 			<% relation = Relation.find_by(user_id: current_user.id, related_id: user.id, relationship:"follow") %>
 			<% if relation %>

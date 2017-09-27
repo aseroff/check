@@ -1,4 +1,4 @@
 <div class="col-xs-12">
-<%= image_tag(@user.avatar.medium, class: 'circle profile-image') %><br>
+<%= image_tag(profile_picture(@user), class: 'circle profile-image') %><br>
 <h3><%= link_to @user.display_name, @user %></h3>
 </div>

@@ -17,13 +17,14 @@
 
   <div class="col-sm-3 col-sm-offset-1">
     <div class="field">
-      <%= image_tag(current_user.avatar.medium, class: "circle profile-image") %>
+      <%= image_tag(profile_picture(current_user), class: "circle profile-image") %>
     </div>
     <div class="field">
     <label>Change avatar</label>
     <%= f.file_field :avatar %>
     <br>
     <span class="fine">Max image size 1MB</span>
+    <span class="fine">We'll use your email's Gravatar if you have one and don't upload an avatar.</span>
     <br>
     <%= f.hidden_field :avatar_cache %>
     <br>
