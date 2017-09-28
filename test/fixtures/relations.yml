@@ -5,17 +5,22 @@ follow:
   relationship: follow
   related_id: 2
 
+nice:
+  user_id: 1
+  relationship: nice
+  related_id: 1
+
+mention:
+  user_id: 1
+  relationship: mention
+  related_id: 3
+
 owned:
   user_id: 1
-  relationship: owned
+  relationship: owns
   related_id: 1
 
 favorite:
   user_id: 1
   relationship: favorite
-  related_id: 1
-
-nice:
-  user_id: 1
-  relationship: nice
   related_id: 1

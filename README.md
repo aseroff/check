@@ -10,7 +10,6 @@
 
 1. about and any other static pages? donate pages...
 1. ssl jfc
-1. testing
 
 # v 1.1
 
@@ -33,6 +32,7 @@
 1. more shortcuts on objects
 1. more data on pages
 1. data integrity - string cleanup in game descriptions
+1. better testing
 
 # other
 1. New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.

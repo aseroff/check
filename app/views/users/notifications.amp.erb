@@ -5,13 +5,8 @@
 
 	<div class="list-user contain">
 		<div class="col-xs-3 center">
-        	<%= link_to image_tag(n.user.avatar.thumb, class: 'circle user-image'), n.user %>
-			<% relation = Relation.find_by(user_id: current_user.id, related_id: n.user.id, relationship:"follow") %>
-			<% if relation %>
-				<%= link_to "", relation_path(relation), :method => :delete, class: 'col-xs-12 btn btn-success follow-active' %>
-			<% else %>
-				<%= (link_to raw("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Follow"), relations_path(related_id: n.user.id, relationship: "follow"), method: :post, class: 'col-xs-12 btn btn-default follow') unless n.user == current_user %>
-			<% end %>
+        	<% u = (n.relationship == "mention" ? n.related_item.user : n.user) %>
+        	<%= link_to image_tag(u.avatar.thumb, class: 'circle user-image'), u %>
    		</div>
     	<div class="col-xs-6 col-xs-offset-2">
     		<% if n.relationship == "follow" %>

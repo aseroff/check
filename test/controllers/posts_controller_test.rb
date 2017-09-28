@@ -46,6 +46,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "logged in user should show post" do
+    sign_in @user2
+    get post_url(@post)
+    assert_response :success
+  end
+
+  test "author should show post" do
     sign_in @author
     get post_url(@post)
     assert_response :success
@@ -68,10 +74,38 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "non logged in should not update post" do
+    patch post_url(@post), params: { post: { game_id: @post.game_id, text: @post.text, user_id: @post.user_id } }
+    assert_redirected_to posts_url
+  end
+
+  test "logged in should not update post" do
+    sign_in @user2
+    patch post_url(@post), params: { post: { game_id: @post.game_id, text: @post.text, user_id: @post.user_id } }
+    assert_redirected_to posts_url
+  end
+
   test "author should update post" do
     sign_in @author
     patch post_url(@post), params: { post: { game_id: @post.game_id, text: @post.text, user_id: @post.user_id } }
     assert_redirected_to post_url(@post)
+  end
+
+  test "non logged in should not destroy post" do
+    assert_difference('Post.count', 0) do
+      delete post_url(@post)
+    end
+
+    assert_redirected_to posts_url
+  end
+
+  test "logged in should not destroy post" do
+    sign_in @user2
+    assert_difference('Post.count', 0) do
+      delete post_url(@post)
+    end
+
+    assert_redirected_to posts_url
   end
 
   test "author should destroy post" do

@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class ApplicationControllerTest < ActionDispatch::IntegrationTest
-  
-  setup do
-    @game = games(:one)
-  end
 
   test "should get about" do
     get about_url

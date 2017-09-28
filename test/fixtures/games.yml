@@ -9,7 +9,7 @@ one:
 
 two:
   id: 2
-  title: MyString
+  title: StringGame
   description: MyText
   year: 1
   img_url: MyString

@@ -6,7 +6,14 @@ one:
   game_id: 1
   text: MyText
 
-two:
+hashtag:
+  id: 2
   user_id: 1
   game_id: 1
-  text: MyText
+  text: This is my \#hashtag post
+
+mention:
+  id: 3
+  user_id: 1
+  game_id: 1
+  text: I am mentioning @test
