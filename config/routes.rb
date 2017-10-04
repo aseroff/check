@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "cookies", controller: "application"
   get "privacy", controller: "application"
   get "terms", controller: "application"
-  get "investors", controller: "application"
+  get "donate", controller: "application"
   get 'stats', controller: "application"
   get "notifications", controller: "users", action: "notifications"
   get 'errors/not_found'
