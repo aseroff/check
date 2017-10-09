@@ -1,6 +1,6 @@
 # Issues
 
-1. the reoccuring production 406 error on js requests is killin me
+1. the reoccuring production 406 error on js requests. The pagination fallback is broken by it too.
 1. any way to prevent a too-large file from throwing that nginx error?
 1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
 1. Unable to access log file on server
