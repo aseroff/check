@@ -2,8 +2,8 @@
 <html>
   <head>
     
-    <title><%= content_for?(:title) ?  yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The check-in app for board games!" %>">
+    <title><%= content_for?(:title) ? yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : yield(:title) ? yield(:title) + ": The check-in app for board games!" : "The check-in app for board games!" %>">
     
     <%= render 'application/favicon' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
