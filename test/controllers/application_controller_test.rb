@@ -22,8 +22,8 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   
-  test "should get investors" do
-    get investors_url
+  test "should get donate" do
+    get donate_url
     assert_response :success
   end
 end
