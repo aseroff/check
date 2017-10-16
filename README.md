@@ -1,13 +1,14 @@
-# Issues
+# Bugs
+1. Entity too large error with big images
 
-1. any way to prevent a too-large file from throwing that nginx error?
-1. Image uploader needs to be able to write to app/tmp and app/public to do game imports OR 
-1. Unable to access log file on server
-1. avatar upload working easily?
-1. email doesnt change?
+# Keep an eye on
+
+1. Image uploading for users and games.
+1. Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
 
 # v 1.0
 
+1. when viewing hashtag, display proper sidebar
 1. regex for username /^[a-z0-9_]{3,16}$/
 1. comments
 1. facebook
@@ -19,6 +20,7 @@
 1. sort search results by checkins perhaps
 
 # backlog
+1. popular hashtags
 1. mention brave browser in donate
 1. amp images and styles cleaning
 1. hashtags v2

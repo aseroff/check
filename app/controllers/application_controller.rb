@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache, :uid, :provider, :twitter_token, :twitter_token_secret, :remote_avatar_url) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :password, :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar, :uid, :provider, :twitter_token, :twitter_token_secret) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar, :uid, :provider, :twitter_token, :twitter_token_secret) }
   end
 
   def determine_notifications
