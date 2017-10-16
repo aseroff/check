@@ -8,7 +8,7 @@
 
 # v 1.0
 
-1. ssl jfc
+1. regex for username /^[a-z0-9_]{3,16}$/
 1. comments
 1. facebook
 
