@@ -12,7 +12,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :posts, :dependent => :destroy
   has_many :relations, :dependent => :destroy
-  validates :username, uniqueness: true, length: { maximum: 20, message: " may only be 20 characters long." }, format: { with: /\A[a-zA-Z0-9]+\Z/, message: " may only include letters, numbers and underscores."}
+  validates :username, uniqueness: true, length: { maximum: 20, message: " may only be 20 characters long." }, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: " may only include letters, numbers and underscores."}
   validates :email, uniqueness: true
 
   scope :for_ids_with_order, ->(ids) {

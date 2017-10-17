@@ -1,6 +1,3 @@
-# Bugs
-1. Entity too large error with big images
-
 # Keep an eye on
 
 1. Image uploading for users and games.
@@ -8,7 +5,6 @@
 
 # v 1.0
 
-1. tests username combos
 1. comments
 
 # v 1.1
