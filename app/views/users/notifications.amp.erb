@@ -1,3 +1,5 @@
+<%= content_for(:title, current_user.display_name + "'s notifications") %>
+<%= content_for(:description, current_user.display_name + "'s notifications on Tokens") %>
 <h3>Notifications</h3>
 <% unless @notifications.empty? %>
 

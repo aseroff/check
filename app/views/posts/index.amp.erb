@@ -2,6 +2,7 @@
 
 <% @user = current_user %>
 <%= content_for(:title, "Check-in Feed") %>
+<%= content_for(:description, "Your check-in feed of users you follow.") %>
 
 <div class="no-mobile profile col-sm-4 contain">
   <%= render 'users/profile.amp.erb' %>
@@ -27,8 +28,8 @@
 
 <% else %>
 
-<%= content_for(:title, Rails.application.config.app_name) %>
-<%= content_for(:description, "The Check-in App for Board Games!") %>
+<%= content_for(:title, "Tokens: The Check-in App for Board Games") %>
+<%= content_for(:description, "Keep track of the games you play and see what your friends are playing on Tokens!") %>
 
 <div class="center contain no-gap">
 
