@@ -11,6 +11,7 @@
 1. React elements
 1. facebook
 1. sort search results by popularity (checkins) perhaps
+1. Google search improvements
 
 # backlog
 1. react-native apps

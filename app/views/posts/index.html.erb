@@ -2,15 +2,16 @@
 
 <% @user = current_user %>
 <%= content_for(:title, "Check-in Feed") %>
+<%= content_for(:description, "Your check-in feed of users you follow.") %>
 
-<div class="col-sm-5">
+<div class="col-sm-5 no-mobile">
 
-<div class="no-mobile profile contain">
+<div class="profile contain">
 <%= render 'users/profile' %>
 <%= render 'users/discovery' %>
 <div class="clearfix"></div>
 </div>
-<div class="no-mobile">
+<div class="center">
 <%= render 'application/masthead' %>
 </div>
 </div>
@@ -41,6 +42,8 @@
 </div>
 
 <% else %>
+<%= content_for(:title, "Tokens: The Check-in App for Board Games") %>
+<%= content_for(:description, "Keep track of the games you play and see what your friends are playing on Tokens!") %>
 
 <div class="center contain no-gap">
 
