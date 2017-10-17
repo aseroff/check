@@ -2,19 +2,18 @@
 
 1. Image uploading for users and games.
 1. Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
-
-# v 1.0
-
-1. comments
+1. Web console: preferred url
 
 # v 1.1
 
+1. avatar barf
+1. comments
 1. React elements
 1. facebook
-1. react-native
 1. sort search results by checkins perhaps
 
 # backlog
+1. react-native apps
 1. more validation messages?
 1. better hashtag search page
 1. popular hashtags
@@ -42,3 +41,4 @@
 1. more finding friends: address book
 1. avatar still pain in the butt.
 1. duplicate user bug?
+1. hide staging from google search
