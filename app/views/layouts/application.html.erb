@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    <title><%= content_for?(:title) ? yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
+    <title><%= content_for?(:title) ? yield(:title) : Rails.application.config.app_name %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : content_for?(:title) ? yield(:title) + " on #{Rails.application.config.app_name}: The check-in app for board games!" : Rails.application.config.app_name + ": The check-in app for board games!" %>">
     
     <%= render 'application/favicon' %>
