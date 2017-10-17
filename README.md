@@ -8,18 +8,19 @@
 
 # v 1.0
 
-1. when viewing hashtag, display proper sidebar
-1. regex for username /^[a-z0-9_]{3,16}$/
+1. tests username combos
 1. comments
-1. facebook
 
 # v 1.1
 
 1. React elements
+1. facebook
 1. react-native
 1. sort search results by checkins perhaps
 
 # backlog
+1. more validation messages?
+1. better hashtag search page
 1. popular hashtags
 1. mention brave browser in donate
 1. amp images and styles cleaning

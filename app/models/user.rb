@@ -4,6 +4,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   validates_integrity_of  :avatar
   validates_processing_of :avatar
+  validates :avatar, file_size: { less_than: 1.megabyte }
   validates_size_of :avatar, maximum: 1.megabytes, message: "should be less than 1MB"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -146,7 +147,7 @@ class User < ApplicationRecord
 
   private
     def avatar_size_validation
-      errors[:avatar] << "should be less than 1MB" if avatar.size > 1.megabytes
+      errors[:avatar] << " should be less than 1MB" if avatar.size > 1.megabytes
     end
 
     def should_generate_new_friendly_id?
