@@ -13,9 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails-ujs
-//= require react
-//= require react_ujs
-//= require components
 //= require social-share-button
 //= require_tree .
 
