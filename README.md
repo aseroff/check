@@ -1,5 +1,5 @@
 # ACTIVE BUGS
-1. Infinite scroll is fucked up again
+1. Infinite scroll still randomly fucks up on production.
 
 # Keep an eye on
 
