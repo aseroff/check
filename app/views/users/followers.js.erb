@@ -3,8 +3,8 @@
    $('#user-list').append('<%= j render user %>');
 <% end %>
 
-<% if @users.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @users %>');
+<% if @relations.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @relations %>');
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();
