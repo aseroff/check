@@ -6,7 +6,9 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    if params[:filter]
+    if params[:term]
+      @games = Game.search(params[:term]).paginate(page: params[:page], per_page: 10) 
+    elsif params[:filter]
       @filter = params[:filter]
       ids = []
       if @filter == "popular"
@@ -21,10 +23,8 @@ class GamesController < ApplicationController
         Game.none
       end
       @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
-    elsif params[:term]
-      @games = Game.search(params[:term]).paginate(page: params[:page], per_page: 10) 
     else
-      @games = Game.none
+      @games = Game.popular(25).each{|k,v| ids << k}
     end
     respond_to do |format|
       format.html
