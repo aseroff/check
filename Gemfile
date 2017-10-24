@@ -40,8 +40,6 @@ gem 'social-share-button'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
-gem 'rails_amp'
-
 gem 'newrelic_rpm'
 
 group :development, :test do
