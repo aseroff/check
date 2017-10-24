@@ -1,1 +1,1 @@
-json.array! @games, partial: 'games/game', as: :game
+json.array! @relations, partial: 'relations/game_relation', as: :game_relation
