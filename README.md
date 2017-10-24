@@ -1,20 +1,19 @@
 # ACTIVE BUGS
-1. Infinite scroll still randomly fucks up on production.
+1. Infinite scroll still randomly fucks up on production. (May have been rails-amp gem)
 
 # Keep an eye on
 
 1. Image uploading for users and games.
 1. Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
-1. Web console: preferred url, hide staging
 1. duplicate results when infinite scrolling - users, maybe games?
+1. Web console: preferred url, hide staging
 
 # v 1.1
 
 1. comments
-1. React elements
 1. facebook
-1. sort search results by popularity (checkins) perhaps
-1. Google search improvements
+1. improved query efficiency and sort search results by popularity (checkins)
+1. Restore amp (manually) and Google search improvements
 
 # backlog
 1. react-native apps
