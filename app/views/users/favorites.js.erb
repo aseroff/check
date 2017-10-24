@@ -1,6 +1,10 @@
-$('#game-list').append('<%= j render @games %>');
-<% if @games.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @games %>');
+<% @relations.each do |r| %>
+   <% game = r.related_item %>
+   $('#game-list').append('<%= j render game %>');
+<% end %>
+
+<% if @relations.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @relations %>');
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();

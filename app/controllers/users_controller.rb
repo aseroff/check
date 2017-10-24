@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json.array! @users, partial: "user.json"
+      format.json
       format.js
     end
   end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
-      format.json.partial! "user.json", as: @user
+      format.json
       format.js
     end
   end
@@ -36,41 +36,37 @@ class UsersController < ApplicationController
   end
 
   def following
-    ids = @user.following.pluck(:related_id)
-    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
+    @relations = @user.following.paginate(page: params[:page], per_page: 5) 
     respond_to do |format|
       format.html
-      format.json.array! @users, partial: "user.json"
+      format.json
       format.js
     end
   end
 
   def followers
-    ids = @user.followers.pluck(:user_id)
-    @users = User.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
+    @relations = @user.followers.paginate(page: params[:page], per_page: 5) 
     respond_to do |format|
       format.html
-      format.json.array! @users, partial: "user.json"
+      format.json
       format.js
     end
   end
 
   def favorites
-    ids = @user.favorites.pluck(:related_id)
-    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
+    @relations = @user.favorites.paginate(page: params[:page], per_page: 5) 
     respond_to do |format|
       format.html
-      format.json.array! @games, partial: "game.json"
+      format.json
       format.js
     end
   end
 
   def owned
-    ids = @user.owned.pluck(:related_id)
-    @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
+    @relations = @user.owned.paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
-      format.json.array! @games, partial: "game.json"
+      format.json
       format.js
     end
   end

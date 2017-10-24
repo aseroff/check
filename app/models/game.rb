@@ -7,13 +7,6 @@ class Game < ApplicationRecord
   	validates_integrity_of  :img_url
   	validates_processing_of :img_url
 	has_many :posts
-  	scope :for_ids_with_order, ->(ids) {
-    order = sanitize_sql_array(
-      ["position(id::text in ?)", ids.join(',')]
-    )
-    where(:id => ids).order(order)
-  } 
-
 
  	def favorites
   		Relation.where(related_id: self.id, relationship: "favorite")
@@ -70,6 +63,10 @@ class Game < ApplicationRecord
 		else
 			Game.all
 		end
+	end
+
+	def self.in_order(array) # I didn't know this method, TIL :)
+		Game.all.values_at(*array)
 	end
 
 end

@@ -13,8 +13,11 @@
 <h3 class="col-sm-12">Followers</h3>
 
 <div id="user-list" class="col-sm-12">
-  <% unless @users.empty? %>
-    <%= render @users %>
+  <% unless @relations.empty? %>
+    <% @relations.each do |r| %>
+      <% user = r.related_item %>
+      <%= render partial: user %>
+    <% end %>
   <% else %>
       <div class="center padded">
         <h4><%= current_user == @user ? "You don't" : @user.display_name + " doesn't" %> have any followers yet!</h4>
@@ -23,6 +26,6 @@
 </div>
 
 <div id="infinite-scrolling">
-	<%= will_paginate @users %>
+	<%= will_paginate @relations %>
 </div>
 </div>

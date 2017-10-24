@@ -1,3 +1,8 @@
+<% @relations.each do |r| %>
+   <% user = r.related_item %>
+   $('#game-list').append('<%= j render user %>');
+<% end %>
+
 $('#user-list').append('<%= j render @users %>');
 <% if @users.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @users %>');

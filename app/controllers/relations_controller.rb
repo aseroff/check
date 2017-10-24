@@ -1,22 +1,22 @@
 class RelationsController < ApplicationController
-  before_action :set_relation, only: [:destroy]
   before_action :must_be_logged_in
 
   # POST /relations
   # POST /relations.json
   def create
-    @relation = Relation.new(relation_params)
-    @relation.update_attribute(:user_id, current_user.id)
+    @relation = Relation.find_or_create_by(relation_params)
 
-    if @relation.relationship == "follow"
-      notice = "You're now following " + @relation.related_item.username + "!"
-    elsif @relation.relationship == "favorite"
-      notice = @relation.related_item.title + " is now in your favorites!"
-    elsif @relation.relationship == "owns"
-      notice = @relation.related_item.title + " is now on your owned shelf!"
-    elsif @relation.relationship == "nice"
-      notice = "Nice."
-    end      
+    if @relation.new_record?
+      if @relation.relationship == "follow"
+        notice = "You're now following " + @relation.related_item.username + "!"
+      elsif @relation.relationship == "favorite"
+        notice = @relation.related_item.title + " is now in your favorites!"
+      elsif @relation.relationship == "owns"
+        notice = @relation.related_item.title + " is now on your owned shelf!"
+      elsif @relation.relationship == "nice"
+        notice = "Nice!"
+      end
+    end
 
     respond_to do |format|
       if @relation.save
@@ -32,6 +32,7 @@ class RelationsController < ApplicationController
   # DELETE /relations/1
   # DELETE /relations/1.json
   def destroy
+    @relation = Relation.find(params[:id])
     @item = @relation.related_item
     if @relation.relationship == "follow"
       notice = "You've stopped following " + @relation.related_item.username + "."
@@ -52,10 +53,6 @@ class RelationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_relation
-      @relation = Relation.find(params[:id])
-    end
 
     def must_be_logged_in
       redirect_to new_user_session_path, notice: "You must be logged in to do that." unless current_user
@@ -63,6 +60,6 @@ class RelationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relation_params
-      params.permit(:user_id, :related_id, :relationship)
+      params.permit(:user_id, :related_id, :relationship).merge(user_id: current_user.id)
     end
 end
