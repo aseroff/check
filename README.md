@@ -7,11 +7,9 @@
 1. Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.
 1. Web console: preferred url, hide staging
 1. duplicate results when infinite scrolling - users, maybe games?
-1. duplicate follow - make sure its find or create by
+
 # v 1.1
 
-1. if term but term is blank show popular games
-1. Shouldn't be 'no games found' dialog on import page
 1. comments
 1. React elements
 1. facebook

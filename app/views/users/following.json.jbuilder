@@ -1,1 +1,1 @@
-json.array! @relations, partial: 'relations/user_relation', as: :user_relation
+json.array! @relations, partial: 'relations/following_relation', as: :user_relation
