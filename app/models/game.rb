@@ -6,7 +6,14 @@ class Game < ApplicationRecord
   	mount_uploader :img_url, GameUploader
   	validates_integrity_of  :img_url
   	validates_processing_of :img_url
-	has_many :posts
+	has_many :posts       
+	scope :for_ids_with_order, ->(ids) {
+    order = sanitize_sql_array(
+      ["position(id::text in ?)", ids.join(',')]
+    )
+    where(:id => ids).order(order)
+  } 
+
 
  	def favorites
   		Relation.where(related_id: self.id, relationship: "favorite")
