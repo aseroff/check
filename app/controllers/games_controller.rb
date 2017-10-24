@@ -24,8 +24,12 @@ class GamesController < ApplicationController
       end
       @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     else
-      @games = Game.popular(25).each{|k,v| ids << k}
+      ids = []
+      Game.popular(25).each{|k,v| ids << k}
+      @games = Game.for_ids_with_order(ids).paginate(page: params[:page], per_page: 10) 
     end
+
+
     respond_to do |format|
       format.html
       format.json.array! @games, partial: "game.json"
