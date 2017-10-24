@@ -15,7 +15,7 @@
 <div id="user-list" class="col-sm-12">
   <% unless @relations.empty? %>
     <% @relations.each do |r| %>
-      <% user = r.related_item %>
+      <% user = r.user %>
       <%= render partial: user %>
     <% end %>
   <% else %>

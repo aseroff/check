@@ -1,6 +1,6 @@
 <% @relations.each do |r| %>
-   <% user = r.related_item %>
-   $('#game-list').append('<%= j render user %>');
+   <% user = r.user %>
+   $('#user-list').append('<%= j render user %>');
 <% end %>
 
 <% if @users.next_page %>
