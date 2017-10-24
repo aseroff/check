@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.app_name = "Tokens (staging)"
-  config.app_domain = "immense-atoll-75723.herokuapp.com"
+  config.app_domain = "staging.tokensapp.co"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -43,11 +43,11 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Mailer settings 
-  Rails.application.routes.default_url_options[:host] = 'check.seroff.co'
+  Rails.application.routes.default_url_options[:host] = 'staging.tokensapp.co'
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = {:host => 'check.seroff.co'}
+  config.action_mailer.default_url_options = {:host => 'staging.tokensapp.co'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -55,7 +55,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
+    :domain         => 'staging.tokensapp.co',
     :enable_starttls_auto => true
   }
   # Mount Action Cable outside main process or domain
@@ -64,7 +64,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

@@ -8,11 +8,10 @@
 1. Web console: preferred url, hide staging
 1. duplicate results when infinite scrolling - users, maybe games?
 1. duplicate follow - make sure its find or create by
-1. all lists in order of created_at!
-
 # v 1.1
 
 1. if term but term is blank show popular games
+1. all lists in order of created_at!
 1. Shouldn't be 'no games found' dialog on import page
 1. comments
 1. React elements
