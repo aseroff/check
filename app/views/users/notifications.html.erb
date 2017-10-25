@@ -24,6 +24,8 @@
     			<h4><%= link_to n.user.display_name, n.user %> niced your <%= link_to 'post', post_path(n.related_id) %>!</h4>
     		<% elsif n.relationship == "mention" %>
     			<h4><%= link_to u.display_name, u %> mentioned you in a <%= link_to 'post', post_path(n.related_id) %>!</h4>
+            <% elsif n.relationship == "comment" %>
+                <h4><%= link_to u.display_name, u %> commented on <%= link_to 'your post', post_path(n.related_id) %>!</h4>
     		<% end %>
     		<p class="fine"><%= n.created_at.strftime("%B %d, %Y") %></p>
     	</div>

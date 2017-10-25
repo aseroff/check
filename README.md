@@ -1,6 +1,3 @@
-# ACTIVE BUGS
-1. Infinite scroll still randomly fucks up on production. (May have been rails-amp gem)
-
 # Keep an eye on
 
 1. Image uploading for users and games.
@@ -13,14 +10,15 @@
 1. User (show/favorites/owned/following/followers)
 1. Game (show)
 1. Post (show)
+1. Application static pages minus stats
 
 # v 1.1
 
-1. full tests for amp pages
-1. comments
+1. comments are done, without mentions/hashtags
 1. facebook
 1. improved query efficiency and sort search results by popularity (checkins)
-1. Restore amp (manually) and Google search improvements
+1. Google search improvements 
+1. restore remaining amp pages, full tests for amp pages
 
 # backlog
 1. react-native apps

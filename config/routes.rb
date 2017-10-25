@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :posts, path: 'check-ins'
   get '/posts/index', to: 'posts#index'
   resources :relations, only: [:create, :destroy]

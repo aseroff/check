@@ -11,6 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :posts, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   has_many :relations, :dependent => :destroy
   validates :username, uniqueness: true, length: { maximum: 20, message: " may only be 20 characters long." }, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: " may only include letters, numbers and underscores."}
   validates :email, uniqueness: true
@@ -91,10 +92,12 @@ class User < ApplicationRecord
   end
 
   def notifications
+    posts = self.posts.pluck(:id)
     notifications = []
     Relation.where("related_id = ? and relationship = ? and created_at = updated_at", self.id, "follow").pluck(:id).each {|i| notifications << i}
-    Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", self.posts.pluck(:id), "nice").pluck(:id).each {|i| notifications << i}
+    Relation.where("related_id in (?) and relationship = ? and created_at = updated_at", posts, "nice").pluck(:id).each {|i| notifications << i}
     Relation.where("user_id = ? and relationship = ? and created_at = updated_at", self.id, "mention").pluck(:id).each {|i| notifications << i}
+    Relation.where("related_id = ? and relationship = ? and created_at = updated_at", posts, "comment").pluck(:id).each {|i| notifications << i}
     Relation.where("id in (?)", notifications).order(created_at: :desc)
   end
 

@@ -1,7 +1,4 @@
 <%= form_with(model: post, local: true) do |form| %>
-
- <%= form.hidden_field :user_id, id: :post_user_id %>
-
 <div class="post">
   <div class="col-sm-3 images">
     <%= image_tag(profile_picture(current_user, true), class: 'circle user-image') %>

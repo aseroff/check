@@ -1,22 +1,39 @@
 <div class="col-xs-6 no-gap">
+
     <% if current_user %>
         <% if post.nices.empty? %>
-            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
+            <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> &nbsp;"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
         <% else %>
             <% relation = Relation.find_by(user_id: current_user.id, related_id: post.id, relationship: "nice") %> 
             <% if relation %>
-                <%= link_to raw("<span class='glyphicon glyphicon-star yellow' aria-hidden='true'></span>"), relation_path(relation), :method => :delete %>
+                <%= link_to raw("<span class='glyphicon glyphicon-star yellow' aria-hidden='true'></span> &nbsp;"), relation_path(relation), :method => :delete %>
             <% else %>
-                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
+                <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> &nbsp;"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
             <% end %>
         <% end %>
     <% else %>
-        <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> Nice"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
+        <%= link_to raw("<span class='glyphicon glyphicon-star' aria-hidden='true'></span> &nbsp;"), relations_path(related_id: post.id, relationship: "nice"), method: :post %>
     <% end %>
-    <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
-    <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit"), edit_post_path(post) if post.user == current_user %><br>
+
+    <%= link_to raw("<span class='glyphicon glyphicon-comment' aria-hidden='true'></span> &nbsp;"), post %>
+
+    <%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Edit &nbsp;"), edit_post_path(post) if post.user == current_user %>
+    
 </div>
 <div class="col-xs-6 no-gap">
     <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: Rails.application.config.twitter_handle[1..-1]) %>
+</div>
+<div class="col-xs-12 no-gap">
+<%= "Niced by " unless post.nices.empty? %><%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
+<% post.comments.each do |c| %>
+    <div class="comment"><%= render partial: 'comments/comment', locals: { comment: c } %></div>
+<% end %>
+
+<% if @post && @current_user %>
+<div id="comment_form">
+    <%= render partial: 'comments/form', locals: { comment: Comment.new, post_id: post.id } %>
+</div>
+<% end %>
+
 </div>
 <div class="clearfix"></div>

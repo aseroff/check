@@ -6,7 +6,7 @@ class Relation < ApplicationRecord
 	def related_item
 		if self.relationship == "follow"
 			related = User.find(self.related_id)
-		elsif self.relationship == "nice" || self.relationship == "mention"
+		elsif self.relationship == "nice" || self.relationship == "mention" || self.relationship == "comment"
 			related = Post.find(self.related_id)
 		else
 			related = Game.find(self.related_id)
@@ -15,6 +15,6 @@ class Relation < ApplicationRecord
 	end
 
 	def self.relation_types
-		["follow", "favorite", "owns", "nice", "mention"]
+		["follow", "favorite", "owns", "nice", "mention", "comment"]
 	end
 end
