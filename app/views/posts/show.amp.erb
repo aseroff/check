@@ -1,16 +1,7 @@
 <%= content_for(:title, @post.name) %>
 <%= content_for(:description, @post.name) %>
 
-<div class="col-sm-4">
-
-<div class="contain profile no-mobile">
-	<%= render 'users/profile.amp.erb' %>
-	<%= render 'users/controls.amp.erb' %>
-</div>
-
-</div>
-
-<div class="feed col-sm-7 col-sm-offset-1">
+<div class="feed col-sm-8 col-sm-offset-2">
 
 <div id="post-list">
 <%= render @post %>

@@ -5,6 +5,8 @@
 "@type": "CheckInAction",
 "name": "<%= @post.name %>",
 "agent": "<%= @post.user.username %>",
+"object": "<%= @post.game.title %>",
+"startTime": "<%= @post.created_at.strftime("%B %d, %Y") %>",
 "url": "<%= post_url(@post) %>"
 }
 </script>
@@ -46,12 +48,7 @@
 
 <% else %>
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
-<meta property="og:title" name="twitter:title" content="<%= Rails.application.config.app_name %>" />
-<meta property="og:description"  name="twitter:description" content="The check-in app for board games!" />
-<meta property="og:image" name="twitter:image" content="<%= 'https://www.' + Rails.application.config.app_domain + image_path('tokens_logo.png') %>" />
-<meta property="og:type" content="website" />
+	<% if  controller_name == "posts" && action_name == "index" %>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -64,6 +61,15 @@
   }
 }
 </script>
+	<% end %>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="<%= Rails.application.config.twitter_handle %>" />
+<meta property="og:title" name="twitter:title" content="<%= Rails.application.config.app_name %>" />
+<meta property="og:description"  name="twitter:description" content="The check-in app for board games!" />
+<meta property="og:image" name="twitter:image" content="<%= 'https://www.' + Rails.application.config.app_domain + image_path('tokens_logo.png') %>" />
+<meta property="og:type" content="website" />
+
 
 <% end %>
 

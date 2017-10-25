@@ -45,15 +45,32 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "non logged in user should show post AMP" do
+    get post_url(@post, format: :amp)
+    assert_response :success
+  end
+
   test "logged in user should show post" do
     sign_in @user2
     get post_url(@post)
     assert_response :success
   end
 
+  test "logged in user should show post AMP" do
+    sign_in @user2
+    get post_url(@post, format: :amp)
+    assert_response :success
+  end
+
   test "author should show post" do
     sign_in @author
     get post_url(@post)
+    assert_response :success
+  end
+
+  test "arthur should show post AMP" do
+    sign_in @author
+    get post_url(@post, format: :amp)
     assert_response :success
   end
 

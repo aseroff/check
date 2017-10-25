@@ -41,6 +41,7 @@ class PostsController < ApplicationController
     @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
     respond_to do |format|
       format.html
+      format.amp
       format.json.partial! "user.json", as: @post
       format.json
     end

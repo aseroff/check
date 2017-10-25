@@ -8,8 +8,15 @@
 1. duplicate results when infinite scrolling - users, maybe games?
 1. Web console: preferred url, hide staging
 
+# CURRENT AMP STATUS
+1. All images need to be replaced
+1. User (show/favorites/owned/following/followers)
+1. Game (show)
+1. Post (show)
+
 # v 1.1
 
+1. full tests for amp pages
 1. comments
 1. facebook
 1. improved query efficiency and sort search results by popularity (checkins)
