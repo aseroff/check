@@ -6,18 +6,38 @@ class ApplicationController < ActionController::Base
   before_action :determine_notifications
 
   def about
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
 
   def cookies
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
 
   def privacy
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
   
   def terms
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
 
   def investors
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
 
   def stats

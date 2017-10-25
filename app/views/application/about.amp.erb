@@ -1,0 +1,20 @@
+<%= content_for(:title, "About Tokens") %>
+<%= content_for(:description, "About Tokens") %>
+<div class="col-sm-12 contain">
+<h1>About</h1>
+
+<p>The goal of <%= Rails.application.config.app_name %> is singular: make it easy to share the board games you play.</p>
+
+<h2>Team</h2>
+
+<p><%= link_to '@aseroff', '/u/aseroff' %> is a web developer and check-in app veteran.</p>
+
+<h2>Feedback & Support</h2>
+
+<p>Please direct all correspondence regarding the Tokens platform to <%= mail_to 'admin@tokensapp.co' %></p>
+
+</div>
+
+<div class="center">
+  <%= render 'application/masthead.html.erb' %>
+</div>
