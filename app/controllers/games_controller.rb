@@ -43,6 +43,7 @@ class GamesController < ApplicationController
     @posts = @game.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
+      format.amp
       format.json.partial! "game.json", as: @game
       format.js
     end

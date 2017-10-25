@@ -1,6 +1,5 @@
 <div class="list-user contain">
 	<div class="col-xs-4 center">
-        <%= link_to image_tag(profile_picture(user, true), size: '50', class: 'circle user-image'), user_path(user, format: :amp) %>
     </div>
     <div class="col-xs-5 col-xs-offset-2">
     	<h3><%= link_to user.display_name, user_path(user, format: :amp) %></h3>

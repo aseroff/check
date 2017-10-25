@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
+      format.amp
       format.json
       format.js
     end
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
     @relations = @user.following.paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.amp
       format.json
       format.js
     end
@@ -48,6 +50,7 @@ class UsersController < ApplicationController
     @relations = @user.followers.paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.amp
       format.json
       format.js
     end
@@ -57,6 +60,7 @@ class UsersController < ApplicationController
     @relations = @user.favorites.paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.amp
       format.json
       format.js
     end
@@ -66,6 +70,7 @@ class UsersController < ApplicationController
     @relations = @user.owned.paginate(page: params[:page], per_page: 10) 
     respond_to do |format|
       format.html
+      format.amp
       format.json
       format.js
     end

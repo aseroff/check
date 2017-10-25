@@ -1,31 +1,48 @@
 <!doctype html>
-<html amp>
+<html ⚡>
   <head>
     <meta charset="utf-8">
 
-    <title><%= content_for?(:title) ? yield(:title) + " on " + Rails.application.config.app_name : Rails.application.config.app_name %></title>
+    <title><%= content_for?(:title) ? yield(:title) : Rails.application.config.app_name %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : content_for?(:title) ? yield(:title) + " on #{Rails.application.config.app_name}: The check-in app for board games!" : Rails.application.config.app_name + ": The check-in app for board games!" %>">
-    
-    <link rel="canonical" href="<%= rails_amp_canonical_url %>" />
+
+    <link rel="canonical" href="<%= url_for(format: :html, only_path: false) %>" >
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <%= render 'application/metadata' %>
+    <%= render 'application/metadata.html.erb' %>
+    <script async custom-element="amp-analytics"
+    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <% if Rails.application.assets && Rails.application.assets['amp/application'] %>
       <style amp-custom><%= Rails.application.assets['amp/application-amp'].to_s.html_safe %></style>
     <% else %>
       <style amp-custom><%= File.read("#{Rails.root}/public#{stylesheet_path('amp/application-amp', host: nil)}").html_safe %></style>
     <% end %>
-
-    <%= rails_amp_google_analytics_head %>
-    <%= rails_amp_html_header %>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
     <header>
       <%= render 'layouts/navigation.amp.erb' %>
     </header>
-    <%= rails_amp_google_analytics_page_tracking %>
     <div class="body">
       <%= yield %>
     </div>
   </body>
+
+  <amp-analytics type="googleanalytics">
+  <script type="application/json">
+  {
+    "vars": {
+      "account": "UA-102460737-1"
+    },
+    "triggers": {
+      "trackPageview": {
+        "on": "visible",
+        "request": "pageview"
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
+
 </html>
