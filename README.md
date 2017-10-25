@@ -14,7 +14,8 @@
 
 # v 1.1
 
-1. comments are done, without mentions/hashtags
+1. comments are done, without mentions/hashtags, needs edit/delete ability
+1. tests: associated records are controlled
 1. facebook
 1. improved query efficiency and sort search results by popularity (checkins)
 1. Google search improvements 
