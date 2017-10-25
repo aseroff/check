@@ -17,6 +17,32 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show user AMP page" do
+    get user_url(@user, format: :amp)
+    assert_response :success
+  end
+
+  test "should show user following AMP page" do
+    get user_following_url(@user, format: :amp)
+    assert_response :success
+  end
+
+  test "should show user followers AMP page" do
+    get user_followers_url(@user, format: :amp)
+    assert_response :success
+  end
+
+  test "should show user favorites AMP page" do
+    get user_favorites_url(@user, format: :amp)
+    assert_response :success
+  end
+
+  test "should show user owned AMP page" do
+    get user_owned_url(@user, format: :amp)
+    assert_response :success
+  end
+
+
 
 #devise
 

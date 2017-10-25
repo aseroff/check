@@ -16,4 +16,9 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show game AMP page" do
+    get game_url(@game, format: :amp)
+    assert_response :success
+  end
+
 end
