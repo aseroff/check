@@ -24,7 +24,10 @@
     <%= social_share_button_tag(post.text, url: post_url(post), image: post.game.img_url.medium, via: Rails.application.config.twitter_handle[1..-1]) %>
 </div>
 <div class="col-xs-12 no-gap">
-<%= "Niced by " unless post.nices.empty? %><%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %><br>
+<% unless post.nices.empty? %>
+    Niced by 
+    <%= (post.nices.map {|n| User.find(n.user_id) }.map {|u| (link_to u.display_name, u)}.join(", ")).html_safe %>
+<% end %>
 <% post.comments.each do |c| %>
     <div class="comment"><%= render partial: 'comments/comment', locals: { comment: c } %></div>
 <% end %>
