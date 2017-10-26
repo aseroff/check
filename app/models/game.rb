@@ -66,14 +66,10 @@ class Game < ApplicationRecord
 
 	def self.search(term)
 		if term
-			Game.where("lower(title) like ?", "%" + term.downcase + "%")
+			Game.where("lower(title) like ?", "%" + term.downcase + "%") #TODO: order results by popularity
 		else
 			Game.all
 		end
-	end
-
-	def self.in_order(array) # I didn't know this method, TIL :)
-		Game.all.values_at(*array)
 	end
 
 end

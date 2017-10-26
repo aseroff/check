@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post_and_comments, only: [:show, :edit, :update, :destroy]
   before_action :must_be_logged_in, only: [:new]
   before_action :must_be_owner, only: [:edit, :update, :destroy]
 
@@ -110,8 +110,9 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
+    def set_post_and_comments
       @post = Post.find(params[:id])
+      @comments = @post.comments
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
