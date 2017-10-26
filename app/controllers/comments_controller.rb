@@ -34,10 +34,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Relation.find_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: "comment").destroy
+    r = Relation.find_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: "comment")
+    r.destroy if r
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @post, notice: 'Comment was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -46,6 +47,7 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+      @post = @comment.post
     end
 
     def must_be_logged_in

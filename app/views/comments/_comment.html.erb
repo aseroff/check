@@ -1,1 +1,1 @@
-<%= link_to comment.user.display_name, comment.user %> &nbsp;<%= comment.text %><br>
+<%= link_to comment.user.display_name, comment.user %> &nbsp;<%= comment.text %> &nbsp;<%= link_to raw("<span class='glyphicon glyphicon-edit' aria-hidden='true'></span>"), edit_comment_path(comment) if comment.user == current_user %><br>

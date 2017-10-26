@@ -29,7 +29,7 @@
     <div class="comment"><%= render partial: 'comments/comment', locals: { comment: c } %></div>
 <% end %>
 
-<% if @post && @current_user %>
+<% if @post && !@comment && current_user %>
 <div id="comment_form">
     <%= render partial: 'comments/form', locals: { comment: Comment.new, post_id: post.id } %>
 </div>
