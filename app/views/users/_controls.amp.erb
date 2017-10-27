@@ -1,9 +1,9 @@
 
 <div class="col-xs-6 follow">
-	<%= link_to raw("<h4>" + @following + "</h4>Following"), user_following_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+	<%= link_to raw("<h3>" + @following + "</h3>Following"), user_following_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
 </div>
 <div class="col-xs-6 follow">
-	<%= link_to raw("<h4>" + @followers + "</h4>Followers"), user_followers_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
+	<%= link_to raw("<h3>" + @followers + "</h3>Followers"), user_followers_path(@user, format: :amp), class: "col-xs-12 btn btn-default no-border" %><br>
 </div>
 
 <div class="clearfix"></div>

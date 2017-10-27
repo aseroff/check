@@ -1,9 +1,10 @@
 <div class="list-user contain">
-	<div class="col-xs-4 center">
+	<div class="col-xs-4 center">		
+        <%= link_to raw('<amp-img src="' + profile_picture(user, true).to_s + '" class="circle user-image" width="50" height="50">'), user_path(user, format: :amp) %>
     </div>
     <div class="col-xs-5 col-xs-offset-2">
-    	<h3><%= link_to user.display_name, user_path(user, format: :amp) %></h3>
-    	<div class="col-xs-12">
+    	<h2><%= link_to user.display_name, user_path(user, format: :amp) %></h2>
+    	<div class="col-xs-12 no-gap">
             <%= render 'users/stats', user: user %>
 		</div>
     </div>
