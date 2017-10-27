@@ -3,7 +3,7 @@
 		<%= link_to raw('<amp-img src="' + game.img_url.thumb.to_s + '" class="game-image" width="80" height="80">'), game_path(game, format: :amp) %>
     </div>
     <div class="col-sm-9 center">
-    	<span class="game-title col-xs-12"><%= link_to game.title, game_path(game, format: :amp) %></span>
+    	<h3 class="game-title col-xs-12"><%= link_to game.title, game_path(game, format: :amp) %></h3>
     	<div class="col-xs-12">
 			<%= render 'games/stats', game: game %>
 		</div>
