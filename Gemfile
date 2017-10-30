@@ -39,6 +39,7 @@ gem 'figaro'
 gem 'social-share-button'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'local_time'
 
 gem 'newrelic_rpm'
 

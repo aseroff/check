@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require social-share-button
+//= require local-time
 //= require_tree .
 
 $(document).ready(function() {
