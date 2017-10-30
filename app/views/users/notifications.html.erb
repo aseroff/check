@@ -27,7 +27,7 @@
             <% elsif n.relationship == "comment" %>
                 <h4><%= link_to u.display_name, u %> commented on <%= link_to 'your post', post_path(n.related_id) %>!</h4>
     		<% end %>
-    		<p class="fine"><%= n.created_at.strftime("%B %d, %Y") %></p>
+    		<p class="fine"><%= local_time(n.created_at) %></p>
     	</div>
 		<div class="clearfix"></div>
 	</div>
