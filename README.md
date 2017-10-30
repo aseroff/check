@@ -14,7 +14,7 @@
 
 # v 1.1
 
-1. comments are done, without mentions/hashtags
+1. comments are done, mentions without notifications, no hashtags
 1. tests: associated records are controlled
 1. facebook
 1. improved query efficiency and sort search results by popularity (checkins)
