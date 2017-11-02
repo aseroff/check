@@ -5,7 +5,7 @@ module Api
     #client app can use it for future request for the specific user.
     def create
       user = User.find_by(email: params[:session][:email].downcase)
-        if user && user.authenticate(params[:session][:password])
+        if user && user.valid_password?(params[:session][:password])
           access_token = SecureRandom.urlsafe_base64
           user.update(access_token: access_token)
           render json: user.access_token, status: 200
