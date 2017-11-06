@@ -27,10 +27,10 @@
 1. Twitter typeahead.js jquery plugin for autocomplete: http://twitter.github.io/typeahead.js/
 1. more validation messages?
 1. more useful side pane on home screen slash more/better discovery
-1. better hashtag search page, popular hashtags in discovery
+1. popular hashtags in discovery?
 1. better emails
 1. brave browser setup, mention in donate page
-1. amp images and styles cleaning
+1. styles cleaning
 1. Shortcuts on game search result to checkin/fav/own
 1. additional stats for games - # of checkins - and stats on check ins - your # vs their #
 1. game strings still have encoding issues
@@ -39,6 +39,7 @@
 1. private checkins
 1. better testing
 1. slug suffix for duplicate game names?
+1. missing user or game takes you to search with that as the query
 
 # other
 1. New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.

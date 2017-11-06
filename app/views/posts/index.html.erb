@@ -19,10 +19,8 @@
 <div class="feed col-sm-7">
 
 <% if @term %>
-<div class="center">
-<h3>Search</h3>
-<span class="label label-default">#<%= @term %> <%= link_to "x", posts_path %></span>
-</div>
+<h3>Check-ins with <strong>#<%= @term %></strong>
+<%= link_to raw('<span class="fine">Remove search</span>'), posts_path %></h3>
 <% end %>
 
 <div id="posts">
