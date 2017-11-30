@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html
       format.amp
-      format.json.partial! "user.json", as: @post
+      format.json.partial! "post.json", as: @post
       format.json
     end
   end
