@@ -4,7 +4,7 @@ json.game post.game
 json.url post_url(post, format: :json)
 json.comments post.comments do |comment|
 	json.text comment.text
-  	json.partial! 'users/user', user: @comment.user
+  	json.partial! 'users/user', user: comment.user
 end
 json.nices post.nices do |nice|
 	json.username nice.user.username
