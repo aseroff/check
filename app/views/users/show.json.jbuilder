@@ -1,7 +1,7 @@
 json.partial! "users/user", user: @user
-json.following @following
-json.followers @followers
-json.posts @posts_count
-json.favorited @favorited_count
-json.owned @owned_count
+json.following_count @following
+json.followers_count @followers
+json.posts_count @posts_count
+json.favorited_count @favorited_count
+json.owned_count @owned_count
 json.posts @posts, partial: "posts/post", as: :post
