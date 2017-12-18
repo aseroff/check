@@ -16,8 +16,9 @@ module Api
 
     #Verifies the access_token so the client app would know if to login the user.
     def verify_access_token
-        if User.find_by(access_token: params[:session][:access_token])
-          render json: "verified", status: 200
+      user = User.find_by(access_token: params[:session][:access_token])
+        if user
+          render json: user, status: 200
         else
           render json: "Token failed verification", status: 422
         end
