@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     post   'login'   => 'sessions#create'
+    get    'feed'  => 'posts#index'
     get    'verify'  => 'sessions#verify_access_token'
   end
 end
