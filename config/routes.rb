@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
   resources :posts, path: 'check-ins'
-  
-  resources :usersresources :relations, only: [:create, :destroy]
+  resources :relations, only: [:create, :destroy]
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, path: 'u' do 
     get "following"
