@@ -30,7 +30,7 @@ module Api
       @owned_count = @user.owned.size.to_s
       @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
       respond_to do |format|
-        format.json.partial! "post.json", as: @post
+        format.json { render :template => "api/posts/post.json" }
       end
     end
     def create
@@ -53,6 +53,10 @@ module Api
       end
     end
   private
+    def set_post_and_comments
+      @post = Post.find(params[:id])
+      @comments = @post.comments
+    end
     def look_up_authenticated_user
       @current_user = User.find_by(access_token: params[:access_token])
     end

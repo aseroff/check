@@ -6,7 +6,7 @@ module Api
     def show
       @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
-        format.json
+        format.json { render :template => "api/users/user.json" }
       end
     end
 

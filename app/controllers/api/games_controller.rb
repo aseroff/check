@@ -33,9 +33,7 @@ module Api
 
 
     respond_to do |format|
-      format.html
       format.json.array! @games, partial: "game.json"
-      format.js
     end
   end
 
@@ -44,10 +42,7 @@ module Api
   def show
     @posts = @game.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
     respond_to do |format|
-      format.html
-      format.amp
-      format.json.partial! "game.json", as: @game
-      format.js
+      format.json { render :template => "api/games/game.json" }
     end
   end
   private
