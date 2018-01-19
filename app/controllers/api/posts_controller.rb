@@ -1,8 +1,7 @@
 module Api
   class PostsController < ApplicationController
     before_action :set_post_and_comments, only: [:show, :edit, :update, :destroy]
-    before_action :must_be_logged_in, only: [:new]
-    before_action :must_be_owner, only: [:edit, :update, :destroy]
+    before_action :look_up_authenticated_user
 
     # GET /posts
     # GET /posts.json
@@ -22,6 +21,18 @@ module Api
       end
     end
 
+    def show
+      @user = @post.user
+      @following = @user.following.size.to_s
+      @followers = @user.followers.size.to_s
+      @posts_count = @user.posts.size.to_s
+      @favorited_count = @user.favorites.size.to_s
+      @owned_count = @user.owned.size.to_s
+      @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
+      respond_to do |format|
+        format.json.partial! "post.json", as: @post
+      end
+    end
     def create
       @post = Post.new(user_id: @current_user.id, game_id: post_params[:game_id], text: post_params[:text])
 
