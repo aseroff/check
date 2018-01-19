@@ -34,6 +34,10 @@ class UsersController < ApplicationController
   def notifications
     @user = current_user
     @notifications.update_all(updated_at: Time.now)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def following

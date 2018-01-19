@@ -1,3 +1,6 @@
+#
+1. Bug: game search makes 500
+
 # Keep an eye on
 
 1. Image uploading for users and games.

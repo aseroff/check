@@ -66,7 +66,7 @@ class Game < ApplicationRecord
 
 	def self.search(term)
 		if term
-			Game.where("lower(title) like ?", "%" + term.downcase + "%").includes(:posts).sort_by{|g| g.posts.size }.reverse
+			Game.where("lower(title) like ?", "%" + term.downcase + "%")
 		else
 			Game.all
 		end

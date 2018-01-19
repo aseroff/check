@@ -18,10 +18,33 @@ module Api
         end
       end
       respond_to do |format|
-        format.html
         format.json.array! @posts, partial: "post.json"
-        format.js
       end
     end
+
+    def create
+      @post = Post.new(user_id: @current_user.id, game_id: post_params[:game_id], text: post_params[:text])
+
+      respond_to do |format|
+        if @post.save
+          if post_params["tweet"].to_i == 1
+            tweet_id = current_user.tweet(@post)
+            format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a target="0" href="http://twitter.com/statuses/' + tweet_id.to_s + '">here</a>.' }
+            format.json { render :show, status: :created, location: @post }
+          else
+            format.html { redirect_to @post, notice: 'Check-in created!' }
+            format.json { render :show, status: :created, location: @post }
+          end
+        else
+          format.html { render :new }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  private
+    def look_up_authenticated_user
+      @current_user = User.find_by(access_token: params[:access_token])
+    end
+
   end
 end
