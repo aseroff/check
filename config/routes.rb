@@ -31,8 +31,9 @@ Rails.application.routes.draw do
     post   'login'   => 'sessions#create'
     get    'feed'  => 'posts#index'
     get    'verify'  => 'sessions#verify_access_token'
-    resources :comments
+    resources :games
     resources :posts
+    resources :comments
     resources :relations, only: [:create, :destroy]
   end
 end
