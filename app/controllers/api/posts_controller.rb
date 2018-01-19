@@ -1,27 +1,24 @@
 module Api
   class PostsController < ApplicationController
-    before_action :set_post_and_comments, only: [:show, :edit, :update, :destroy]
-    before_action :look_up_authenticated_user
 
-    # GET /posts
-    # GET /posts.json
     def index
-      current_user = User.find_by(access_token: params[:access_token])
-      if current_user
-        @user = current_user
+      @current_user = User.find_by(access_token: params[:access_token])
+      if @current_user
         if params[:term]
           @term = params[:term]
           @posts = Post.search(@term).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
         else
-          @posts = Post.where("user_id IN (?)", (@user.following_users + [@user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+          @posts = Post.where("user_id IN (?)", (@current_user.following_users + [@current_user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
         end
       end
       respond_to do |format|
-        format.json.array! @posts, partial: "post.json"
+        format.json { render :template => "api/posts/post_list.json" }
       end
     end
 
     def show
+      @post = Post.find(params[:id])
+      @comments = @post.comments
       @user = @post.user
       @following = @user.following.size.to_s
       @followers = @user.followers.size.to_s
@@ -33,7 +30,9 @@ module Api
         format.json { render :template => "api/posts/post.json" }
       end
     end
+
     def create
+      @current_user = User.find_by(access_token: params[:access_token])
       @post = Post.new(user_id: @current_user.id, game_id: post_params[:game_id], text: post_params[:text])
 
       respond_to do |format|
@@ -51,14 +50,6 @@ module Api
           format.json { render json: @post.errors, status: :unprocessable_entity }
         end
       end
-    end
-  private
-    def set_post_and_comments
-      @post = Post.find(params[:id])
-      @comments = @post.comments
-    end
-    def look_up_authenticated_user
-      @current_user = User.find_by(access_token: params[:access_token])
     end
 
   end

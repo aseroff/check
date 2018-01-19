@@ -33,7 +33,9 @@ Rails.application.routes.draw do
     get    'verify'  => 'sessions#verify_access_token'
     resources :games
     resources :users
-    resources :posts
+    resources :posts do
+      get "feed"
+    end
     resources :comments
     resources :relations, only: [:create, :destroy]
   end

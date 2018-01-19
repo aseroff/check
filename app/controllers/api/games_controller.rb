@@ -1,5 +1,6 @@
 module Api
   class GamesController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :count_stats, only: [:show]
   before_action :find_relations, only: [:show]
