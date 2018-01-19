@@ -50,6 +50,10 @@ module Api
     end
   end
   private
+    def set_game
+      @game = Game.friendly.find(params[:id])
+    end
+
     def look_up_authenticated_user
       @current_user = User.find_by(access_token: params[:access_token])
     end

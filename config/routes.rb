@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :comments
   resources :posts, path: 'check-ins'
-  resources :relations, only: [:create, :destroy]
+  
+  resources :usersresources :relations, only: [:create, :destroy]
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, path: 'u' do 
     get "following"
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     get    'feed'  => 'posts#index'
     get    'verify'  => 'sessions#verify_access_token'
     resources :games
+    resources :users
     resources :posts
     resources :comments
     resources :relations, only: [:create, :destroy]

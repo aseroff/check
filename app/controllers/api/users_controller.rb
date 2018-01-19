@@ -18,6 +18,10 @@ module Api
   end
 
   private
+    def set_user
+      @user = User.friendly.find(params[:id] || params[:user_id])
+    end
+    
     def look_up_authenticated_user
       @current_user = User.find_by(access_token: params[:access_token])
     end
