@@ -5,7 +5,7 @@ module Api
   before_action :look_up_authenticated_user
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new( post_id: params[:post_id], text: params[:text] ).merge( user_id: @current_user.id )
     refreshed_time = Time.now
     Relation.find_or_create_by(user_id: @current_user.id, related_id: @comment.post_id, relationship: "comment").update(created_at: refreshed_time, updated_at: refreshed_time)
 
