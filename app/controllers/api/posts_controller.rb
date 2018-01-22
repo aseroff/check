@@ -1,5 +1,6 @@
 module Api
   class PostsController < ApplicationController
+  protect_from_forgery with: :null_session
 
     def index
       @current_user = User.find_by(access_token: params[:access_token])
@@ -50,6 +51,15 @@ module Api
           format.json { render json: @post.errors, status: :unprocessable_entity }
         end
       end
+    end
+
+  private
+    def look_up_authenticated_user
+      @current_user = User.find_by(access_token: params[:access_token])
+    end
+
+    def relation_params
+      params.permit(:user_id, :game_id, :text, :tweet)
     end
 
   end
