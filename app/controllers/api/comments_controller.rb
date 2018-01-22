@@ -51,7 +51,7 @@ module Api
     end
 
     def comment_params
-      params.require(:comment).permit(:user_id, :post_id, :text).merge(user_id: @current_user.id)
+      params.permit(:access_token, :post_id, :text).merge(user_id: @current_user.id)
     end
   end
 
