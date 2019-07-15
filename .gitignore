@@ -1,5 +1,9 @@
 # Ignore application configuration
 config/application.yml
+config/secrets.yml
+
+# Ignore annoying Mac shit
+.DS_Store
 
 # Ignore bundler config.
 /.bundle
