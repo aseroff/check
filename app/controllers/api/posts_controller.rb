@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   class PostsController < ApplicationController
-  protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
 
     def index
       @current_user = User.find_by(access_token: params[:access_token])
@@ -9,11 +11,11 @@ module Api
           @term = params[:term]
           @posts = Post.search(@term).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
         else
-          @posts = Post.where("user_id IN (?)", (@current_user.following_users + [@current_user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+          @posts = Post.where('user_id IN (?)', (@current_user.following_users + [@current_user])).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
         end
       end
       respond_to do |format|
-        format.json { render :template => "api/posts/post_list.json" }
+        format.json { render template: 'api/posts/post_list.json' }
       end
     end
 
@@ -26,9 +28,9 @@ module Api
       @posts_count = @user.posts.size.to_s
       @favorited_count = @user.favorites.size.to_s
       @owned_count = @user.owned.size.to_s
-      @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: "nice") if current_user
+      @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: 'nice') if current_user
       respond_to do |format|
-        format.json { render :template => "api/posts/post.json" }
+        format.json { render template: 'api/posts/post.json' }
       end
     end
 
@@ -38,7 +40,7 @@ module Api
 
       respond_to do |format|
         if @post.save
-          if post_params["tweet"].to_i == 1
+          if post_params['tweet'].to_i == 1
             tweet_id = current_user.tweet(@post)
             format.html { redirect_to @post, notice: 'Thanks for sharing your check in! You can see it <a target="0" href="http://twitter.com/statuses/' + tweet_id.to_s + '">here</a>.' }
             format.json { render :show, status: :created, location: @post }
@@ -53,7 +55,8 @@ module Api
       end
     end
 
-  private
+    private
+
     def look_up_authenticated_user
       @current_user = User.find_by(access_token: params[:access_token])
     end
@@ -61,6 +64,5 @@ module Api
     def relation_params
       params.permit(:user_id, :game_id, :text, :tweet)
     end
-
   end
 end

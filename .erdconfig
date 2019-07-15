@@ -1,0 +1,7 @@
+attributes:
+  - foreign_key
+  - content
+filename: docs/erd
+filetype: pdf
+indirect: false
+inheritance: false

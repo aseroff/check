@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class RelationsControllerTest < ActionDispatch::IntegrationTest
-  
   setup do
     @user = users(:one)
     @user2 = users(:two)
@@ -9,15 +10,15 @@ class RelationsControllerTest < ActionDispatch::IntegrationTest
     @relation = relations(:owned)
   end
 
-  #test "should create relation" do
+  # test "should create relation" do
   #  sign_in @user
   #  assert_difference('Relation.count', 1) do
   #    post relations_url, params: { relation: { related_id: @game.id, relationship: "favorite" } }
   #  end
   #  assert_redirected_to @game
-  #end
+  # end
 
-  test "should destroy relation" do
+  test 'should destroy relation' do
     sign_in @user
     assert_difference('Relation.count', -1) do
       delete relation_url(@relation)
@@ -26,7 +27,6 @@ class RelationsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to @relation.related_item
   end
 
-  #follows
-  #creates notification
-
+  # follows
+  # creates notification
 end

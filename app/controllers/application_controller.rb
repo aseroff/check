@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :ignore_newrelic, :if => :amp_request?
+  before_action :ignore_newrelic, if: :amp_request?
   before_action :determine_notifications
 
   def about
@@ -24,7 +26,7 @@ class ApplicationController < ActionController::Base
       format.amp
     end
   end
-  
+
   def terms
     respond_to do |format|
       format.html
@@ -39,8 +41,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def stats
-  end
+  def stats; end
 
   protected
 
@@ -62,5 +63,4 @@ class ApplicationController < ActionController::Base
   def determine_notifications
     @notifications = current_user.notifications if current_user
   end
-
 end

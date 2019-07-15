@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class ErrorsController < ApplicationController
   def not_found
-    render(:status => 404)
+    render(status: 404)
   end
 
   def rejected
-  	render(:status => 422)
+    render(status: 422)
   end
 
   def internal_server_error
-    render(:status => 500)
+    render(status: 500)
   end
 end

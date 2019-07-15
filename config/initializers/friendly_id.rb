@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # FriendlyId Global Configuration
 #
 # Use this to set up shared configuration options for your entire application.
@@ -16,8 +18,8 @@ FriendlyId.defaults do |config|
   # undesirable to allow as slugs. Edit this list as needed for your app.
   config.use :reserved
 
-  config.reserved_words = %w(new edit index session login logout user users admin
-    stylesheets assets javascripts images game games post posts check checkin checkins)
+  config.reserved_words = %w[new edit index session login logout user users admin
+                             stylesheets assets javascripts images game games post posts check checkin checkins]
 
   #  ## Friendly Finders
   #

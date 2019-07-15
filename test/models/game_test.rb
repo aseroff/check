@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
-	
   setup do
     @game = games(:one)
     @user = users(:one)
@@ -11,23 +12,22 @@ class GameTest < ActiveSupport::TestCase
     @favorite_relation = relations(:favorite)
   end
 
-  test "favorites" do
+  test 'favorites' do
     assert @game.favorites.include?(@favorite_relation)
     assert @game.favorites.size == 1
   end
 
-  test "owned" do
+  test 'owned' do
     assert @game.owned.include?(@owned_relation)
     assert @game.owned.size == 1
   end
 
-  test "search" do
-    assert Game.search("string").include?(@game)
-    assert Game.search("sTRIng").include?(@game)
-    assert Game.search("STRING").include?(@game)
-    assert Game.search("str").include?(@game)
-    assert Game.search("STR").include?(@game)
-    assert !Game.search("strang").include?(@game)
+  test 'search' do
+    assert Game.search('string').include?(@game)
+    assert Game.search('sTRIng').include?(@game)
+    assert Game.search('STRING').include?(@game)
+    assert Game.search('str').include?(@game)
+    assert Game.search('STR').include?(@game)
+    assert !Game.search('strang').include?(@game)
   end
-
 end

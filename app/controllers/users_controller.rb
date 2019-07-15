@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, except: [:index, :notifications]
-  before_action :count_stats, except: [:index, :notifications, :disconnect]
-  before_action :find_relation, except: [:index, :notifications, :disconnect]
+  before_action :set_user, except: %i[index notifications]
+  before_action :count_stats, except: %i[index notifications disconnect]
+  before_action :find_relation, except: %i[index notifications disconnect]
 
   def index
     if params[:filter]
       @filter = params[:filter]
-      if @filter == "twitter" && current_user
-        @users = current_user.friends_from_twitter.paginate(page: params[:page], per_page: 10) 
+      if @filter == 'twitter' && current_user
+        @users = current_user.friends_from_twitter.paginate(page: params[:page], per_page: 10)
       end
     elsif params[:term]
-      @users = User.search(params[:term]).paginate(page: params[:page], per_page: 10) 
+      @users = User.search(params[:term]).paginate(page: params[:page], per_page: 10)
     else
       @users = User.none
     end
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @relations = @user.following.paginate(page: params[:page], per_page: 10) 
+    @relations = @user.following.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.amp
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @relations = @user.followers.paginate(page: params[:page], per_page: 10) 
+    @relations = @user.followers.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.amp
@@ -61,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @relations = @user.favorites.paginate(page: params[:page], per_page: 10) 
+    @relations = @user.favorites.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.amp
@@ -71,7 +73,7 @@ class UsersController < ApplicationController
   end
 
   def owned
-    @relations = @user.owned.paginate(page: params[:page], per_page: 10) 
+    @relations = @user.owned.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.amp
@@ -82,28 +84,29 @@ class UsersController < ApplicationController
 
   def disconnect
     @user.update(uid: nil, provider: nil)
-    redirect_to edit_user_registration_path, notice: "Account disconnected."
+    redirect_to edit_user_registration_path, notice: 'Account disconnected.'
   end
 
-    private
-    def set_user
-      @user = User.friendly.find(params[:id] || params[:user_id])
-    end
+  private
 
-    def find_relation
-      @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship:"follow") if current_user
-    end
+  def set_user
+    @user = User.friendly.find(params[:id] || params[:user_id])
+  end
 
-    def count_stats
-      @following = @user.following.size.to_s
-      @followers = @user.followers.size.to_s
-      @posts_count = @user.posts.size.to_s
-      @favorited_count = @user.favorites.size.to_s
-      @owned_count = @user.owned.size.to_s
-    end
+  def find_relation
+    @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship: 'follow') if current_user
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user)
-    end
+  def count_stats
+    @following = @user.following.size.to_s
+    @followers = @user.followers.size.to_s
+    @posts_count = @user.posts.size.to_s
+    @favorited_count = @user.favorites.size.to_s
+    @owned_count = @user.owned.size.to_s
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user)
+  end
 end

@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_comment_and_post, only: [:edit, :update, :destroy]
+  before_action :set_comment_and_post, only: %i[edit update destroy]
   before_action :must_be_logged_in
 
-  def edit
-  end
+  def edit; end
 
   def create
     @comment = Comment.new(comment_params)
     refreshed_time = Time.now
-    Relation.find_or_create_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: "comment").update(created_at: refreshed_time, updated_at: refreshed_time)
+    Relation.find_or_create_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: 'comment').update(created_at: refreshed_time, updated_at: refreshed_time)
 
     respond_to do |format|
       if @comment.save
@@ -34,8 +35,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    r = Relation.find_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: "comment")
-    r.destroy if r
+    r = Relation.find_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: 'comment')
+    r&.destroy
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to @post, notice: 'Comment was successfully deleted.' }
@@ -44,18 +45,19 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment_and_post
-      @comment = Comment.find(params[:id])
-      @post = @comment.post
-    end
 
-    def must_be_logged_in
-      redirect_to new_user_session_path, notice: "You must be logged in to do that." unless current_user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment_and_post
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:user_id, :post_id, :text).merge(user_id: current_user.id)
-    end
+  def must_be_logged_in
+    redirect_to new_user_session_path, notice: 'You must be logged in to do that.' unless current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:user_id, :post_id, :text).merge(user_id: current_user.id)
+  end
 end

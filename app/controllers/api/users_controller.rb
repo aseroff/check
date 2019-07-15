@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class UsersController < ApplicationController
     protect_from_forgery with: :null_session
@@ -11,9 +13,8 @@ module Api
       @favorited_count = @user.favorites.size.to_s
       @owned_count = @user.owned.size.to_s
       respond_to do |format|
-        format.json { render :template => "api/users/user.json" }
+        format.json { render template: 'api/users/user.json' }
       end
     end
-
   end
 end

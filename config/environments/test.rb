@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
-  config.app_name = "Tokens (test)"
+  config.app_name = 'Tokens (test)'
   config.app_domain = 'test.com'
   # Settings specified here will take precedence over those in config/application.rb.
 

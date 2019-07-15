@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -250,8 +252,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-#  config.omniauth :facebook, "148252602418115", "35aa877cfdbd4da43583ad21c22baef3"
-  config.omniauth :twitter, "dFPIQW8rTerq2ncKA90NJt8ty", "Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg"
+  #  config.omniauth :facebook, "148252602418115", "35aa877cfdbd4da43583ad21c22baef3"
+  config.omniauth :twitter, 'dFPIQW8rTerq2ncKA90NJt8ty', 'Pxg5whATp65Wydc474JtyJ6IDpsw0KgGlR5BNmbT4sbd2RTiVg'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

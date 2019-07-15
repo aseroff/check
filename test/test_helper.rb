@@ -1,4 +1,6 @@
-require File.expand_path('../../config/environment', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
@@ -7,8 +9,8 @@ class ActiveSupport::TestCase
 
   def sign_in(user)
     post user_session_path \
-      "user[email]"    => user.email,
-      "user[password]" => "password"
+      'user[email]' => user.email,
+      'user[password]' => 'password'
   end
   # Add more helper methods to be used by all tests here...
 end

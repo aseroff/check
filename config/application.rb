@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -15,9 +17,9 @@ module Check
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-  	config.exceptions_app = self.routes
-  	config.app_name = "Tokens"
-    config.app_domain = "tokensapp.co"
-    config.twitter_handle = "@TokensTeam"
+    config.exceptions_app = routes
+    config.app_name = 'Tokens'
+    config.app_domain = 'tokensapp.co'
+    config.twitter_handle = '@TokensTeam'
   end
 end
