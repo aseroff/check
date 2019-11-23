@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :game
   has_many :comments, dependent: :destroy
+  #has_many :nice_relations, dependent: :destroy
+  #has_many :mention_relations, dependent: :destroy
 
   def nices
     Relation.where(relationship: 'nice', related_id: id)

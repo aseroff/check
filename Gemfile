@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'file_validators'
 gem 'friendly_id'
 gem 'jquery-rails'
