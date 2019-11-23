@@ -1,4 +1,4 @@
-<%= link_to raw('<amp-img src="' + @game.img_url.medium.to_s + '" class="game-image" width="250" height="250">'), game_path(@game, format: :amp) %>
+<%= link_to raw('<amp-img src="' + @game.img_url.medium.url.to_s + '" class="game-image" width="250" height="250">'), game_path(@game, format: :amp) %>
 
 <h2 class="serif"><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
 

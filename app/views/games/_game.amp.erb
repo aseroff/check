@@ -1,6 +1,6 @@
 <div class="list-game contain">
 	<div class="col-sm-3 center">
-		<%= link_to raw('<amp-img src="' + game.img_url.thumb.to_s + '" class="game-image" width="80" height="80">'), game_path(game, format: :amp) %>
+		<%= link_to raw('<amp-img src="' + game.img_url.thumb.url.to_s + '" class="game-image" width="80" height="80">'), game_path(game, format: :amp) %>
     </div>
     <div class="col-sm-9 center">
     	<h3 class="game-title col-xs-12"><%= link_to game.title, game_path(game, format: :amp) %></h3>

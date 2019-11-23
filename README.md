@@ -25,7 +25,7 @@ To create the Check databases and tables locally, run:
 rake db:setup
 ```
 
-The application's secrets are encrypted in `config/credentials.yml.enc`. Currently, the application requires access to this file for AWS credentials, but this dependency should be removed from non-production environments or spoofed with a new file in the repository.
+The application's secrets are encrypted in `config/credentials.yml.enc`. Currently, the application requires access to this file for AWS credentials, but this dependency should be removed from non-production environments or spoofed with a new file in the repository. The application also currently requires you to precompile assets (`rake assets:precompile`), which should also be fixed.
 
 To start your local server:
 

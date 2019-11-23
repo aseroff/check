@@ -1,4 +1,4 @@
-<%= image_tag(@game.img_url.medium, class: 'image') %>
+<%= image_tag(@game.img_url.medium.url.to_s, class: 'image') %>
 
 <h2 class="serif"><%= @game.title %> <span class="year"><%= @game.year %></span></h2>
 

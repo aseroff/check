@@ -1,5 +1,5 @@
 <% @popular.each do |p, v| %>
 	<div class ="list-game">
-		<%= link_to image_tag(Game.find(p).img_url.thumb, class: 'game-image'), game_path(p) %>
+		<%= link_to image_tag(Game.find(p).img_url.thumb.url.to_s, class: 'game-image'), game_path(p) %>
 	</div>
 <% end %>

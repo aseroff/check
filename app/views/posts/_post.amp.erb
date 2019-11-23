@@ -1,7 +1,7 @@
 <div class="post padded">
     <div class="col-sm-3 col-sm-offset-1 images no-gap">
         <%= link_to raw('<amp-img src="' + profile_picture(post.user, true).to_s + '" class="circle user-image" width="80" height="80">'), user_path(post.user, format: :amp) %>&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= link_to raw('<amp-img src="' + post.game.img_url.thumb.to_s + '" class="game-image" width="80" height="80">'), game_path(post.game, format: :amp) %>
+        <%= link_to raw('<amp-img src="' + post.game.img_url.thumb.url.to_s + '" class="game-image" width="80" height="80">'), game_path(post.game, format: :amp) %>
     </div>
     <div class="col-sm-7 col-sm-offset-1 no-gap">
     	<h3><%= link_to post.user.display_name, user_path(post.user, format: :amp) %> played <%= link_to post.game.title, game_path(post.game, format: :amp) %></h3>

@@ -1,7 +1,7 @@
 <div class="post padded">
     <div class="col-sm-3 col-sm-offset-1 images no-gap">
         <%= link_to image_tag(profile_picture(post.user, true), class: 'circle user-image'), post.user %>&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= link_to image_tag(post.game.img_url.thumb, class: 'game-image'), post.game %>
+        <%= link_to image_tag(post.game.img_url.thumb.url.to_s, class: 'game-image'), post.game %>
     </div>
     <div class="col-sm-7 col-sm-offset-1 no-gap">
     	<h4><%= link_to post.user.display_name, post.user %> played <%= link_to post.game.title, post.game %></h4>
