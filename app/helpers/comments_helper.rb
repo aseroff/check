@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Helper for displaying comments
 module CommentsHelper
   def comment_with_links(comment, amp = false)
     comment.text&.gsub(/@\w+/)&.each do |username|
@@ -8,7 +9,7 @@ module CommentsHelper
         amp ? (link_to username, user_path(user, format: :amp)) : (link_to username, user)
       else
         username
-       end
+      end
     end
   end
 end

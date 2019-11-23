@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+# User object
 class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
   mount_uploader :avatar, AvatarUploader
   validates_integrity_of  :avatar
   validates_processing_of :avatar
-  validates :avatar, file_size: { less_than: 1.megabyte }
-  validates :avatar, size: { maximum: 1.megabytes, message: 'should be less than 1MB' }
+  validates :avatar, file_size: { less_than: 1.megabyte, message: 'should be less than 1MB' }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -63,7 +63,7 @@ class User < ApplicationRecord
     Game.where('id in (?)', relations.where(relationship: 'owns').collect(&:related_id))
   end
 
-  def is_followed_by?(user_id)
+  def followed_by?(user_id)
     !Relation.where(user_id: user_id, related_id: id, relationship: 'follow').empty?
   end
 
@@ -79,8 +79,8 @@ class User < ApplicationRecord
     !relations.where(relationship: 'owns', related_id: game_id).empty?
   end
 
-  def has_connection_with(provider)
-    auth = authorizations.where(provider: provider).first
+  def connection_with?(provider)
+    auth = authorizations.find_by(provider: provider)
     if auth.present?
       auth.token.present?
     else

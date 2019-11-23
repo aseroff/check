@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# Controller for Games
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update destroy]
+  before_action :set_game, only: [:show]
   before_action :find_relations, only: [:show]
   before_action :count_stats, only: [:show]
 
@@ -66,10 +67,10 @@ class GamesController < ApplicationController
   end
 
   def find_relations
-    if current_user
-      @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship: 'favorite')
-      @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship: 'owns')
-    end
+    return unless current_user
+
+    @favorite_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship: 'favorite')
+    @owned_relation = Relation.find_by(user_id: current_user.id, related_id: @game.id, relationship: 'owns')
   end
 
   def count_stats

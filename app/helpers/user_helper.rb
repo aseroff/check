@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Helper for user pages
 module UserHelper
   def profile_picture(user, thumb = false)
     user.avatar.blank? && gravatar?(user.email) ? gravatar_url(user.email, (thumb ? 100 : 300)) : thumb ? user.avatar.thumb : user.avatar.medium
@@ -16,6 +17,6 @@ module UserHelper
 
   def gravatar_url(email, size)
     gravatar = Digest::MD5.hexdigest(email).downcase
-    url = "https://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+    "https://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
   end
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for Relations
 class RelationsController < ApplicationController
   before_action :must_be_logged_in
 

@@ -1,41 +1,50 @@
 # frozen_string_literal: true
 
+# Top-level controller
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ignore_newrelic, if: :amp_request?
   before_action :determine_notifications
 
+  # GET /about
   def about
     respond_to_amp
   end
 
+  # GET /cookies
   def cookies
     respond_to_amp
   end
 
+  # GET /privacy
   def privacy
     respond_to_amp
   end
 
+  # GET /terms
   def terms
     respond_to_amp
   end
 
+  # GET /investors
   def investors
     respond_to_amp
   end
 
+  # GET /stats
   def stats; end
 
   protected
 
+  # Prevent NewRelic from loading on a page
   def ignore_newrelic
     NewRelic::Agent.ignore_transaction
     NewRelic::Agent.ignore_apdex
     NewRelic::Agent.ignore_enduser
   end
 
+  # Respond to html or amp format
   def respond_to_amp
     respond_to do |format|
       format.html

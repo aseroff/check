@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for Posts
 class PostsController < ApplicationController
   before_action :set_post_and_comments, only: %i[show edit update destroy]
   before_action :must_be_logged_in, only: [:new]

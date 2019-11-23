@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+# Controller for User pages
 class UsersController < ApplicationController
   before_action :set_user, except: %i[index notifications]
   before_action :count_stats, except: %i[index notifications disconnect]
   before_action :find_relation, except: %i[index notifications disconnect]
 
+  # GET /users
+  # GET /users.json
   def index
     if params[:filter]
       @filter = params[:filter]
@@ -21,6 +24,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1
+  # GET /users/1.json
   def show
     @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
@@ -31,6 +36,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/notifications
+  # GET /users/1/notifications.json
   def notifications
     @user = current_user
     @notifications.update_all(updated_at: Time.zone.now)
@@ -40,6 +47,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/following
+  # GET /users/1/following.json
   def following
     @relations = @user.following.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
@@ -50,6 +59,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/followers
+  # GET /users/1/followers.json
   def followers
     @relations = @user.followers.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
@@ -60,6 +71,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/favorites
+  # GET /users/1/favorites.json
   def favorites
     @relations = @user.favorites.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
@@ -70,6 +83,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/owned
+  # GET /users/1/owned.json
   def owned
     @relations = @user.owned.paginate(page: params[:page], per_page: 10)
     respond_to do |format|

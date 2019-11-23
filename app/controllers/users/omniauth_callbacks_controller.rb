@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Handles OAuth logins
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # Connect with Twitter
   def twitter
     if current_user
       current_user.update(
@@ -29,6 +31,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  # Failure?
   def failure
     redirect_to root_path
   end

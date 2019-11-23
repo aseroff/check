@@ -2,13 +2,14 @@
 
 require 'httparty'
 
+# Game object
 class Game < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   mount_uploader :img_url, GameUploader
   validates_integrity_of  :img_url
   validates_processing_of :img_url
-  has_many :posts
+  has_many :posts, dependent: :destroy
   scope :for_ids_with_order, lambda { |ids|
                                order = sanitize_sql_array(
                                  ['position(id::text in ?)', ids.join(',')]
@@ -18,11 +19,11 @@ class Game < ApplicationRecord
 
   def favorites
     Relation.where(related_id: id, relationship: 'favorite')
-   end
+  end
 
   def owned
     Relation.where(related_id: id, relationship: 'owns')
-   end
+  end
 
   def self.import(id)
     game = Game.find_by(id: id)

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for Comments
 class CommentsController < ApplicationController
   before_action :set_comment_and_post, only: %i[edit update destroy]
   before_action :must_be_logged_in

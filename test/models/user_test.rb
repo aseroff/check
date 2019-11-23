@@ -39,7 +39,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.following_users.include?(@user2)
     assert @user2.followers.include?(@following_relation)
     assert @user2.follower_users.include?(@user)
-    assert @user2.is_followed_by?(@user.id)
+    assert @user2.followed_by?(@user.id)
     assert @user.follows?(@user2.id)
   end
 

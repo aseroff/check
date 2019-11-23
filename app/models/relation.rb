@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Relation object
 class Relation < ApplicationRecord
   validate :user_id, :relationship, :related_id
   belongs_to :user

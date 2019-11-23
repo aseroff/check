@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Post object
 class Post < ApplicationRecord
   validate :user_id, :game_id
   belongs_to :user
@@ -16,12 +17,12 @@ class Post < ApplicationRecord
 
   def url
     Rails.application.config.app_domain + '/check-ins/' + id.to_s
-   end
+  end
 
   def destroy_associated
     Relation.where(related_id: id, relationship: 'nice').delete_all
     Relation.where(related_id: id, relationship: 'mention').delete_all
-   end
+  end
 
   def self.search(term)
     term ? Post.where('lower(text) like ?', '%' + term.downcase + '%') : Post.all
