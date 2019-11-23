@@ -37,8 +37,8 @@ View in your browser at localhost:3000.
 
 ## Namespaces
 
-- /: Browser applications
-- /api/: API for mobile applications
+- /: Browser application
+- /api/: API for mobile application
 
 ## Documentation
 
