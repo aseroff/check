@@ -1,0 +1,57 @@
+directories:
+  
+  "app/":
+    InstanceVariableAssumption:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  
+  "app/controllers":
+    InstanceVariableAssumption:
+      enabled: false
+    DuplicateMethodCall:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  
+  "app/helpers":
+    UtilityFunction:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
+
+  "lib/":
+    UtilityFunction:
+      enabled: false
+
+exclude_paths:
+  - app/channels
+  - app/jobs
+  - config/
+  - db/
+  - test/
+  
+detectors:
+  NilCheck:
+    enabled: false
+  BooleanParameter:
+    enabled: false
+  ControlParameter:
+    enabled: false
+  TooManyStatements:
+    max_statements: 50
+  LongParameterList:
+    max_params: 4
+  NestedIterators: 
+    max_allowed_nesting: 3
+  TooManyInstanceVariables: 
+    max_instance_variables: 15
+  TooManyMethods: 
+    max_methods: 35
+  RepeatedConditional:
+    max_ifs: 4
+  UncommunicativeVariableName:
+    accept:
+      - "/.*[0-9]+/"

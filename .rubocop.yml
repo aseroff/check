@@ -1,0 +1,95 @@
+require: 
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'test/**/*'
+  TargetRubyVersion: 2.6.5
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/ClassStructure:
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - public_class_methods
+      - initializer
+      - instance_methods
+      - protected_methods
+      - private_methods
+
+Layout/IndentHeredoc:
+  EnforcedStyle: powerpack
+
+# Trailing white space is meaningful in code examples
+Layout/TrailingWhitespace:
+  AllowInHeredoc: true
+
+Lint/UselessAccessModifier:
+  MethodCreatingMethods:
+    - 'def_matcher'
+    - 'def_node_matcher'
+
+Metrics/AbcSize:
+  Max: 120
+
+# Cannot be less than length of routes.rb
+Metrics/BlockLength:
+  Max: 150
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  Max: 650
+
+Metrics/CyclomaticComplexity:
+  Max: 16
+
+# Cannot be less than length of textbook_review_params
+Metrics/LineLength:
+  Max: 650
+
+Metrics/MethodLength:
+  Max: 250
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Naming/PredicateName:
+  # Method define macros for dynamically generated method.
+  MethodDefinitionMacros:
+    - define_method
+    - define_singleton_method
+    - def_node_matcher
+    - def_node_search
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/NestedTernaryOperator:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/IpAddresses:
+  # The test for this cop includes strings that would cause offenses
+  Exclude:
+  - spec/rubocop/cop/style/ip_addresses_spec.rb
+
+Style/MixinUsage:
+  Exclude:
+  - 'bin/*'

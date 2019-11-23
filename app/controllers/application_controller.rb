@@ -7,38 +7,23 @@ class ApplicationController < ActionController::Base
   before_action :determine_notifications
 
   def about
-    respond_to do |format|
-      format.html
-      format.amp
-    end
+    respond_to_amp
   end
 
   def cookies
-    respond_to do |format|
-      format.html
-      format.amp
-    end
+    respond_to_amp
   end
 
   def privacy
-    respond_to do |format|
-      format.html
-      format.amp
-    end
+    respond_to_amp
   end
 
   def terms
-    respond_to do |format|
-      format.html
-      format.amp
-    end
+    respond_to_amp
   end
 
   def investors
-    respond_to do |format|
-      format.html
-      format.amp
-    end
+    respond_to_amp
   end
 
   def stats; end
@@ -49,6 +34,13 @@ class ApplicationController < ActionController::Base
     NewRelic::Agent.ignore_transaction
     NewRelic::Agent.ignore_apdex
     NewRelic::Agent.ignore_enduser
+  end
+
+  def respond_to_amp
+    respond_to do |format|
+      format.html
+      format.amp
+    end
   end
 
   def amp_request?

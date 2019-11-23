@@ -24,10 +24,6 @@ class Post < ApplicationRecord
    end
 
   def self.search(term)
-    if term
-      Post.where('lower(text) like ?', '%' + term.downcase + '%')
-    else
-      Post.all
-    end
+    term ? Post.where('lower(text) like ?', '%' + term.downcase + '%') : Post.all
   end
 end

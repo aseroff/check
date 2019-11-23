@@ -94,7 +94,9 @@ class UsersController < ApplicationController
   end
 
   def find_relation
-    @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship: 'follow') if current_user
+    if current_user
+      @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship: 'follow')
+    end
   end
 
   def count_stats

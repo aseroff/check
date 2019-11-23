@@ -57,73 +57,103 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1 id="bug-game-search-makes-500">
-1. Bug: game search makes 500</h1>
+      <div id="content"><div id='filecontents'>
+<p># 1. Bug: game search makes 500</p>
 
-<h1 id="keep-an-eye-on">Keep an eye on</h1>
+<h1 id="label-Keep+an+eye+on">Keep an eye on</h1>
+<ol><li>
+<p>Image uploading for users and games.</p>
+</li><li>
+<p>Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.</p>
+</li><li>
+<p>duplicate results when infinite scrolling - users, maybe games?</p>
+</li><li>
+<p>Web console: preferred url, hide staging</p>
+</li></ol>
 
-<ol>
-  <li>Image uploading for users and games.</li>
-  <li>Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.</li>
-  <li>duplicate results when infinite scrolling - users, maybe games?</li>
-  <li>Web console: preferred url, hide staging</li>
-</ol>
+<h1 id="label-CURRENT+AMP+STATUS">CURRENT AMP STATUS</h1>
+<ol><li>
+<p>TODO: Pagination style. Some images are skewed by static size. Home page template removed.</p>
+</li><li>
+<p>User (show/favorites/owned/following/followers)</p>
+</li><li>
+<p>Game (show)</p>
+</li><li>
+<p>Post (show)</p>
+</li><li>
+<p>Application static pages minus stats</p>
+</li></ol>
 
-<h1 id="current-amp-status">CURRENT AMP STATUS</h1>
-<ol>
-  <li>TODO: Pagination style. Some images are skewed by static size. Home page template removed.
-- User (show/favorites/owned/following/followers)
-- Game (show)
-- Post (show)
-- Application static pages minus stats</li>
-</ol>
+<h1 id="label-v+1.1">v 1.1</h1>
+<ol><li>
+<p>comments are done, mentions without notifications, no hashtags</p>
+</li><li>
+<p>tests: associated records are controlled</p>
+</li><li>
+<p>facebook</p>
+</li><li>
+<p>improved query efficiency and sort search results by popularity (checkins)</p>
+</li><li>
+<p>Google search improvements</p>
+</li><li>
+<p>restore remaining amp pages, full tests for amp pages</p>
+</li></ol>
 
-<h1 id="v-11">v 1.1</h1>
+<h1 id="label-backlog">backlog</h1>
+<ol><li>
+<p>react-native apps</p>
+</li><li>
+<p>Devise 2.0 migration schema style, How To: Add :confirmable to Users</p>
+</li><li>
+<p>Twitter typeahead.js jquery plugin for autocomplete: <a href="http://twitter.github.io/typeahead.js">twitter.github.io/typeahead.js</a>/</p>
+</li><li>
+<p>more validation messages?</p>
+</li><li>
+<p>more useful side pane on home screen slash more/better discovery</p>
+</li><li>
+<p>popular hashtags in discovery?</p>
+</li><li>
+<p>better emails</p>
+</li><li>
+<p>brave browser setup, mention in donate page</p>
+</li><li>
+<p>styles cleaning</p>
+</li><li>
+<p>Shortcuts on game search result to checkin/fav/own</p>
+</li><li>
+<p>additional stats for games - # of checkins - and stats on check ins - your # vs their #</p>
+</li><li>
+<p>game strings still have encoding issues</p>
+</li><li>
+<p>avatar preview during upload</p>
+</li><li>
+<p>your friend from twitter signed up notification</p>
+</li><li>
+<p>private checkins</p>
+</li><li>
+<p>better testing</p>
+</li><li>
+<p>slug suffix for duplicate game names?</p>
+</li><li>
+<p>missing user or game takes you to search with that as the query</p>
+</li></ol>
 
-<ol>
-  <li>comments are done, mentions without notifications, no hashtags</li>
-  <li>tests: associated records are controlled</li>
-  <li>facebook</li>
-  <li>improved query efficiency and sort search results by popularity (checkins)</li>
-  <li>Google search improvements</li>
-  <li>restore remaining amp pages, full tests for amp pages</li>
-</ol>
-
-<h1 id="backlog">backlog</h1>
-<ol>
-  <li>react-native apps</li>
-  <li>Devise 2.0 migration schema style, How To: Add :confirmable to Users</li>
-  <li>Twitter typeahead.js jquery plugin for autocomplete: http://twitter.github.io/typeahead.js/</li>
-  <li>more validation messages?</li>
-  <li>more useful side pane on home screen slash more/better discovery</li>
-  <li>popular hashtags in discovery?</li>
-  <li>better emails</li>
-  <li>brave browser setup, mention in donate page</li>
-  <li>styles cleaning</li>
-  <li>Shortcuts on game search result to checkin/fav/own</li>
-  <li>additional stats for games - # of checkins - and stats on check ins - your # vs their #</li>
-  <li>game strings still have encoding issues</li>
-  <li>avatar preview during upload</li>
-  <li>your friend from twitter signed up notification</li>
-  <li>private checkins</li>
-  <li>better testing</li>
-  <li>slug suffix for duplicate game names?</li>
-  <li>missing user or game takes you to search with that as the query</li>
-</ol>
-
-<h1 id="other">other</h1>
-<ol>
-  <li>New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.</li>
-  <li>log maintenence on aws servers?</li>
-  <li>anyone want to play x tonight?</li>
-  <li>more finding friends: address book</li>
-</ol>
+<h1 id="label-other">other</h1>
+<ol><li>
+<p>New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.</p>
+</li><li>
+<p>log maintenence on aws servers?</p>
+</li><li>
+<p>anyone want to play x tonight?</p>
+</li><li>
+<p>more finding friends: address book</p>
+</li></ol>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jul 15 14:47:21 2019 by
+  Generated on Sat Nov 23 12:46:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.3).
+  0.9.20 (ruby-2.6.5).
 </div>
 
     </div>

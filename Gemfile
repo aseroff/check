@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 gem 'pg'
 gem 'puma'
@@ -49,7 +49,6 @@ group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13.0'
-  gem 'rails_best_practices'
   gem 'reek', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false

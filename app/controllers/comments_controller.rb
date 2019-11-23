@@ -53,7 +53,9 @@ class CommentsController < ApplicationController
   end
 
   def must_be_logged_in
-    redirect_to new_user_session_path, notice: 'You must be logged in to do that.' unless current_user
+    unless current_user
+      redirect_to new_user_session_path, notice: 'You must be logged in to do that.'
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
