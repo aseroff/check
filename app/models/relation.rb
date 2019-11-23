@@ -3,16 +3,16 @@
 class Relation < ApplicationRecord
   validate :user_id, :relationship, :related_id
   belongs_to :user
-  validates_uniqueness_of :user_id, scope: %i[related_id relationship]
+  validates :user_id, uniqueness: { scope: %i[related_id relationship] }
 
   def related_item
-    if relationship == 'follow'
-      related = User.find(related_id)
-    elsif relationship == 'nice' || relationship == 'mention' || relationship == 'comment'
-      related = Post.find(related_id)
-    else
-      related = Game.find(related_id)
-    end
+    related = if relationship == 'follow'
+                User.find(related_id)
+              elsif relationship == 'nice' || relationship == 'mention' || relationship == 'comment'
+                Post.find(related_id)
+              else
+                Game.find(related_id)
+              end
     related
   end
 

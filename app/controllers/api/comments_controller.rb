@@ -8,7 +8,7 @@ module Api
 
     def create
       @comment = Comment.new(user_id: @current_user.id, post_id: params[:post_id], text: params[:text])
-      refreshed_time = Time.now
+      refreshed_time = Time.zone.now
       Relation.find_or_create_by(user_id: @current_user.id, related_id: @comment.post_id, relationship: 'comment').update(created_at: refreshed_time, updated_at: refreshed_time)
 
       respond_to do |format|

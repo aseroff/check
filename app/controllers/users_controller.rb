@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   def index
     if params[:filter]
       @filter = params[:filter]
-      if @filter == 'twitter' && current_user
-        @users = current_user.friends_from_twitter.paginate(page: params[:page], per_page: 10)
-      end
+      @users = current_user.friends_from_twitter.paginate(page: params[:page], per_page: 10) if @filter == 'twitter' && current_user
     elsif params[:term]
       @users = User.search(params[:term]).paginate(page: params[:page], per_page: 10)
     else
@@ -35,7 +33,7 @@ class UsersController < ApplicationController
 
   def notifications
     @user = current_user
-    @notifications.update_all(updated_at: Time.now)
+    @notifications.update_all(updated_at: Time.zone.now)
     respond_to do |format|
       format.html
       format.json
@@ -94,9 +92,7 @@ class UsersController < ApplicationController
   end
 
   def find_relation
-    if current_user
-      @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship: 'follow')
-    end
+    @relation = Relation.find_by(user_id: current_user.id, related_id: @user.id, relationship: 'follow') if current_user
   end
 
   def count_stats

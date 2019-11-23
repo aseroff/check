@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    refreshed_time = Time.now
+    refreshed_time = Time.zone.now
     Relation.find_or_create_by(user_id: @comment.user_id, related_id: @comment.post_id, relationship: 'comment').update(created_at: refreshed_time, updated_at: refreshed_time)
 
     respond_to do |format|
@@ -53,9 +53,7 @@ class CommentsController < ApplicationController
   end
 
   def must_be_logged_in
-    unless current_user
-      redirect_to new_user_session_path, notice: 'You must be logged in to do that.'
-    end
+    redirect_to new_user_session_path, notice: 'You must be logged in to do that.' unless current_user
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

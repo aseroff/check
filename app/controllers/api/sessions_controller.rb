@@ -9,9 +9,9 @@ module Api
       if user&.valid_password?(params[:session][:password])
         access_token = SecureRandom.urlsafe_base64
         user.update(access_token: access_token)
-        render json: user.access_token, status: 200
+        render json: user.access_token, status: :ok
       else
-        render json: 'Email and password combination are invalid', status: 422
+        render json: 'Email and password combination are invalid', status: :unprocessable_entity
       end
     end
 
@@ -19,9 +19,9 @@ module Api
     def verify_access_token
       user = User.find_by(access_token: params[:session][:access_token])
       if user
-        render json: user, status: 200
+        render json: user, status: :ok
       else
-        render json: 'Token failed verification', status: 422
+        render json: 'Token failed verification', status: :unprocessable_entity
       end
     end
   end

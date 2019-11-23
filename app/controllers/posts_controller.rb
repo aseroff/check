@@ -40,9 +40,7 @@ class PostsController < ApplicationController
     @posts_count = @user.posts.size.to_s
     @favorited_count = @user.favorites.size.to_s
     @owned_count = @user.owned.size.to_s
-    if current_user
-      @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: 'nice')
-    end
+    @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: 'nice') if current_user
     respond_to do |format|
       format.html
       format.amp
@@ -125,14 +123,10 @@ class PostsController < ApplicationController
   end
 
   def must_be_logged_in
-    unless current_user
-      redirect_to new_user_session_path, notice: 'You must be logged in to do that.'
-    end
+    redirect_to new_user_session_path, notice: 'You must be logged in to do that.' unless current_user
   end
 
   def must_be_owner
-    unless current_user && current_user == @post.user
-      redirect_to posts_path, notice: "You can't do that."
-    end
+    redirect_to posts_path, notice: "You can't do that." unless current_user && current_user == @post.user
   end
 end

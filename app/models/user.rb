@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates_integrity_of  :avatar
   validates_processing_of :avatar
   validates :avatar, file_size: { less_than: 1.megabyte }
-  validates_size_of :avatar, maximum: 1.megabytes, message: 'should be less than 1MB'
+  validates :avatar, size: { maximum: 1.megabytes, message: 'should be less than 1MB' }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

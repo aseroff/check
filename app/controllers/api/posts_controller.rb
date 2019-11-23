@@ -28,9 +28,7 @@ module Api
       @posts_count = @user.posts.size.to_s
       @favorited_count = @user.favorites.size.to_s
       @owned_count = @user.owned.size.to_s
-      if current_user
-        @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: 'nice')
-      end
+      @relation = Relation.find_by(user_id: current_user.id, related_id: @post.id, relationship: 'nice') if current_user
       respond_to do |format|
         format.json { render template: 'api/posts/post.json' }
       end

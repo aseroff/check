@@ -31,23 +31,15 @@ class Game < ApplicationRecord
       resp = Nokogiri::XML.parse(resp.body)
       if resp.xpath('//name').first
         game = Game.new(id: id, title: resp.xpath('//name').first[:value])
-        if resp.xpath('//description').first
-          game[:description] = resp.xpath('//description').first.children.first.to_s.html_safe.gsub('&amp;#10;', ' ')
-        end
-        if resp.xpath('//yearpublished').first
-          game[:year] = resp.xpath('//yearpublished').first.attributes.first.last.value
-        end
-        if resp.xpath('//image').first
-          game.img_url = MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)
-        end
+        game[:description] = resp.xpath('//description').first.children.first.to_s.html_safe.gsub('&amp;#10;', ' ') if resp.xpath('//description').first
+        game[:year] = resp.xpath('//yearpublished').first.attributes.first.last.value if resp.xpath('//yearpublished').first
+        game.img_url = MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s) if resp.xpath('//image').first
         game.save
       end
     elsif game[:img_url].nil? || game[:img_url][-1] == '>' # probably not needed anymore
       resp = HTTParty.get('https://www.boardgamegeek.com/xmlapi2/thing?id=' + id.to_s + '&type=boardgame')
       resp = Nokogiri::XML.parse(resp.body)
-      if resp.xpath('//image').first
-        game.update_attribute(:img_url, MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s))
-      end
+      game.update_attribute(:img_url, MiniMagick::Image.open(resp.xpath('//image').first.children.last.to_s)) if resp.xpath('//image').first
     else
       game.update_attribute(:description, game.description.html_safe.gsub('&amp;#10;', ' '))
     end

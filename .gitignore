@@ -1,9 +1,8 @@
-# Ignore application configuration
-config/application.yml
-config/secrets.yml
-
 # Ignore annoying Mac shit
 .DS_Store
+
+# Do not store key in version control
+/config/master.key
 
 # Ignore bundler config.
 /.bundle
@@ -26,8 +25,6 @@ config/secrets.yml
 
 /public/assets/*
 /public/uploads/*
-
-# Ignore application configuration
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
