@@ -1,24 +1,33 @@
-default: &default
+default: &postgres
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+default: &mysql
+  adapter: mysql2
+  socket: /tmp/mysql.sock
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: localhost
+  username: root
+  password:
+
 development:
-  <<: *default
+  <<: *mysql
   database: check_development
 
 test:
-  <<: *default
+  <<: *mysql
   database: check_test
 
 staging:
-  <<: *default
+  <<: *postgres
   database: check_production
   username: check
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
 
 production:
-  <<: *default
+  <<: *postgres
   adapter: postgresql
   encoding: unicode
   database: <%= ENV['RDS_DB_NAME'] %>

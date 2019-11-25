@@ -9,14 +9,13 @@ end
 
 ruby '2.6.5'
 
-gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'sassc'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 gem 'devise'
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
@@ -46,6 +45,10 @@ gem 'social-share-button'
 
 gem 'newrelic_rpm'
 
+group :production, :staging do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -58,12 +61,14 @@ group :development, :test do
   gem 'yard'
   # Generates an ERD based on the app's models
   gem 'rails-erd'
+  gem 'mysql2'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rb-readline'
   gem 'web-console', '>= 3.3.0'
 end
 
