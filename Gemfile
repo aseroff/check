@@ -1,75 +1,61 @@
-# frozen_string_literal: true
-
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
-  "https://github.com/#{repo_name}.git"
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "http://github.com/#{repo_name}.git"
 end
 
 ruby '2.3.8'
 
-gem 'puma'
-gem 'rails'
-gem 'sassc'
+gem 'rails', '~> 5.1.0'
+gem 'pg'
+gem 'puma', '~> 3.7'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer', platforms: :ruby
 
-gem 'devise'
-gem 'file_validators'
-gem 'friendly_id'
 gem 'jquery-rails'
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
+gem 'friendly_id'
 gem 'will_paginate'
+gem 'devise'
+gem 'rubyzip', '1.3.0'
+gem 'responders', '2.4.1'
+gem 'file_validators'
 # gem 'sendgrid-ruby'
-gem 'coffee-rails'
-gem 'jbuilder'
 gem 'koala'
-gem 'twitter'
+gem 'twitter', '>= 5.0.0'
+gem 'coffee-rails', '~> 4.2'
+gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave', '1.2.1'
-gem 'figaro'
-gem 'fog-aws', '1.4.1'
 gem 'httparty'
-gem 'local_time'
+gem 'carrierwave', '~> 1'
 gem 'mini_magick'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
+gem 'fog-aws'
+gem 'figaro'
 gem 'social-share-button'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'local_time'
 
 gem 'newrelic_rpm'
 
-group :production, :staging do
-  gem 'pg'
-end
-
 group :development, :test do
-  gem 'bullet'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara'
-  gem 'reek', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubycritic', require: false
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
-  gem 'yard'
-  # Generates an ERD based on the app's models
-  gem 'mysql2'
-  gem 'rails-erd'
 end
 
 group :development do
-  gem 'listen'
-  gem 'rb-readline'
-  gem 'spring'
-  gem 'spring-watcher-listen'
-  gem 'web-console'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring', '2.0.2'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
