@@ -6,15 +6,15 @@
 <title>
   Class: Relation
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Relation";
   relpath = '';
 </script>
@@ -103,6 +103,21 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Relation object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="FavoriteRelation.html" title="FavoriteRelation (class)">FavoriteRelation</a></span>, <span class='object_link'><a href="FollowRelation.html" title="FollowRelation (class)">FollowRelation</a></span>, <span class='object_link'><a href="NiceRelation.html" title="NiceRelation (class)">NiceRelation</a></span></p>
+</div>
 
 
 
@@ -202,15 +217,15 @@
       <pre class="lines">
 
 
-19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/relation.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'app/models/relation.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_relation_types'>relation_types</span>
-  <span class='qwords_beg'>%w[</span><span class='tstring_content'>follow</span><span class='words_sep'> </span><span class='tstring_content'>favorite</span><span class='words_sep'> </span><span class='tstring_content'>owns</span><span class='words_sep'> </span><span class='tstring_content'>nice</span><span class='words_sep'> </span><span class='tstring_content'>mention</span><span class='words_sep'> </span><span class='tstring_content'>comment</span><span class='tstring_end'>]</span></span>
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>follow</span><span class='words_sep'> </span><span class='tstring_content'>favorite</span><span class='words_sep'> </span><span class='tstring_content'>owns</span><span class='words_sep'> </span><span class='tstring_content'>nice</span><span class='words_sep'> </span><span class='tstring_content'>mention</span><span class='words_sep'> </span><span class='tstring_content'>comment</span><span class='words_sep'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -238,7 +253,6 @@
       <pre class="lines">
 
 
-8
 9
 10
 11
@@ -247,19 +261,20 @@
 14
 15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/relation.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/models/relation.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_related_item'>related_item</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>follow</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_related'>related</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nice</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mention</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>comment</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_related'>related</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Post.html" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_related'>related</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Game.html" title="Game (class)">Game</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_related'>related</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>follow</span><span class='tstring_end'>&#39;</span></span>
+              <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
+            <span class='kw'>elsif</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nice</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mention</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_relationship'>relationship</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>comment</span><span class='tstring_end'>&#39;</span></span>
+              <span class='const'><span class='object_link'><a href="Post.html" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
+            <span class='kw'>else</span>
+              <span class='const'><span class='object_link'><a href="Game.html" title="Game (class)">Game</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_related_id'>related_id</span><span class='rparen'>)</span>
+            <span class='kw'>end</span>
   <span class='id identifier rubyid_related'>related</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -272,9 +287,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:33 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

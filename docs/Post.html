@@ -6,15 +6,15 @@
 <title>
   Class: Post
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Post";
   relpath = '';
 </script>
@@ -103,7 +103,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Post object</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -210,7 +221,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>has_many :nice_relations, dependent: :destroy has_many :mention_relations,
+dependent: :destroy.</p>
+</div></span>
   
 </li>
 
@@ -268,23 +282,15 @@
       <pre class="lines">
 
 
-26
-27
-28
 29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_term'>term</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_term'>term</span>
-    <span class='const'><span class='object_link'><a href="" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lower(text) like ?</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_term'>term</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='const'><span class='object_link'><a href="" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_term'>term</span> <span class='op'>?</span> <span class='const'><span class='object_link'><a href="" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lower(text) like ?</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_term'>term</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="" title="Post (class)">Post</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -312,17 +318,17 @@
       <pre class="lines">
 
 
-21
-22
-23
-24</pre>
+24
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy_associated'>destroy_associated</span>
- <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>related_id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>relationship:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nice</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
- <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>related_id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>relationship:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mention</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+  <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>related_id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>relationship:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nice</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+  <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>related_id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>relationship:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mention</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -344,12 +350,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_display_name'>display_name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;s check-in to </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_game'>game</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span>
@@ -368,18 +374,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>has_many :nice_relations, dependent: :destroy has_many :mention_relations,
+dependent: :destroy</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-9
-10
-11</pre>
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nices'>nices</span>
   <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>relationship:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nice</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>related_id:</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
@@ -404,15 +422,15 @@
       <pre class="lines">
 
 
-17
-18
-19</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
- <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_app_domain'>app_domain</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/check-ins/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_app_domain'>app_domain</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/check-ins/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -424,9 +442,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

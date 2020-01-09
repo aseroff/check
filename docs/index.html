@@ -6,15 +6,15 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "README";
   relpath = '';
 </script>
@@ -58,102 +58,153 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<p># 1. Bug: game search makes 500</p>
+<h1 id="label-Check">Check</h1>
 
-<h1 id="label-Keep+an+eye+on">Keep an eye on</h1>
-<ol><li>
-<p>Image uploading for users and games.</p>
-</li><li>
-<p>Rails Error: Unable to access log file. Please ensure that /var/app/current/log/production.log exists and is writable (ie, make it writable for user and group: chmod 0664 /var/app/current/log/production.log). The log level has been raised to WARN and the output directed to STDERR until the problem is fixed.</p>
-</li><li>
-<p>duplicate results when infinite scrolling - users, maybe games?</p>
-</li><li>
-<p>Web console: preferred url, hide staging</p>
-</li></ol>
+<p>Rails webapp running Tokens: The Board Game Check-in App</p>
 
-<h1 id="label-CURRENT+AMP+STATUS">CURRENT AMP STATUS</h1>
-<ol><li>
-<p>TODO: Pagination style. Some images are skewed by static size. Home page template removed.</p>
-</li><li>
-<p>User (show/favorites/owned/following/followers)</p>
-</li><li>
-<p>Game (show)</p>
-</li><li>
-<p>Post (show)</p>
-</li><li>
-<p>Application static pages minus stats</p>
-</li></ol>
+<h2 id="label-Getting+Started">Getting Started</h2>
 
-<h1 id="label-v+1.1">v 1.1</h1>
-<ol><li>
-<p>comments are done, mentions without notifications, no hashtags</p>
-</li><li>
-<p>tests: associated records are controlled</p>
-</li><li>
-<p>facebook</p>
-</li><li>
-<p>improved query efficiency and sort search results by popularity (checkins)</p>
-</li><li>
-<p>Google search improvements</p>
-</li><li>
-<p>restore remaining amp pages, full tests for amp pages</p>
-</li></ol>
+<h3 id="label-Prerequisites">Prerequisites</h3>
 
-<h1 id="label-backlog">backlog</h1>
-<ol><li>
-<p>react-native apps</p>
-</li><li>
-<p>Devise 2.0 migration schema style, How To: Add :confirmable to Users</p>
-</li><li>
-<p>Twitter typeahead.js jquery plugin for autocomplete: <a href="http://twitter.github.io/typeahead.js">twitter.github.io/typeahead.js</a>/</p>
-</li><li>
-<p>more validation messages?</p>
-</li><li>
-<p>more useful side pane on home screen slash more/better discovery</p>
-</li><li>
-<p>popular hashtags in discovery?</p>
-</li><li>
-<p>better emails</p>
-</li><li>
-<p>brave browser setup, mention in donate page</p>
-</li><li>
-<p>styles cleaning</p>
-</li><li>
-<p>Shortcuts on game search result to checkin/fav/own</p>
-</li><li>
-<p>additional stats for games - # of checkins - and stats on check ins - your # vs their #</p>
-</li><li>
-<p>game strings still have encoding issues</p>
-</li><li>
-<p>avatar preview during upload</p>
-</li><li>
-<p>your friend from twitter signed up notification</p>
-</li><li>
-<p>private checkins</p>
-</li><li>
-<p>better testing</p>
-</li><li>
-<p>slug suffix for duplicate game names?</p>
-</li><li>
-<p>missing user or game takes you to search with that as the query</p>
-</li></ol>
+<p>Check uses Ruby 2.6.5. Manage your Ruby versions with <a
+href="https://rvm.io/rvm/install">RVM</a>. You&#39;ll also need the
+appropriate version of Bundler to download the project&#39;s gems (which is
+covered in the first step of the Installing section below).</p>
 
-<h1 id="label-other">other</h1>
-<ol><li>
-<p>New workflow where you press checkin, get a list of your most likely games youre checking into, then you can search.</p>
+<h3 id="label-Installing">Installing</h3>
+
+<p>Clone the repo locally. Install the gems used in Check. In the
+project&#39;s root directory:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_bundler'>bundler</span>
+<span class='id identifier rubyid_bundle'>bundle</span>
+</code></pre>
+
+<p>Check uses PostgreSQL. You will need to have postgres installed and running
+on your system.</p>
+
+<p>To create the Check databases and tables locally, run:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='label'>db:</span><span class='id identifier rubyid_setup'>setup</span>
+</code></pre>
+
+<p>The application&#39;s secrets are encrypted in
+<code>config/credentials.yml.enc</code>. Currently, the application
+requires access to this file for AWS credentials, but this dependency
+should be removed from non-production environments or spoofed with a new
+file in the repository. The application also currently requires you to
+precompile assets (<code>rake assets:precompile</code>), which should also
+be fixed.</p>
+
+<p>To start your local server:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rails'>rails</span> <span class='id identifier rubyid_s'>s</span>
+</code></pre>
+
+<p>View in your browser at localhost:3000.</p>
+
+<h2 id="label-Namespaces">Namespaces</h2>
+<ul><li>
+<p>/: Browser application</p>
 </li><li>
-<p>log maintenence on aws servers?</p>
+<p>/api/: API for mobile application</p>
+</li></ul>
+
+<h2 id="label-Documentation">Documentation</h2>
+
+<p>The repo includes yard-generated documentation in the <code>docs</code>
+directory. To generate fresh documentation, run <code>yard</code> or
+<code>rake yard</code> from the project&#39;s root directory (settings are
+loaded from <code>.yardopts</code> and
+<code>lib/tasks/generate_documentation.rake</code>, respectively).</p>
+
+<h3 id="label-Data+model">Data model</h3>
+
+<p>The repo also includes an <a
+href="https://github.com/aseroff/check/blob/master/docs/erd.pdf">ERD</a> in
+the <code>docs</code> directory. Updates can be made by running
+<code>erd</code> from the project&#39;s root directory (settings are loaded
+from <code>.erdconfig</code>). The diagram also should be automatically
+updated when a db migration occurs via rake task
+(<code>lib/tasks/generate_diagram.rake</code>). This diagram excludes the
+id and timestamp fields in entities, see <a
+href="https://voormedia.github.io/rails-erd/customise.html">rails-erd
+documentation</a> for more options.</p>
+
+<h2 id="label-File+Storage">File Storage</h2>
+
+<h3 id="label-Images">Images</h3>
+
+<p>Game images and user avatars are stored on AWS S3. Currently handled by Fog
+and Carrierwave, but should be replaced with ActionStorage.</p>
+
+<h2 id="label-Running+the+tests">Running the tests</h2>
+
+<p>The automated test suite is kept in a 100% pass state on the master branch
+to assist in catching regressions. It can be run with the <code>rake</code>
+command from the project&#39;s root directory. All tests use a shared setup
+of fixtures defined as instance variables in the
+<code>test/test_helper.rb</code> file.</p>
+
+<h3 id="label-Test+Coverage+and+Code+Smell">Test Coverage and Code Smell</h3>
+
+<p>Statement coverage metrics generated by <a
+href="https://github.com/colszowka/simplecov">simplecov</a> can be viewed
+in <code>tmp/rubycritic/coverage/index.html</code>. This project has a few
+code smell gems that can all be run from the root directory in the command
+line. These include <code>rubocop</code> and <code>rubycritic</code>, which
+includes Reek, Flay, Flog, and Simplecov. Run with <code>rake
+rubycritic</code> or <code>rubycritic app lib</code>, view results at
+<code>tmp/rubycritic/overview.html</code></p>
+
+<h2 id="label-Deployment">Deployment</h2>
+
+<p>TBD</p>
+
+<h2 id="label-Components">Components</h2>
+<ul><li>
+<p><a href="https://github.com/rails/rails">Rails 6</a></p>
 </li><li>
-<p>anyone want to play x tonight?</p>
+<p><a href="https://github.com/plataformatec/devise">Devise</a></p>
 </li><li>
-<p>more finding friends: address book</p>
-</li></ol>
+<p><a href="https://github.com/reactjs/react-rails">React-rails</a></p>
+</li><li>
+<p><a href="https://github.com/twbs/bootstrap-rubygem">Bootstrap</a></p>
+</li><li>
+<p><a href="https://github.com/norman/friendly_id">FriendlyId</a></p>
+</li><li>
+<p><a href="https://github.com/mislav/will_paginate">will-paginate</a></p>
+</li></ul>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>Create <a href="https://github.com/aseroff/check/issues">issues</a> or <a
+href="https://github.com/aseroff/check/pulls">pull requests</a> on GitHub.</p>
+
+<h2 id="label-Versioning">Versioning</h2>
+
+<p>Releases can be found <a
+href="https://github.com/aseroff/check/releases">here</a>, and represent a
+production-deployed codebase.</p>
+
+<h2 id="label-Authors">Authors</h2>
+
+<p>Project start through current version developed by <a
+href="https://github.com/aseroff">Andrew Seroff</a>.</p>
+
+<h2 id="label-License">License</h2>
+
+<p>TBD</p>
+
+<h2 id="label-Acknowledgments">Acknowledgments</h2>
+
+<p>TBD</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:56 2019 by
+  Generated on Wed Jan  8 18:29:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

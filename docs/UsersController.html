@@ -6,15 +6,15 @@
 <title>
   Class: UsersController
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "UsersController";
   relpath = '';
 </script>
@@ -103,7 +103,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Controller for User pages</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -157,7 +168,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1/favorites GET /users/1/favorites.json.</p>
+</div></span>
   
 </li>
 
@@ -179,7 +192,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1/followers GET /users/1/followers.json.</p>
+</div></span>
   
 </li>
 
@@ -201,7 +216,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1/following GET /users/1/following.json.</p>
+</div></span>
   
 </li>
 
@@ -223,7 +240,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users GET /users.json.</p>
+</div></span>
   
 </li>
 
@@ -245,7 +264,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1/notifications GET /users/1/notifications.json.</p>
+</div></span>
   
 </li>
 
@@ -267,7 +288,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1/owned GET /users/1/owned.json.</p>
+</div></span>
   
 </li>
 
@@ -289,7 +312,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GET /users/1 GET /users/1.json.</p>
+</div></span>
   
 </li>
 
@@ -330,13 +355,13 @@
       <pre class="lines">
 
 
-85
-86
-87
-88</pre>
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disconnect'>disconnect</span>
   <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>uid:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>provider:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -356,24 +381,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1/favorites GET /users/1/favorites.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71
-72
-73</pre>
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_favorites'>favorites</span>
   <span class='ivar'>@relations</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_favorites'>favorites</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -398,24 +434,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1/followers GET /users/1/followers.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre>
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_followers'>followers</span>
   <span class='ivar'>@relations</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_followers'>followers</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -440,24 +487,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1/following GET /users/1/following.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-45
-46
-47
-48
-49
-50
-51
 52
-53</pre>
+53
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_following'>following</span>
   <span class='ivar'>@relations</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_following'>following</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -482,15 +540,23 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users GET /users.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8
-9
-10
 11
 12
 13
@@ -504,17 +570,16 @@
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:filter</span><span class='rbracket'>]</span>
     <span class='ivar'>@filter</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:filter</span><span class='rbracket'>]</span>
-    <span class='kw'>if</span> <span class='ivar'>@filter</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>twitter</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_current_user'>current_user</span>
-      <span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_friends_from_twitter'>friends_from_twitter</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='ivar'>@users</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_friends_from_twitter'>friends_from_twitter</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@filter</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>twitter</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_current_user'>current_user</span>
   <span class='kw'>elsif</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:term</span><span class='rbracket'>]</span>
     <span class='ivar'>@users</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search'><span class='object_link'><a href="User.html#search-class_method" title="User.search (method)">search</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:term</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
@@ -540,27 +605,38 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1/notifications GET /users/1/notifications.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-36
-37
-38
-39
-40
 41
 42
-43</pre>
+43
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notifications'>notifications</span>
   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
-  <span class='ivar'>@notifications</span><span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span><span class='label'>updated_at:</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
+  <span class='ivar'>@notifications</span><span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span><span class='label'>updated_at:</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
     <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span>
     <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -580,24 +656,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1/owned GET /users/1/owned.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-75
-76
-77
-78
-79
-80
-81
-82
-83</pre>
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_owned'>owned</span>
   <span class='ivar'>@relations</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_owned'>owned</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -622,24 +709,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GET /users/1 GET /users/1.json</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-26
-27
-28
 29
 30
 31
 32
 33
-34</pre>
+34
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='ivar'>@posts</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_posts'>posts</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>created_at:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>per_page:</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -660,9 +758,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:33 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

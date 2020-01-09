@@ -6,15 +6,15 @@
 <title>
   Class: RelationsController
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "RelationsController";
   relpath = '';
 </script>
@@ -103,7 +103,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Controller for Relations</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -213,7 +224,6 @@
       <pre class="lines">
 
 
-8
 9
 10
 11
@@ -237,10 +247,11 @@
 29
 30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/relations_controller.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/relations_controller.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@relation</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_or_create_by'>find_or_create_by</span><span class='lparen'>(</span><span class='id identifier rubyid_relation_params'>relation_params</span><span class='rparen'>)</span>
@@ -298,7 +309,6 @@
       <pre class="lines">
 
 
-36
 37
 38
 39
@@ -316,10 +326,11 @@
 51
 52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/relations_controller.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/relations_controller.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='ivar'>@relation</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Relation.html" title="Relation (class)">Relation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -350,9 +361,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:33 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

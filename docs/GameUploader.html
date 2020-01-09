@@ -6,15 +6,15 @@
 <title>
   Class: GameUploader
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "GameUploader";
   relpath = '';
 </script>
@@ -106,7 +106,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Upload for Game images</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -217,12 +228,12 @@
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_url'>default_url</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__args'>_args</span><span class='rparen'>)</span>
   <span class='const'>ActionController</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_helpers'>helpers</span><span class='period'>.</span><span class='id identifier rubyid_asset_path'>asset_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fallback/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_version_name'>version_name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default-avatar.png</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -244,7 +255,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add a white list of extensions which are allowed to be uploaded. For images you might use something like this:</p>
+<p>Add a white list of extensions which are allowed to be uploaded. For images
+you might use something like this:</p>
 
 
   </div>
@@ -258,15 +270,15 @@
       <pre class="lines">
 
 
-30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_extension_white_list'>extension_white_list</span>
-  <span class='qwords_beg'>%w[</span><span class='tstring_content'>jpg</span><span class='words_sep'> </span><span class='tstring_content'>jpeg</span><span class='words_sep'> </span><span class='tstring_content'>gif</span><span class='words_sep'> </span><span class='tstring_content'>png</span><span class='tstring_end'>]</span></span>
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>jpg</span><span class='words_sep'> </span><span class='tstring_content'>jpeg</span><span class='words_sep'> </span><span class='tstring_content'>gif</span><span class='words_sep'> </span><span class='tstring_content'>png</span><span class='words_sep'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -285,7 +297,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Override the directory where uploaded files will be stored. This is a sensible default for uploaders that are meant to be mounted:</p>
+<p>Override the directory where uploaded files will be stored. This is a
+sensible default for uploaders that are meant to be mounted:</p>
 
 
   </div>
@@ -299,12 +312,12 @@
       <pre class="lines">
 
 
-11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'app/uploaders/game_uploader.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_store_dir'>store_dir</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_underscore'>underscore</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mounted_as'>mounted_as</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -319,9 +332,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:33 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>

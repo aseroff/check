@@ -5,9 +5,23 @@ directories:
       enabled: false
     UtilityFunction:
       enabled: false
+
+  "app/models":
+    Attribute:
+      enabled: false
+    InstanceVariableAssumption:
+      enabled: false
+
+  "app/models/concerns":
+    FeatureEnvy:
+      enabled: false
+    UtilityFunction:
+      enabled: false
   
   "app/controllers":
     InstanceVariableAssumption:
+      enabled: false
+    DataClump:
       enabled: false
     DuplicateMethodCall:
       enabled: false
@@ -34,6 +48,8 @@ exclude_paths:
   - test/
   
 detectors:
+  Attribute:
+    enabled: false
   NilCheck:
     enabled: false
   BooleanParameter:
@@ -44,6 +60,8 @@ detectors:
     max_statements: 50
   LongParameterList:
     max_params: 4
+  ManualDispatch: 
+    enabled: false
   NestedIterators: 
     max_allowed_nesting: 3
   TooManyInstanceVariables: 

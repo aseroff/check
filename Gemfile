@@ -7,33 +7,33 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.6.5'
+ruby '2.3.4'
 
 gem 'puma'
 gem 'rails'
 gem 'sassc'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer', platforms: :ruby
 
 gem 'devise'
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'file_validators'
 gem 'friendly_id'
 gem 'jquery-rails'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'will_paginate'
 # gem 'sendgrid-ruby'
-gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
+gem 'coffee-rails'
+gem 'jbuilder'
 gem 'koala'
-gem 'twitter', '>= 5.0.0'
+gem 'twitter'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave', '~> 1'
+gem 'carrierwave'
 gem 'figaro'
 gem 'fog-aws'
 gem 'httparty'
@@ -52,24 +52,24 @@ end
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara', '~> 2.13.0'
+  gem 'capybara'
   gem 'reek', require: false
-  gem 'rubycritic', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubycritic', require: false
   gem 'selenium-webdriver'
   gem 'yard'
   # Generates an ERD based on the app's models
-  gem 'rails-erd'
   gem 'mysql2'
+  gem 'rails-erd'
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'listen'
   gem 'rb-readline'
-  gem 'web-console', '>= 3.3.0'
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'web-console'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

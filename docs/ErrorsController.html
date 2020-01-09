@@ -6,15 +6,15 @@
 <title>
   Class: ErrorsController
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "ErrorsController";
   relpath = '';
 </script>
@@ -103,7 +103,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Controller for Errors</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -220,15 +231,15 @@
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_internal_server_error'>internal_server_error</span>
-  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='int'>500</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='symbol'>:internal_server_error</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -250,15 +261,15 @@
       <pre class="lines">
 
 
-4
 5
-6</pre>
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 4</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_found'>not_found</span>
-  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='int'>404</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='symbol'>:not_found</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -280,15 +291,15 @@
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/errors_controller.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rejected'>rejected</span>
-  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='int'>422</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='symbol'>:unprocessable_entity</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -300,9 +311,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 23 12:46:57 2019 by
+  Generated on Wed Jan  8 18:29:33 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.6.5).
+  0.9.24 (ruby-2.3.4).
 </div>
 
     </div>
