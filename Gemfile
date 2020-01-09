@@ -33,7 +33,7 @@ gem 'twitter'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 1'
 gem 'figaro'
 gem 'fog-aws'
 gem 'httparty'

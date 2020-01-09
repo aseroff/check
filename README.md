@@ -6,7 +6,7 @@ Rails webapp running Tokens: The Board Game Check-in App
 
 ### Prerequisites
 
-Check uses Ruby 2.6.5. Manage your Ruby versions with [RVM](https://rvm.io/rvm/install). You'll also need the appropriate version of Bundler to download the project's gems (which is covered in the first step of the Installing section below).
+Check uses Ruby 2.3.4 (which is the latest ruby version supported Elastic Beanstalk). Manage your Ruby versions with [RVM](https://rvm.io/rvm/install). You'll also need the appropriate version of Bundler to download the project's gems (which is covered in the first step of the Installing section below).
 
 ### Installing
 
